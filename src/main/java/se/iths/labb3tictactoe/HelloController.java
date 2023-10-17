@@ -7,28 +7,38 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class HelloController implements Initializable {
+public class HelloController {
+    //ändra i model endast och bind vyns fält med dem i Model.
+    //Går att binda dem även i fxml-filen, se welcomeText;
     //Använd Canvas istället för buttons kanske; Kan se bättre ut.
     //Kontrollera klick med koordinater, MouseEvent mouseEvent
     //ToDO: Grid, logic for clicking squares, turnorder logic, GameOver Logic, AI Logic.
     @FXML
-    Canvas canvas;
+    private GridPane grid;
     @FXML
     private Text winnerText;
     private int turn = 0;
 
+    public Label welcomeText;
+    private Model model = new Model();
+
     @FXML
     protected void onButtonClick(MouseEvent mouseEvent) {
-            canvas.getGraphicsContext2D();
+        if (mouseEvent.getX() < grid.getWidth())
+            grid.add(new Text("X"), 0, 0);
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public Model getModel() {
+        return model;
+    }
 
+    public void initialize() {
+        welcomeText.textProperty().bind(model.textProperty());
     }
 }
