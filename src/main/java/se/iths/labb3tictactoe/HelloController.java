@@ -20,14 +20,11 @@ public class HelloController implements Initializable {
     Canvas canvas;
     @FXML
     private Text winnerText;
-    @FXML
-    private Text text1;
     private int turn = 0;
 
     @FXML
     protected void onButtonClick(MouseEvent mouseEvent) {
-        if (mouseEvent.getX() < canvas.getWidth()/3 && mouseEvent.getY() < canvas.getHeight()/3)
-            text1.setText("X");
+            canvas.getGraphicsContext2D();
     }
 
     @Override
