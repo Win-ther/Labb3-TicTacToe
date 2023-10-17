@@ -15,6 +15,7 @@ import java.util.ResourceBundle;
 public class HelloController implements Initializable {
     //Använd Canvas istället för buttons kanske; Kan se bättre ut.
     //Kontrollera klick med koordinater, MouseEvent mouseEvent
+    //ToDO: Grid, logic for clicking squares, turnorder logic, GameOver Logic, AI Logic.
     @FXML
     Canvas canvas;
     @FXML
