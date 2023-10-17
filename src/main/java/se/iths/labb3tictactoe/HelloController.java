@@ -14,6 +14,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class HelloController {
+    //Controller hanterar event, klickar på skit
+    //Modellen ansvaring för informationen och regler om informationen.
+    //Controller ska där med hjälp av event uppdatera informationen i Modellen.
     //ändra i model endast och bind vyns fält med dem i Model.
     //Går att binda dem även i fxml-filen, se welcomeText;
     //Använd Canvas istället för buttons kanske; Kan se bättre ut.
