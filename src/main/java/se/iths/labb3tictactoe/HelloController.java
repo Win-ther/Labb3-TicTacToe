@@ -1,17 +1,14 @@
 package se.iths.labb3tictactoe;
 
+import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.text.Text;
-
-import java.net.URL;
-import java.util.ResourceBundle;
+import javafx.scene.paint.Color;
 
 public class HelloController {
     //Controller hanterar event, klickar på skit
@@ -25,16 +22,29 @@ public class HelloController {
     @FXML
     private GridPane grid;
     @FXML
-    private Text winnerText;
-    private int turn = 0;
-
-    public Label welcomeText;
+    private Label winnerText;
     private Model model = new Model();
+    private GraphicsContext gc;
+    @FXML
+    private Button button1, button2, button3, button4, button5, button6, button7, button8, button9, restartButton;
 
     @FXML
-    protected void onButtonClick(MouseEvent mouseEvent) {
-        if (mouseEvent.getX() < grid.getWidth())
-            grid.add(new Text("X"), 0, 0);
+    public void restart(Event event){
+        ;
+        model.resetWinnerText();
+        resetCanvas();
+    }
+
+    private void resetCanvas() {
+
+    }
+
+    protected void onButtonClick(Button button) {
+        if (model.getTurn() == 0)
+            setX(button);
+        else
+            set0(button);
+        model.changeTurn();
     }
 
     public Model getModel() {
@@ -42,6 +52,17 @@ public class HelloController {
     }
 
     public void initialize() {
-        welcomeText.textProperty().bind(model.textProperty());
+
+    }
+
+    private void primeSquares() {
+
+    }
+
+    private void setX(Button button){
+
+    }
+    private void set0(Button button){
+
     }
 }
