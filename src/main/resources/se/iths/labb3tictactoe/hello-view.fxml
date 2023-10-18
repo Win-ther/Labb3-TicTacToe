@@ -101,7 +101,7 @@
             </Button>
          </children>
       </GridPane>
-      <Label fx:id="winnerText" alignment="CENTER" layoutX="125.0" layoutY="26.0" prefHeight="58.0" prefWidth="350.0" text="${controller.model.text}" textAlignment="CENTER">
+      <Label fx:id="winnerText" alignment="CENTER" layoutX="125.0" layoutY="26.0" prefHeight="58.0" prefWidth="350.0" text="${controller.model.winnerText}" textAlignment="CENTER">
          <font>
             <Font size="54.0" />
          </font>

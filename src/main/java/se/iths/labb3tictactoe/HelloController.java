@@ -1,5 +1,6 @@
 package se.iths.labb3tictactoe;
 
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
@@ -29,7 +30,7 @@ public class HelloController {
     private Button button1, button2, button3, button4, button5, button6, button7, button8, button9, restartButton;
 
     @FXML
-    public void restart(Event event){
+    public void restart(ActionEvent event){
         ;
         model.resetWinnerText();
         resetCanvas();
