@@ -7,6 +7,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioMenuItem?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -49,7 +50,7 @@
          </children>
       </HBox>
       <Button fx:id="restartButton" layoutX="274.0" layoutY="495.0" mnemonicParsing="false" onAction="#restart" text="Restart" />
-      <GridPane fx:id="playArea" layoutX="126.0" layoutY="124.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: Orange; -fx-border-width: 3; -fx-grid-lines-visible: true;">
+      <GridPane fx:id="playArea" layoutX="126.0" layoutY="124.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: Orange; -fx-border-width: 3; -fx-grid-lines-visible: true;" visible="false">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
@@ -143,42 +144,21 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <Text fx:id="tictictic" layoutX="-57.0" layoutY="303.0" rotate="-90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC" wrappingWidth="350.0">
+      <Text fx:id="tictictic" layoutX="-57.0" layoutY="303.0" rotate="-90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC" visible="false" wrappingWidth="350.0">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
       </Text>
-      <Text fx:id="tactactac" layoutX="126.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TAC TAC TAC TAC TAC TAC TAC TAC TAC TAC TAC TAC TAC TAC TAC TAC" wrappingWidth="350.0">
+      <Text fx:id="tactactac" layoutX="126.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TAC TAC TAC TAC TAC TAC TAC TAC TAC TAC TAC TAC TAC TAC TAC TAC" visible="false" wrappingWidth="350.0">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
       </Text>
-      <Text fx:id="toetoetoe" layoutX="308.0" layoutY="310.0" rotate="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TOE TOE TOE TOE TOE TOE TOE TOE TOE TOE TOE TOE TOE TOE TOE TOE" wrappingWidth="350.0">
+      <Text fx:id="toetoetoe" layoutX="308.0" layoutY="310.0" rotate="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TOE TOE TOE TOE TOE TOE TOE TOE TOE TOE TOE TOE TOE TOE TOE TOE" visible="false" wrappingWidth="350.0">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
       </Text>
-      <Button fx:id="playButton" layoutX="225.0" layoutY="235.5" mnemonicParsing="false" onAction="#startGame" prefHeight="80.0" prefWidth="150.0" style="-fx-background-color: purple; -fx-border-color: orange; -fx-border-width: 3;" text="PLAY">
-         <font>
-            <Font size="39.0" />
-         </font>
-         <textFill>
-            <LinearGradient endX="0.06635071090047395" endY="0.7772511848341233">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="1.0" green="0.8166666626930237" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="1.0" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </textFill>
-      </Button>
       <Label layoutY="456.0" prefHeight="32.0" prefWidth="100.0" style="-fx-text-alignment: CENTER;" text="Score" textAlignment="CENTER" underline="true">
          <font>
             <Font name="System Bold" size="24.0" />
@@ -204,9 +184,29 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-       <!--<CheckBox fx:id="checkbox1" layoutX="467.0" layoutY="486.0" />
-       <TextField text="${controller.model.text}" disable="${checkbox1.selected}" layoutX="50.0" layoutY="482.0" />
-      <Circle fill="${colorpicker.value}" layoutX="72.0" layoutY="334.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
-      <ColorPicker fx:id="colorpicker" layoutX="459.0" layoutY="43.0" />-->
+      <ImageView fx:id="leftSkeleton" fitHeight="150.0" fitWidth="100.0" image="${controller.model.left}" layoutX="2.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true" visible="false" />
+      <ImageView fx:id="rightSkeleton" fitHeight="150.0" fitWidth="100.0" image="${controller.model.right}" layoutX="498.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true" visible="false" />
+      <ImageView fx:id="startSkeleton" fitHeight="350.0" fitWidth="445.0" image="${controller.model.startImage}" layoutX="78.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="playButton" layoutX="225.0" layoutY="462.0" mnemonicParsing="false" onAction="#startGame" prefHeight="80.0" prefWidth="150.0" style="-fx-background-color: purple; -fx-border-color: orange; -fx-border-width: 3;" text="PLAY">
+         <font>
+            <Font size="39.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.06635071090047395" endY="0.7772511848341233">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.8166666626930237" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Button>
    </children>
 </AnchorPane>

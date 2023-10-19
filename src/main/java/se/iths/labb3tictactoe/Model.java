@@ -1,10 +1,8 @@
 package se.iths.labb3tictactoe;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,8 +14,11 @@ public class Model {
     private boolean isGameOver;
     private IntegerProperty playerPoints = new SimpleIntegerProperty();
     private IntegerProperty cpuPoints = new SimpleIntegerProperty();
-
-
+    public Image image1;
+    public Image image2;
+    private ObjectProperty<Image> left;
+    private ObjectProperty<Image> right;
+    private ObjectProperty<Image> startImage;
 
     public Model() {
         winnerText.setValue("TIC TAC TOE");
@@ -26,6 +27,11 @@ public class Model {
         isGameOver = false;
         cpuPoints.set(0);
         playerPoints.set(0);
+        image1 = new Image(getClass().getResource("images/skeleton-dancing.gif").toExternalForm());
+        image2 = new Image(getClass().getResource("images/StartSkeleton.gif").toExternalForm());
+        left = new SimpleObjectProperty<>(image1);
+        right = new SimpleObjectProperty<>(image1);
+        startImage = new SimpleObjectProperty<>(image2);
     }
 
 
@@ -147,5 +153,37 @@ public class Model {
 
     public IntegerProperty cpuPointsProperty() {
         return cpuPoints;
+    }
+
+    public Image getImage1() {
+        return image1;
+    }
+
+    public Image getImage2() {
+        return image2;
+    }
+
+    public Image getLeft() {
+        return left.get();
+    }
+
+    public ObjectProperty<Image> leftProperty() {
+        return left;
+    }
+
+    public Image getRight() {
+        return right.get();
+    }
+
+    public ObjectProperty<Image> rightProperty() {
+        return right;
+    }
+
+    public Image getStartImage() {
+        return startImage.get();
+    }
+
+    public ObjectProperty<Image> startImageProperty() {
+        return startImage;
     }
 }

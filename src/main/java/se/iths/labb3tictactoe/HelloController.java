@@ -1,15 +1,10 @@
 package se.iths.labb3tictactoe;
 
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
 import java.util.Arrays;
@@ -33,6 +28,8 @@ public class HelloController {
     private GridPane playArea;
     @FXML
     private Text tictictic,tactactac,toetoetoe;
+    @FXML
+    private ImageView leftSkeleton, rightSkeleton, startSkeleton;
 
     @FXML
     public void restart(ActionEvent event){
@@ -70,10 +67,6 @@ public class HelloController {
     public void initialize() {
         buttons = Arrays.asList(button1, button2, button3, button4, button5, button6, button7, button8, button9);
         buttons.forEach(e -> e.setFocusTraversable(false));
-        playArea.setVisible(false);
-        tictictic.setVisible(false);
-        tactactac.setVisible(false);
-        toetoetoe.setVisible(false);
     }
 
     public void startGame(ActionEvent event) {
@@ -82,6 +75,9 @@ public class HelloController {
         tictictic.setVisible(true);
         tactactac.setVisible(true);
         toetoetoe.setVisible(true);
+        leftSkeleton.setVisible(true);
+        rightSkeleton.setVisible(true);
+        startSkeleton.setVisible(false);
         cpuStart();
     }
 
