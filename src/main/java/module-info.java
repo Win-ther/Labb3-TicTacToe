@@ -1,6 +1,7 @@
 module se.iths.labb3tictactoe {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.media;
 
 
     opens se.iths.labb3tictactoe to javafx.fxml;
