@@ -14,6 +14,9 @@ public class Model {
     private IntegerProperty xoTurn = new SimpleIntegerProperty();
     private int turnTotal;
     private boolean isGameOver;
+    private IntegerProperty playerPoints = new SimpleIntegerProperty();
+    private IntegerProperty cpuPoints = new SimpleIntegerProperty();
+
 
 
     public Model() {
@@ -21,6 +24,8 @@ public class Model {
         xoTurn.setValue(0);
         turnTotal = 0;
         isGameOver = false;
+        cpuPoints.set(0);
+        playerPoints.set(0);
     }
 
 
@@ -77,13 +82,23 @@ public class Model {
         if (winningLine.equals("XXX")) {
             setWinnerText("X Won!");
             disableButtons(buttons);
+            givePoints();
         } else if (winningLine.equals("000")) {
             setWinnerText("0 Won!");
             disableButtons(buttons);
+            givePoints();
         }else if(turnTotal > 8){
             setWinnerText("Draw");
             disableButtons(buttons);
         }
+    }
+
+    private void givePoints() {
+        String method_name = Thread.currentThread().getStackTrace()[3].getMethodName();
+        if (method_name.equals("onButtonClick"))
+            playerPoints.set(playerPoints.get()+1);
+        else
+            cpuPoints.set(cpuPoints.get()+1);
     }
 
     private void disableButtons(List<Button> buttons) {
@@ -110,15 +125,27 @@ public class Model {
         return turnTotal;
     }
 
-    public void setTurnTotal(int turnTotal) {
-        this.turnTotal = turnTotal;
-    }
-
     public boolean isGameOver() {
         return isGameOver;
     }
 
     public void setGameOver(boolean gameOver) {
         isGameOver = gameOver;
+    }
+
+    public int getPlayerPoints() {
+        return playerPoints.get();
+    }
+
+    public IntegerProperty playerPointsProperty() {
+        return playerPoints;
+    }
+
+    public int getCpuPoints() {
+        return cpuPoints.get();
+    }
+
+    public IntegerProperty cpuPointsProperty() {
+        return cpuPoints;
     }
 }

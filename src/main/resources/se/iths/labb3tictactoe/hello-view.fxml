@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -24,17 +26,22 @@
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Close" />
+                    <MenuItem mnemonicParsing="false" text="Exit" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
+                <Menu mnemonicParsing="false" text="Difficulty">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
+                        <RadioMenuItem mnemonicParsing="false" selected="true" text="Easy">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="DifficultyGroup" />
+                           </toggleGroup>
+                        </RadioMenuItem>
+                        <RadioMenuItem mnemonicParsing="false" text="Hard" toggleGroup="$DifficultyGroup" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
+                    <MenuItem mnemonicParsing="false" text="Shrek" />
                   </items>
                 </Menu>
               </menus>
@@ -172,6 +179,31 @@
             </LinearGradient>
          </textFill>
       </Button>
+      <Label layoutY="456.0" prefHeight="32.0" prefWidth="100.0" style="-fx-text-alignment: CENTER;" text="Score" textAlignment="CENTER" underline="true">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutY="520.0" prefHeight="32.0" prefWidth="53.0" style="-fx-text-alignment: CENTER;" text="Player:" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutY="490.0" prefHeight="32.0" prefWidth="53.0" style="-fx-text-alignment: CENTER;" text="CPU:" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="playerScore" layoutX="53.0" layoutY="524.0" prefHeight="25.0" prefWidth="13.0" text="${controller.model.playerPoints}">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="cpuScore" layoutX="37.0" layoutY="495.0" prefHeight="25.0" prefWidth="13.0" text="${controller.model.cpuPoints}">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
        <!--<CheckBox fx:id="checkbox1" layoutX="467.0" layoutY="486.0" />
        <TextField text="${controller.model.text}" disable="${checkbox1.selected}" layoutX="50.0" layoutY="482.0" />
       <Circle fill="${colorpicker.value}" layoutX="72.0" layoutY="334.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />

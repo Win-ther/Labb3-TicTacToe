@@ -24,7 +24,7 @@ public class HelloController {
     //Går att binda dem även i fxml-filen, se welcomeText;
     //Använd Canvas istället för buttons kanske; Kan se bättre ut.
     //Kontrollera klick med koordinater, MouseEvent mouseEvent
-    //ToDO: Grid ~Done~, logic for clicking squares ~Done~, turnorder logic~Done~, GameOver Logic~Done~, AI Logic.
+    //ToDO: Grid ~Done~, logic for clicking squares ~Done~, turnorder logic~Done~, GameOver Logic~Done~, AI Logic ~Done~.
     private Model model = new Model();
     @FXML
     private Button button1, button2, button3, button4, button5, button6, button7, button8, button9, restartButton,playButton;
@@ -37,7 +37,7 @@ public class HelloController {
     @FXML
     public void restart(ActionEvent event){
         model.reset(buttons);
-        cpuTurn();
+        cpuStart();
     }
 
     @FXML
@@ -82,6 +82,11 @@ public class HelloController {
         tictictic.setVisible(true);
         tactactac.setVisible(true);
         toetoetoe.setVisible(true);
-        cpuTurn();
+        cpuStart();
+    }
+
+    private void cpuStart() {
+        if ((int) Math.floor(Math.random() * 2) == 0)
+            cpuTurn();
     }
 }
