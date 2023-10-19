@@ -11,6 +11,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class HelloController {
     //Controller hanterar event, klickar på skit
     //Modellen ansvaring för informationen och regler om informationen.
@@ -19,7 +22,7 @@ public class HelloController {
     //Går att binda dem även i fxml-filen, se welcomeText;
     //Använd Canvas istället för buttons kanske; Kan se bättre ut.
     //Kontrollera klick med koordinater, MouseEvent mouseEvent
-    //ToDO: Grid, logic for clicking squares, turnorder logic, GameOver Logic, AI Logic.
+    //ToDO: Grid ~Done~, logic for clicking squares ~Done~, turnorder logic, GameOver Logic, AI Logic.
     @FXML
     private GridPane grid;
     @FXML
@@ -29,23 +32,17 @@ public class HelloController {
     @FXML
     private Button button1, button2, button3, button4, button5, button6, button7, button8, button9, restartButton;
 
+    private List<Button> buttons;
+
     @FXML
     public void restart(ActionEvent event){
-        ;
-        model.resetWinnerText();
-        resetCanvas();
+        model.reset(buttons);
     }
 
-    private void resetCanvas() {
-
-    }
-
-    protected void onButtonClick(Button button) {
-        if (model.getTurn() == 0)
-            setX(button);
-        else
-            set0(button);
-        model.changeTurn();
+    @FXML
+    private void onButtonClick(ActionEvent event) {
+        model.setSymbol((Button) event.getSource());
+        model.gameOver(buttons);
     }
 
     public Model getModel() {
@@ -53,17 +50,6 @@ public class HelloController {
     }
 
     public void initialize() {
-
-    }
-
-    private void primeSquares() {
-
-    }
-
-    private void setX(Button button){
-
-    }
-    private void set0(Button button){
-
+        buttons = Arrays.asList(button1, button2, button3, button4, button5, button6, button7, button8, button9);
     }
 }
