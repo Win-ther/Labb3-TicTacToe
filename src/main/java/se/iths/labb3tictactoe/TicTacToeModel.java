@@ -7,6 +7,8 @@ import javafx.scene.image.Image;
 import java.util.Arrays;
 import java.util.List;
 
+import static se.iths.labb3tictactoe.TicTacToeModel.multiPlayerStatus.*;
+
 public class TicTacToeModel {
     private StringProperty winnerText = new SimpleStringProperty();
     private IntegerProperty xoTurn = new SimpleIntegerProperty();
@@ -14,11 +16,9 @@ public class TicTacToeModel {
     private boolean isGameOver;
     private IntegerProperty playerPoints = new SimpleIntegerProperty();
     private IntegerProperty cpuPoints = new SimpleIntegerProperty();
-    public Image image1;
-    public Image image2;
-    private ObjectProperty<Image> left;
-    private ObjectProperty<Image> right;
-    private ObjectProperty<Image> startImage;
+    public Image image1, image2;
+    private ObjectProperty<Image> left, right, startImage;
+    private multiPlayerStatus currentStatus = VS_CPU;
 
     public TicTacToeModel() {
         winnerText.setValue("TIC TAC TOE");
@@ -93,7 +93,7 @@ public class TicTacToeModel {
             setWinnerText("0 Won!");
             disableButtons(buttons);
             givePoints();
-        }else if(turnTotal > 8){
+        } else if (turnTotal > 8) {
             setWinnerText("Draw");
             disableButtons(buttons);
         }
@@ -102,16 +102,15 @@ public class TicTacToeModel {
     private void givePoints() {
         String method_name = Thread.currentThread().getStackTrace()[3].getMethodName();
         if (method_name.equals("onButtonClick"))
-            playerPoints.set(playerPoints.get()+1);
+            playerPoints.set(playerPoints.get() + 1);
         else
-            cpuPoints.set(cpuPoints.get()+1);
+            cpuPoints.set(cpuPoints.get() + 1);
     }
 
     private void disableButtons(List<Button> buttons) {
         buttons.forEach(e -> e.setDisable(true));
         this.isGameOver = true;
     }
-
 
 
     public void reset(List<Button> buttons) {
@@ -194,4 +193,14 @@ public class TicTacToeModel {
     public void resetCpuPoints() {
         this.cpuPoints.set(0);
     }
+
+    public multiPlayerStatus getCurrentStatus() {
+        return currentStatus;
+    }
+
+    public void setCurrentStatus(multiPlayerStatus currentStatus) {
+        this.currentStatus = currentStatus;
+    }
+
+    public enum multiPlayerStatus {VS_CPU, VS_LOCAL, VS_LAN}
 }

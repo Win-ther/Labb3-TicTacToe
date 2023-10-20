@@ -23,20 +23,21 @@ public class TicTacToeController {
     //Kontrollera klick med koordinater, MouseEvent mouseEvent
     //ToDO: Grid ~Done~, logic for clicking squares ~Done~, turnorder logic~Done~, GameOver Logic~Done~, AI Logic ~Done~.
 
+    public RadioMenuItem vsCPU, vsPlayerOnPC, vsPlayerLAN;
     private TicTacToeModel model = new TicTacToeModel();
     @FXML
-    private Button button1, button2, button3, button4, button5, button6, button7, button8, button9, restartButton,playButton;
+    private Button button1, button2, button3, button4, button5, button6, button7, button8, button9, restartButton, playButton;
     private List<Button> buttons;
     @FXML
     private GridPane playArea;
     @FXML
-    private Text tictictic,tactactac,toetoetoe;
+    private Text tictictic, tactactac, toetoetoe;
     @FXML
     private ImageView leftSkeleton, rightSkeleton, startSkeleton;
 
 
     @FXML
-    public void restart(ActionEvent event){
+    public void restart(ActionEvent event) {
         model.reset(buttons);
         cpuStart();
     }
@@ -45,8 +46,16 @@ public class TicTacToeController {
     private void onButtonClick(ActionEvent event) {
         model.setSymbol((Button) event.getSource());
         model.gameOver(buttons);
-        if (!model.isGameOver())
-            cpuTurn();
+        if (!model.isGameOver()) {
+            switch (model.getCurrentStatus()) {
+                case VS_CPU -> cpuTurn();
+                case VS_LOCAL -> player2LocalTurn();
+            }
+        }
+    }
+
+    private void player2LocalTurn() {
+        //ToDo: Fix so that 2 players on same pc can play, bind CPU points to a variable in Model so that it can change text.
     }
 
     public TicTacToeModel getModel() {
@@ -54,27 +63,34 @@ public class TicTacToeController {
     }
 
 
-    public void cpuTurn(){
+    public void cpuTurn() {
         Random random = new Random();
         int buttonNumber;
-        while (true){
+        while (true) {
             buttonNumber = random.nextInt(9);
-            if (usableButton(buttonNumber)){
+            if (usableButton(buttonNumber)) {
                 model.setSymbol(buttons.get(buttonNumber));
                 model.gameOver(buttons);
                 break;
             }
         }
     }
-    private boolean usableButton(int index){
+
+    private boolean usableButton(int index) {
         return !buttons.get(index).isDisabled();
     }
+
     public void initialize() {
         buttons = Arrays.asList(button1, button2, button3, button4, button5, button6, button7, button8, button9);
         buttons.forEach(e -> e.setFocusTraversable(false));
     }
 
     public void startGame() {
+        setPlayAreaVisible();
+        cpuStart();
+    }
+
+    private void setPlayAreaVisible() {
         playButton.setVisible(false);
         playArea.setVisible(true);
         tictictic.setVisible(true);
@@ -83,9 +99,9 @@ public class TicTacToeController {
         leftSkeleton.setVisible(true);
         rightSkeleton.setVisible(true);
         startSkeleton.setVisible(false);
-        cpuStart();
     }
-    public void restartGame(){
+
+    public void restartGame() {
         model.resetPlayerPoints();
         model.resetCpuPoints();
         playButton.setVisible(true);
@@ -105,5 +121,14 @@ public class TicTacToeController {
 
     public void exit() {
         TicTacToeApplication.exitWindow();
+    }
+
+    public void setVsLAN(ActionEvent event) {
+    }
+
+    public void setVsLocal(ActionEvent event) {
+    }
+
+    public void setVsCPU(ActionEvent event) {
     }
 }
