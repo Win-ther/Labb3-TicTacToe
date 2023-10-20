@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e71fc570-3df4-4e95-a6df-4bf69bda218f" name="Changes" comment="changed layout and added test for print X on screen">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/se/iths/labb3tictactoe/images/StartSkeleton.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/se/iths/labb3tictactoe/images/skeleton-dancing.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/se/iths/labb3tictactoe/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/se/iths/labb3tictactoe/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +115,10 @@
       <workItem from="1697553197542" duration="6437000" />
       <workItem from="1697700882927" duration="214000" />
       <workItem from="1697701105760" duration="2353000" />
-      <workItem from="1697713102774" duration="13211000" />
+      <workItem from="1697713102774" duration="13698000" />
+      <workItem from="1697747699399" duration="283000" />
+      <workItem from="1697782986397" duration="677000" />
+      <workItem from="1697784867772" duration="3068000" />
     </task>
     <task id="LOCAL−00001" summary="Initial commit">
       <option name="closed" value="true" />

@@ -7,7 +7,7 @@ import javafx.scene.image.Image;
 import java.util.Arrays;
 import java.util.List;
 
-public class Model {
+public class TicTacToeModel {
     private StringProperty winnerText = new SimpleStringProperty();
     private IntegerProperty xoTurn = new SimpleIntegerProperty();
     private int turnTotal;
@@ -20,7 +20,7 @@ public class Model {
     private ObjectProperty<Image> right;
     private ObjectProperty<Image> startImage;
 
-    public Model() {
+    public TicTacToeModel() {
         winnerText.setValue("TIC TAC TOE");
         xoTurn.setValue(0);
         turnTotal = 0;
