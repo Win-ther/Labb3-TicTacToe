@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e71fc570-3df4-4e95-a6df-4bf69bda218f" name="Changes" comment="changed layout and added test for print X on screen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/se/iths/labb3tictactoe/tictactoe-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/se/iths/labb3tictactoe/tictactoe-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,12 +77,12 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="se.iths.labb3tictactoe.HelloApplication" />
+    <configuration name="TicTacToeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="se.iths.labb3tictactoe.TicTacToeApplication" />
       <module name="Labb3-TicTacToe" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="se.iths.labb3tictactoe.*" />
+          <option name="PATTERN" value="se.iths.labb3tictactoe.TicTacToeController" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -99,7 +103,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="Application.TicTacToeApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -118,7 +122,7 @@
       <workItem from="1697713102774" duration="13698000" />
       <workItem from="1697747699399" duration="283000" />
       <workItem from="1697782986397" duration="677000" />
-      <workItem from="1697784867772" duration="3068000" />
+      <workItem from="1697784867772" duration="8755000" />
     </task>
     <task id="LOCAL−00001" summary="Initial commit">
       <option name="closed" value="true" />

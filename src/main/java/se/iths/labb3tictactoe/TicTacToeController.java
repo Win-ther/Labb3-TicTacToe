@@ -3,6 +3,8 @@ package se.iths.labb3tictactoe;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.RadioMenuItem;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
@@ -20,6 +22,7 @@ public class TicTacToeController {
     //Använd Canvas istället för buttons kanske; Kan se bättre ut.
     //Kontrollera klick med koordinater, MouseEvent mouseEvent
     //ToDO: Grid ~Done~, logic for clicking squares ~Done~, turnorder logic~Done~, GameOver Logic~Done~, AI Logic ~Done~.
+
     private TicTacToeModel model = new TicTacToeModel();
     @FXML
     private Button button1, button2, button3, button4, button5, button6, button7, button8, button9, restartButton,playButton;
@@ -30,6 +33,7 @@ public class TicTacToeController {
     private Text tictictic,tactactac,toetoetoe;
     @FXML
     private ImageView leftSkeleton, rightSkeleton, startSkeleton;
+
 
     @FXML
     public void restart(ActionEvent event){
@@ -48,6 +52,7 @@ public class TicTacToeController {
     public TicTacToeModel getModel() {
         return model;
     }
+
 
     public void cpuTurn(){
         Random random = new Random();
@@ -69,7 +74,7 @@ public class TicTacToeController {
         buttons.forEach(e -> e.setFocusTraversable(false));
     }
 
-    public void startGame(ActionEvent event) {
+    public void startGame() {
         playButton.setVisible(false);
         playArea.setVisible(true);
         tictictic.setVisible(true);
@@ -80,9 +85,25 @@ public class TicTacToeController {
         startSkeleton.setVisible(false);
         cpuStart();
     }
+    public void restartGame(){
+        model.resetPlayerPoints();
+        model.resetCpuPoints();
+        playButton.setVisible(true);
+        playArea.setVisible(false);
+        tictictic.setVisible(false);
+        tactactac.setVisible(false);
+        toetoetoe.setVisible(false);
+        leftSkeleton.setVisible(false);
+        rightSkeleton.setVisible(false);
+        startSkeleton.setVisible(true);
+    }
 
     private void cpuStart() {
         if ((int) Math.floor(Math.random() * 2) == 0)
             cpuTurn();
+    }
+
+    public void exit() {
+        TicTacToeApplication.exitWindow();
     }
 }

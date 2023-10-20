@@ -27,17 +27,15 @@
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Exit" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Difficulty">
-                  <items>
-                        <RadioMenuItem mnemonicParsing="false" selected="true" text="Easy">
+                        <RadioMenuItem fx:id="vsCPU" mnemonicParsing="false" selected="true" text="vs CPU">
                            <toggleGroup>
-                              <ToggleGroup fx:id="DifficultyGroup" />
+                              <ToggleGroup fx:id="GameMode" />
                            </toggleGroup>
                         </RadioMenuItem>
-                        <RadioMenuItem mnemonicParsing="false" text="Hard" toggleGroup="$DifficultyGroup" />
+                        <RadioMenuItem fx:id="vsPlayerOnPC" mnemonicParsing="false" text="vs Player (Local PC)" toggleGroup="$GameMode" />
+                        <RadioMenuItem fx:id="vsPlayerLAN" mnemonicParsing="false" text="vs Player (LAN)" toggleGroup="$GameMode" />
+                        <MenuItem mnemonicParsing="false" onAction="#restartGame" text="Restart Game" />
+                    <MenuItem fx:id="exitButton" mnemonicParsing="false" onAction="#exit" text="Exit" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">

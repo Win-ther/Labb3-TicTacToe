@@ -186,4 +186,12 @@ public class TicTacToeModel {
     public ObjectProperty<Image> startImageProperty() {
         return startImage;
     }
+
+    public void resetPlayerPoints() {
+        this.playerPoints.set(0);
+    }
+
+    public void resetCpuPoints() {
+        this.cpuPoints.set(0);
+    }
 }
