@@ -14,8 +14,10 @@ public class TicTacToeModel {
     private IntegerProperty xoTurn = new SimpleIntegerProperty();
     private int turnTotal;
     private boolean isGameOver;
-    private IntegerProperty playerPoints = new SimpleIntegerProperty();
-    private IntegerProperty cpuPoints = new SimpleIntegerProperty();
+    private IntegerProperty player2Points = new SimpleIntegerProperty();
+    private IntegerProperty player1Points = new SimpleIntegerProperty();
+    private StringProperty player1 = new SimpleStringProperty();
+    private StringProperty player2 = new SimpleStringProperty();
     public Image image1, image2;
     private ObjectProperty<Image> left, right, startImage;
     private multiPlayerStatus currentStatus = VS_CPU;
@@ -25,8 +27,10 @@ public class TicTacToeModel {
         xoTurn.setValue(0);
         turnTotal = 0;
         isGameOver = false;
-        cpuPoints.set(0);
-        playerPoints.set(0);
+        player1Points.set(0);
+        player2Points.set(0);
+        player1.set("CPU:");
+        player2.set("Player:");
         image1 = new Image(getClass().getResource("images/skeleton-dancing.gif").toExternalForm());
         image2 = new Image(getClass().getResource("images/StartSkeleton.gif").toExternalForm());
         left = new SimpleObjectProperty<>(image1);
@@ -100,11 +104,11 @@ public class TicTacToeModel {
     }
 
     private void givePoints() {
-        String method_name = Thread.currentThread().getStackTrace()[3].getMethodName();
-        if (method_name.equals("onButtonClick"))
-            playerPoints.set(playerPoints.get() + 1);
+
+        if (xoTurn.get() == 0)
+            player2Points.set(player2Points.get() + 1);
         else
-            cpuPoints.set(cpuPoints.get() + 1);
+            player1Points.set(player1Points.get() + 1);
     }
 
     private void disableButtons(List<Button> buttons) {
@@ -138,20 +142,20 @@ public class TicTacToeModel {
         isGameOver = gameOver;
     }
 
-    public int getPlayerPoints() {
-        return playerPoints.get();
+    public int getPlayer2Points() {
+        return player2Points.get();
     }
 
-    public IntegerProperty playerPointsProperty() {
-        return playerPoints;
+    public IntegerProperty player2PointsProperty() {
+        return player2Points;
     }
 
-    public int getCpuPoints() {
-        return cpuPoints.get();
+    public int getPlayer1Points() {
+        return player1Points.get();
     }
 
-    public IntegerProperty cpuPointsProperty() {
-        return cpuPoints;
+    public IntegerProperty player1PointsProperty() {
+        return player1Points;
     }
 
     public Image getImage1() {
@@ -186,12 +190,12 @@ public class TicTacToeModel {
         return startImage;
     }
 
-    public void resetPlayerPoints() {
-        this.playerPoints.set(0);
+    public void resetPlayer1Points() {
+        this.player1Points.set(0);
     }
 
-    public void resetCpuPoints() {
-        this.cpuPoints.set(0);
+    public void resetPlayer2Points() {
+        this.player2Points.set(0);
     }
 
     public multiPlayerStatus getCurrentStatus() {
@@ -200,6 +204,30 @@ public class TicTacToeModel {
 
     public void setCurrentStatus(multiPlayerStatus currentStatus) {
         this.currentStatus = currentStatus;
+    }
+
+    public String getPlayer1() {
+        return player1.get();
+    }
+
+    public StringProperty player1Property() {
+        return player1;
+    }
+
+    public void setPlayer1(String player1) {
+        this.player1.set(player1);
+    }
+
+    public String getPlayer2() {
+        return player2.get();
+    }
+
+    public StringProperty player2Property() {
+        return player2;
+    }
+
+    public void setPlayer2(String player2) {
+        this.player2.set(player2);
     }
 
     public enum multiPlayerStatus {VS_CPU, VS_LOCAL, VS_LAN}

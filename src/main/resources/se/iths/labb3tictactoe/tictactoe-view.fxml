@@ -6,6 +6,7 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -34,7 +35,8 @@
                         </RadioMenuItem>
                         <RadioMenuItem fx:id="vsPlayerOnPC" mnemonicParsing="false" onAction="#setVsLocal" text="vs Player (Local PC)" toggleGroup="$GameMode" />
                         <RadioMenuItem fx:id="vsPlayerLAN" mnemonicParsing="false" onAction="#setVsLAN" text="vs Player (LAN)" toggleGroup="$GameMode" />
-                        <MenuItem mnemonicParsing="false" onAction="#restartGame" text="Restart Game" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#mainMenu" text="Back to menu" />
                     <MenuItem fx:id="exitButton" mnemonicParsing="false" onAction="#exit" text="Exit" />
                   </items>
                 </Menu>
@@ -47,7 +49,7 @@
             </MenuBar>
          </children>
       </HBox>
-      <Button fx:id="restartButton" layoutX="274.0" layoutY="495.0" mnemonicParsing="false" onAction="#restart" text="Restart" />
+      <Button fx:id="restartButton" layoutX="274.0" layoutY="495.0" mnemonicParsing="false" onAction="#restartButtonClick" text="Restart" />
       <GridPane fx:id="playArea" layoutX="126.0" layoutY="124.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: Orange; -fx-border-width: 3; -fx-grid-lines-visible: true;" visible="false">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
@@ -162,22 +164,22 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutY="520.0" prefHeight="32.0" prefWidth="53.0" style="-fx-text-alignment: CENTER;" text="Player:" textAlignment="CENTER">
+      <Label layoutY="520.0" prefHeight="32.0" prefWidth="94.0" style="-fx-text-alignment: CENTER;" text="${controller.model.player2}" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutY="490.0" prefHeight="32.0" prefWidth="53.0" style="-fx-text-alignment: CENTER;" text="CPU:" textAlignment="CENTER">
+      <Label layoutY="490.0" prefHeight="32.0" prefWidth="94.0" style="-fx-text-alignment: CENTER;" text="${controller.model.player1}" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="playerScore" layoutX="53.0" layoutY="524.0" prefHeight="25.0" prefWidth="13.0" text="${controller.model.playerPoints}">
+      <Label fx:id="playerScore" layoutX="72.0" layoutY="525.0" prefHeight="25.0" prefWidth="13.0" text="${controller.model.player2Points}">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="cpuScore" layoutX="37.0" layoutY="495.0" prefHeight="25.0" prefWidth="13.0" text="${controller.model.cpuPoints}">
+      <Label fx:id="cpuScore" layoutX="72.0" layoutY="494.0" prefHeight="25.0" prefWidth="13.0" text="${controller.model.player1Points}">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>

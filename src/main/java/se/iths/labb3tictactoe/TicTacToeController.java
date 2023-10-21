@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioMenuItem;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
@@ -37,29 +36,41 @@ public class TicTacToeController {
 
 
     @FXML
-    public void restart(ActionEvent event) {
-        model.reset(buttons);
-        cpuStart();
+    public void restartButtonClick(ActionEvent event) {
+        restart();
+        findCurrentMode();
     }
-
+    private void restart(){
+        model.reset(buttons);
+    }
     @FXML
     private void onButtonClick(ActionEvent event) {
         model.setSymbol((Button) event.getSource());
         model.gameOver(buttons);
+        findCurrentMode();
+    }
+
+    private void findCurrentMode() {
         if (!model.isGameOver()) {
             switch (model.getCurrentStatus()) {
                 case VS_CPU -> cpuTurn();
-                case VS_LOCAL -> player2LocalTurn();
+                case VS_LOCAL -> playerVsPlayerLocal();
+                case VS_LAN -> player2LanTurn();
             }
         }
     }
+    private void playerVsPlayerLocal(){
 
-    private void player2LocalTurn() {
+    }
+    private void player1Turn(){
+
+    }
+    private void player2LocalTurn(ActionEvent event) {
         //ToDo: Fix so that 2 players on same pc can play, bind CPU points to a variable in Model so that it can change text.
     }
 
-    public TicTacToeModel getModel() {
-        return model;
+    private void player2LanTurn() {
+        //ToDo: Fix so that two players can play over lan network
     }
 
 
@@ -87,7 +98,7 @@ public class TicTacToeController {
 
     public void startGame() {
         setPlayAreaVisible();
-        cpuStart();
+        findCurrentMode();
     }
 
     private void setPlayAreaVisible() {
@@ -101,9 +112,9 @@ public class TicTacToeController {
         startSkeleton.setVisible(false);
     }
 
-    public void restartGame() {
-        model.resetPlayerPoints();
-        model.resetCpuPoints();
+    public void mainMenu() {
+        model.resetPlayer1Points();
+        model.resetPlayer2Points();
         playButton.setVisible(true);
         playArea.setVisible(false);
         tictictic.setVisible(false);
@@ -114,21 +125,40 @@ public class TicTacToeController {
         startSkeleton.setVisible(true);
     }
 
-    private void cpuStart() {
+    /*private void cpuStart() {
         if ((int) Math.floor(Math.random() * 2) == 0)
             cpuTurn();
-    }
+    }*/
 
     public void exit() {
         TicTacToeApplication.exitWindow();
     }
 
-    public void setVsLAN(ActionEvent event) {
+    public void setVsLAN() {
+        model.setCurrentStatus(TicTacToeModel.multiPlayerStatus.VS_LAN);
+        mainMenu();
+        model.setPlayer1("Player1:");
+        model.setPlayer2("Player2:");
+        restart();
     }
 
-    public void setVsLocal(ActionEvent event) {
+    public void setVsLocal() {
+        model.setCurrentStatus(TicTacToeModel.multiPlayerStatus.VS_LOCAL);
+        mainMenu();
+        model.setPlayer1("Player1:");
+        model.setPlayer2("Player2:");
+        restart();
     }
 
-    public void setVsCPU(ActionEvent event) {
+    public void setVsCPU() {
+        model.setCurrentStatus(TicTacToeModel.multiPlayerStatus.VS_CPU);
+        mainMenu();
+        model.setPlayer1("CPU:");
+        model.setPlayer2("Player:");
+        restart();
+    }
+
+    public TicTacToeModel getModel() {
+        return model;
     }
 }
