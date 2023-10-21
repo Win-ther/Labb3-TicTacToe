@@ -14,23 +14,26 @@ public class TicTacToeModel {
     private IntegerProperty xoTurn = new SimpleIntegerProperty();
     private int turnTotal;
     private boolean isGameOver;
-    private IntegerProperty player2Points = new SimpleIntegerProperty();
-    private IntegerProperty player1Points = new SimpleIntegerProperty();
-    private StringProperty player1 = new SimpleStringProperty();
-    private StringProperty player2 = new SimpleStringProperty();
+
+    private Player player1, player2;
     public Image image1, image2;
     private ObjectProperty<Image> left, right, startImage;
     private multiPlayerStatus currentStatus = VS_CPU;
-
+    //Todo: Move points, name and symbols to Player objects, clean up this garbage code
     public TicTacToeModel() {
         winnerText.setValue("TIC TAC TOE");
         xoTurn.setValue(0);
         turnTotal = 0;
         isGameOver = false;
-        player1Points.set(0);
-        player2Points.set(0);
-        player1.set("CPU:");
-        player2.set("Player:");
+
+        //Setting up players
+        player1.name().set("CPU:");
+        player2.name().set("Player:");
+        player1.points().set(0);
+        player2.points().set(0);
+        player1.symbol().set("X");
+        player2.symbol().set("0");
+        //For gifs
         image1 = new Image(getClass().getResource("images/skeleton-dancing.gif").toExternalForm());
         image2 = new Image(getClass().getResource("images/StartSkeleton.gif").toExternalForm());
         left = new SimpleObjectProperty<>(image1);
@@ -231,4 +234,5 @@ public class TicTacToeModel {
     }
 
     public enum multiPlayerStatus {VS_CPU, VS_LOCAL, VS_LAN}
+    public enum turnOrder{PLAYER_1, PLAYER_2}
 }
