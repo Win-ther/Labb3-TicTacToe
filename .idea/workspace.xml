@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e71fc570-3df4-4e95-a6df-4bf69bda218f" name="Changes" comment="changed layout and added test for print X on screen">
+      <change afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/se/iths/labb3tictactoe/tictactoe-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/se/iths/labb3tictactoe/tictactoe-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +18,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Record" />
       </list>
     </option>
   </component>
@@ -123,7 +123,9 @@
       <workItem from="1697782986397" duration="677000" />
       <workItem from="1697784867772" duration="8929000" />
       <workItem from="1697838903573" duration="2447000" />
-      <workItem from="1697870034851" duration="2826000" />
+      <workItem from="1697870034851" duration="2854000" />
+      <workItem from="1697877373913" duration="1404000" />
+      <workItem from="1697885315756" duration="696000" />
     </task>
     <task id="LOCAL−00001" summary="Initial commit">
       <option name="closed" value="true" />

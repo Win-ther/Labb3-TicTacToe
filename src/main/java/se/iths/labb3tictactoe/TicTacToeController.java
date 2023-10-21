@@ -54,25 +54,14 @@ public class TicTacToeController {
         if (!model.isGameOver()) {
             switch (model.getCurrentStatus()) {
                 case VS_CPU -> cpuTurn();
-                case VS_LOCAL -> playerVsPlayerLocal();
                 case VS_LAN -> player2LanTurn();
             }
         }
-    }
-    private void playerVsPlayerLocal(){
-
-    }
-    private void player1Turn(){
-
-    }
-    private void player2LocalTurn(ActionEvent event) {
-        //ToDo: Fix so that 2 players on same pc can play, bind CPU points to a variable in Model so that it can change text.
     }
 
     private void player2LanTurn() {
         //ToDo: Fix so that two players can play over lan network
     }
-
 
     public void cpuTurn() {
         Random random = new Random();
