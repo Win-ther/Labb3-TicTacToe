@@ -53,7 +53,7 @@ public class TicTacToeController {
     private void findCurrentMode() {
         if (!model.isGameOver()) {
             switch (model.getCurrentStatus()) {
-                case VS_CPU -> cpuTurn();
+                case VS_CPU -> model.cpuTurn(buttons);
                 case VS_LAN -> player2LanTurn();
             }
         }
@@ -61,23 +61,6 @@ public class TicTacToeController {
 
     private void player2LanTurn() {
         //ToDo: Fix so that two players can play over lan network
-    }
-
-    public void cpuTurn() {
-        Random random = new Random();
-        int buttonNumber;
-        while (true) {
-            buttonNumber = random.nextInt(9);
-            if (usableButton(buttonNumber)) {
-                model.setSymbol(buttons.get(buttonNumber));
-                model.gameOver(buttons);
-                break;
-            }
-        }
-    }
-
-    private boolean usableButton(int index) {
-        return !buttons.get(index).isDisabled();
     }
 
     public void initialize() {

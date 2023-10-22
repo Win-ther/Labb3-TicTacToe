@@ -6,6 +6,7 @@ import javafx.scene.image.Image;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 import static se.iths.labb3tictactoe.TicTacToeModel.multiPlayerStatus.*;
 import static se.iths.labb3tictactoe.TicTacToeModel.turnOrder.PLAYER_1;
@@ -223,7 +224,21 @@ public class TicTacToeModel {
     public void setPlayer2Name(String name) {
         this.player2.name().set(name);
     }
-
+    public void cpuTurn(List<Button> buttons) {
+        Random random = new Random();
+        int buttonNumber;
+        while (true) {
+            buttonNumber = random.nextInt(9);
+            if (usableButton(buttonNumber, buttons)) {
+                setSymbol(buttons.get(buttonNumber));
+                gameOver(buttons);
+                break;
+            }
+        }
+    }
+    private boolean usableButton(int index, List<Button> buttons) {
+        return !buttons.get(index).isDisabled();
+    }
     public enum multiPlayerStatus {VS_CPU, VS_LOCAL, VS_LAN}
     public enum turnOrder{PLAYER_1, PLAYER_2}
 }
