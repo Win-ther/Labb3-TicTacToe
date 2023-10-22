@@ -10,7 +10,6 @@ import javafx.scene.text.Text;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 public class TicTacToeController {
     //Controller hanterar event, klickar på skit
@@ -114,11 +113,10 @@ public class TicTacToeController {
         setPlayerNames();
     }
     public void setPlayerNames(){
-        String[] pNames = AlertBox.display("Set players", "Set player names:");
+        String[] pNames = AlertBoxNames.display("Set players", "Set player names:");
         model.setPlayer1Name(pNames[0]);
         model.setPlayer2Name(pNames[1]);
     }
-
     public void setVsCPU() {
         model.setCurrentStatus(TicTacToeModel.multiPlayerStatus.VS_CPU);
         mainMenu();
@@ -126,7 +124,6 @@ public class TicTacToeController {
         model.setPlayer2Name("Player:");
         restart();
     }
-
     public TicTacToeModel getModel() {
         return model;
     }

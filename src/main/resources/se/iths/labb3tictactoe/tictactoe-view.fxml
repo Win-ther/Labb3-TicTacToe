@@ -174,12 +174,12 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="playerScore" layoutX="72.0" layoutY="525.0" prefHeight="25.0" prefWidth="13.0" text="${controller.model.player2Points}">
+      <Label fx:id="playerScore" layoutX="72.0" layoutY="525.0" prefHeight="25.0" prefWidth="53.0" text="${controller.model.player2Points}">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="cpuScore" layoutX="72.0" layoutY="494.0" prefHeight="25.0" prefWidth="13.0" text="${controller.model.player1Points}">
+      <Label fx:id="cpuScore" layoutX="72.0" layoutY="494.0" prefHeight="25.0" prefWidth="53.0" text="${controller.model.player1Points}">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
