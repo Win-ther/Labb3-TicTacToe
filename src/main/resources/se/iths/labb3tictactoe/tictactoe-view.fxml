@@ -164,12 +164,12 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutY="520.0" prefHeight="32.0" prefWidth="94.0" style="-fx-text-alignment: CENTER;" text="${controller.model.player2}" textAlignment="CENTER">
+      <Label layoutY="520.0" prefHeight="32.0" prefWidth="94.0" style="-fx-text-alignment: CENTER;" text="${controller.model.player2Name}" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutY="490.0" prefHeight="32.0" prefWidth="94.0" style="-fx-text-alignment: CENTER;" text="${controller.model.player1}" textAlignment="CENTER">
+      <Label layoutY="490.0" prefHeight="32.0" prefWidth="94.0" style="-fx-text-alignment: CENTER;" text="${controller.model.player1Name}" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>

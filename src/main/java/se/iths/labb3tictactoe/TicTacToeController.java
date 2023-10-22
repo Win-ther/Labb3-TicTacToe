@@ -102,8 +102,8 @@ public class TicTacToeController {
     }
 
     public void mainMenu() {
-        model.resetPlayer1Points();
-        model.resetPlayer2Points();
+        model.resetPoints();
+        model.reset(buttons);
         playButton.setVisible(true);
         playArea.setVisible(false);
         tictictic.setVisible(false);
@@ -113,12 +113,6 @@ public class TicTacToeController {
         rightSkeleton.setVisible(false);
         startSkeleton.setVisible(true);
     }
-
-    /*private void cpuStart() {
-        if ((int) Math.floor(Math.random() * 2) == 0)
-            cpuTurn();
-    }*/
-
     public void exit() {
         TicTacToeApplication.exitWindow();
     }
@@ -126,24 +120,27 @@ public class TicTacToeController {
     public void setVsLAN() {
         model.setCurrentStatus(TicTacToeModel.multiPlayerStatus.VS_LAN);
         mainMenu();
-        model.setPlayer1("Player1:");
-        model.setPlayer2("Player2:");
         restart();
+        setPlayerNames();
     }
 
     public void setVsLocal() {
         model.setCurrentStatus(TicTacToeModel.multiPlayerStatus.VS_LOCAL);
         mainMenu();
-        model.setPlayer1("Player1:");
-        model.setPlayer2("Player2:");
         restart();
+        setPlayerNames();
+    }
+    public void setPlayerNames(){
+        String[] pNames = AlertBox.display("Set players", "Set player names:");
+        model.setPlayer1Name(pNames[0]);
+        model.setPlayer2Name(pNames[1]);
     }
 
     public void setVsCPU() {
         model.setCurrentStatus(TicTacToeModel.multiPlayerStatus.VS_CPU);
         mainMenu();
-        model.setPlayer1("CPU:");
-        model.setPlayer2("Player:");
+        model.setPlayer1Name("CPU:");
+        model.setPlayer2Name("Player:");
         restart();
     }
 
