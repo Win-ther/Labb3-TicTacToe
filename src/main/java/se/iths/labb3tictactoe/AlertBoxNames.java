@@ -29,6 +29,7 @@ public class AlertBoxNames {
             playerNames[1] = player2Name.getText();
             window.close();
         });
+
         HBox textFields = new HBox(10);
         textFields.getChildren().addAll(player1Name,player2Name);
         VBox layout = new VBox(10);
@@ -38,6 +39,10 @@ public class AlertBoxNames {
         Scene scene = new Scene(layout);
         window.setScene(scene);
         window.showAndWait();
+        if (playerNames[0].isEmpty() || playerNames[1].isEmpty()) {
+            playerNames[0] = "Player1";
+            playerNames[1] = "Player2";
+        }
         return playerNames;
     }
 }
