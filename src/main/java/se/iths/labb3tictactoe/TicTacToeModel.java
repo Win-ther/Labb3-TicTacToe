@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -25,8 +26,6 @@ public class TicTacToeModel {
     public Image image1, image2;
     private ObjectProperty<Image> left, right, startImage;
     private multiPlayerStatus currentStatus = VS_CPU;
-    private ServerSocket serverSocket;
-    private Socket clientSocket;
 
     //Todo: Move points, name and symbols to Player objects, clean up this garbage code
     public TicTacToeModel() {
@@ -46,21 +45,9 @@ public class TicTacToeModel {
         startImage = new SimpleObjectProperty<>(image2);
 
         //Server
-        try {
-            serverSocket = new ServerSocket(1234);
-        } catch (IOException e) {
-            System.out.println("Could not listen on port 1234");
-            System.exit(-1);
-        }
-        Thread.ofVirtual().start(() -> {
-            try {
-                Socket clientSocket = serverSocket.accept();
-                System.out.println("Client Connected");
-                ObjectOutputStream out = new ObjectOutputStream(clientSocket.getOutputStream());
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        });
+
+
+        //Todo: Flytta detta till egen metod för t.ex skickning av information när knapp klickas på.
     }
 
 
@@ -265,6 +252,9 @@ public class TicTacToeModel {
 
     private boolean usableButton(int index, List<Button> buttons) {
         return !buttons.get(index).isDisabled();
+    }
+    public void player2LanTurn(List<Button> buttons) {
+
     }
 
     public enum multiPlayerStatus {VS_CPU, VS_LOCAL, VS_LAN}

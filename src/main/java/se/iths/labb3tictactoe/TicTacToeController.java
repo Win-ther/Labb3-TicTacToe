@@ -1,5 +1,6 @@
 package se.iths.labb3tictactoe;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,8 +10,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.net.Socket;
+import java.net.ServerSocket;
 import java.util.Arrays;
 import java.util.List;
 
@@ -28,15 +28,13 @@ public class TicTacToeController {
     private TicTacToeModel model = new TicTacToeModel();
     @FXML
     private Button button1, button2, button3, button4, button5, button6, button7, button8, button9, restartButton, playButton;
-    private List<Button> buttons;
+    private static List<Button> buttons;
     @FXML
     private GridPane playArea;
     @FXML
     private Text tictictic, tactactac, toetoetoe;
     @FXML
     private ImageView leftSkeleton, rightSkeleton, startSkeleton;
-    private Socket socket;
-
     @FXML
     public void restartButtonClick(ActionEvent event) {
         restart();
@@ -56,28 +54,14 @@ public class TicTacToeController {
         if (!model.isGameOver()) {
             switch (model.getCurrentStatus()) {
                 case VS_CPU -> model.cpuTurn(buttons);
-                case VS_LAN -> player2LanTurn();
+                case VS_LAN -> model.player2LanTurn(buttons);
             }
-        }
-    }
-
-    private void player2LanTurn() {
-        try {
-            ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-            out.writeObject(buttons);
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
         }
     }
 
     public void initialize() {
         buttons = Arrays.asList(button1, button2, button3, button4, button5, button6, button7, button8, button9);
         buttons.forEach(e -> e.setFocusTraversable(false));
-        try {
-            socket = new Socket("localhost",1234);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     public void startGame() {
