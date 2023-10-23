@@ -4,6 +4,10 @@ import javafx.beans.property.*;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -21,6 +25,9 @@ public class TicTacToeModel {
     public Image image1, image2;
     private ObjectProperty<Image> left, right, startImage;
     private multiPlayerStatus currentStatus = VS_CPU;
+    private ServerSocket serverSocket;
+    private Socket clientSocket;
+
     //Todo: Move points, name and symbols to Player objects, clean up this garbage code
     public TicTacToeModel() {
         winnerText.setValue("TIC TAC TOE");
@@ -28,8 +35,8 @@ public class TicTacToeModel {
         isGameOver = false;
 
         //Setting up players
-        player1 = new Player(new SimpleStringProperty("CPU"),new SimpleIntegerProperty(0),new SimpleStringProperty("X"));
-        player2 = new Player(new SimpleStringProperty("Player"),new SimpleIntegerProperty(0),new SimpleStringProperty("0"));
+        player1 = new Player(new SimpleStringProperty("CPU"), new SimpleIntegerProperty(0), new SimpleStringProperty("X"));
+        player2 = new Player(new SimpleStringProperty("Player"), new SimpleIntegerProperty(0), new SimpleStringProperty("0"));
 
         //For gifs
         image1 = new Image(getClass().getResource("images/skeleton-dancing.gif").toExternalForm());
@@ -37,6 +44,23 @@ public class TicTacToeModel {
         left = new SimpleObjectProperty<>(image1);
         right = new SimpleObjectProperty<>(image1);
         startImage = new SimpleObjectProperty<>(image2);
+
+        //Server
+        try {
+            serverSocket = new ServerSocket(1234);
+        } catch (IOException e) {
+            System.out.println("Could not listen on port 1234");
+            System.exit(-1);
+        }
+        Thread.ofVirtual().start(() -> {
+            try {
+                Socket clientSocket = serverSocket.accept();
+                System.out.println("Client Connected");
+                ObjectOutputStream out = new ObjectOutputStream(clientSocket.getOutputStream());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 
 
@@ -52,7 +76,7 @@ public class TicTacToeModel {
         turnTotal++;
     }
 
-    public turnOrder getXoTurn() {
+    public turnOrder getTurn() {
         return turn;
     }
 
@@ -85,11 +109,11 @@ public class TicTacToeModel {
         };
         String winningLine = Arrays.stream(winningLines).filter(w -> w.equals(getPlayer1WinningLine()) || w.equals(getPlayer2WinningLine())).findFirst().orElse("");
         if (winningLine.equals(getPlayer1WinningLine())) {
-            setWinnerText(player1.name().get()+" Won!");
+            setWinnerText(player1.name().get() + " Won!");
             disableButtons(buttons);
             givePoints(player1);
         } else if (winningLine.equals(getPlayer2WinningLine())) {
-            setWinnerText(player2.name().get()+" Won!");
+            setWinnerText(player2.name().get() + " Won!");
             disableButtons(buttons);
             givePoints(player2);
         } else if (turnTotal > 8) {
@@ -107,7 +131,7 @@ public class TicTacToeModel {
     }
 
     private void givePoints(Player player) {
-        player.points().set(player.points().get()+1);
+        player.points().set(player.points().get() + 1);
     }
 
     private void disableButtons(List<Button> buttons) {
@@ -189,10 +213,11 @@ public class TicTacToeModel {
         return startImage;
     }
 
-    public void resetPoints(){
+    public void resetPoints() {
         player1.points().set(0);
         player2.points().set(0);
     }
+
     public multiPlayerStatus getCurrentStatus() {
         return currentStatus;
     }
@@ -224,6 +249,7 @@ public class TicTacToeModel {
     public void setPlayer2Name(String name) {
         this.player2.name().set(name);
     }
+
     public void cpuTurn(List<Button> buttons) {
         Random random = new Random();
         int buttonNumber;
@@ -236,9 +262,12 @@ public class TicTacToeModel {
             }
         }
     }
+
     private boolean usableButton(int index, List<Button> buttons) {
         return !buttons.get(index).isDisabled();
     }
+
     public enum multiPlayerStatus {VS_CPU, VS_LOCAL, VS_LAN}
-    public enum turnOrder{PLAYER_1, PLAYER_2}
+
+    public enum turnOrder {PLAYER_1, PLAYER_2}
 }

@@ -8,6 +8,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
 import java.util.Arrays;
 import java.util.List;
 
@@ -32,7 +35,7 @@ public class TicTacToeController {
     private Text tictictic, tactactac, toetoetoe;
     @FXML
     private ImageView leftSkeleton, rightSkeleton, startSkeleton;
-
+    private Socket socket;
 
     @FXML
     public void restartButtonClick(ActionEvent event) {
@@ -59,12 +62,22 @@ public class TicTacToeController {
     }
 
     private void player2LanTurn() {
-        //ToDo: Fix so that two players can play over lan network
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+            out.writeObject(buttons);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public void initialize() {
         buttons = Arrays.asList(button1, button2, button3, button4, button5, button6, button7, button8, button9);
         buttons.forEach(e -> e.setFocusTraversable(false));
+        try {
+            socket = new Socket("localhost",1234);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void startGame() {
@@ -104,6 +117,9 @@ public class TicTacToeController {
         mainMenu();
         restart();
         setPlayerNames();
+        vsPlayerLAN.setDisable(true);
+        vsPlayerOnPC.setDisable(false);
+        vsCPU.setDisable(false);
     }
 
     public void setVsLocal() {
@@ -111,6 +127,9 @@ public class TicTacToeController {
         mainMenu();
         restart();
         setPlayerNames();
+        vsPlayerLAN.setDisable(false);
+        vsPlayerOnPC.setDisable(true);
+        vsCPU.setDisable(false);
     }
     public void setPlayerNames(){
         String[] pNames = AlertBoxNames.display("Set players", "Set player names:");
@@ -120,9 +139,12 @@ public class TicTacToeController {
     public void setVsCPU() {
         model.setCurrentStatus(TicTacToeModel.multiPlayerStatus.VS_CPU);
         mainMenu();
-        model.setPlayer1Name("CPU:");
-        model.setPlayer2Name("Player:");
+        model.setPlayer1Name("CPU");
+        model.setPlayer2Name("Player");
         restart();
+        vsPlayerLAN.setDisable(false);
+        vsPlayerOnPC.setDisable(false);
+        vsCPU.setDisable(true);
     }
     public TicTacToeModel getModel() {
         return model;

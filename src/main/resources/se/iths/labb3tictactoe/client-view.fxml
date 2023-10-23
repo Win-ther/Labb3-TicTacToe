@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="551.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.iths.labb3tictactoe.ClientMVC.ClientViewController">
+   <children>
+      <GridPane fx:id="playArea" layoutX="126.0" layoutY="124.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: Orange; -fx-border-width: 3; -fx-grid-lines-visible: true;" visible="true">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Button fx:id="button1" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick" prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="52.0" />
+               </font>
+            </Button>
+            <Button fx:id="button2" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick" prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="3">
+               <font>
+                  <Font name="System Bold" size="52.0" />
+               </font>
+            </Button>
+            <Button fx:id="button3" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick" prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="4">
+               <font>
+                  <Font name="System Bold" size="52.0" />
+               </font>
+            </Button>
+            <Button fx:id="button4" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick" prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.rowIndex="3">
+               <font>
+                  <Font name="System Bold" size="52.0" />
+               </font>
+            </Button>
+            <Button fx:id="button5" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick" prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="3">
+               <font>
+                  <Font name="System Bold" size="52.0" />
+               </font>
+            </Button>
+            <Button fx:id="button6" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick" prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="3">
+               <font>
+                  <Font name="System Bold" size="52.0" />
+               </font>
+            </Button>
+            <Button fx:id="button7" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick" prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.rowIndex="4">
+               <font>
+                  <Font name="System Bold" size="52.0" />
+               </font>
+            </Button>
+            <Button fx:id="button8" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick" prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="4">
+               <font>
+                  <Font name="System Bold" size="52.0" />
+               </font>
+            </Button>
+            <Button fx:id="button9" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick" prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="4">
+               <font>
+                  <Font name="System Bold" size="52.0" />
+               </font>
+            </Button>
+         </children>
+      </GridPane>
+      <Label fx:id="winnerText" alignment="CENTER" layoutX="125.0" layoutY="26.0" prefHeight="58.0" prefWidth="350.0" text="${controller.model.winnerText}" textAlignment="CENTER">
+         <font>
+            <Font size="54.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="0.9763033175355451" startX="1.0" startY="0.06635071090047394">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.7047619223594666" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006711409395973154">
+                     <color>
+                        <Color red="1.0" green="0.7047619223594666" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.47256097560975613">
+                     <color>
+                        <Color red="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.8166666626930237" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Text fx:id="tictictic" layoutX="-57.0" layoutY="303.0" rotate="-90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC TIC" visible="false" wrappingWidth="350.0">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </Text>
+      <Text fx:id="tactactac" layoutX="126.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TAC TAC TAC TAC TAC TAC TAC TAC TAC TAC TAC TAC TAC TAC TAC TAC" visible="false" wrappingWidth="350.0">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </Text>
+      <Text fx:id="toetoetoe" layoutX="308.0" layoutY="310.0" rotate="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TOE TOE TOE TOE TOE TOE TOE TOE TOE TOE TOE TOE TOE TOE TOE TOE" visible="false" wrappingWidth="350.0">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </Text>
+      <Label layoutY="456.0" prefHeight="32.0" prefWidth="100.0" style="-fx-text-alignment: CENTER;" text="Score" textAlignment="CENTER" underline="true">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutY="520.0" prefHeight="32.0" prefWidth="94.0" style="-fx-text-alignment: CENTER;" text="${controller.model.player2Name}" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutY="490.0" prefHeight="32.0" prefWidth="94.0" style="-fx-text-alignment: CENTER;" text="${controller.model.player1Name}" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="playerScore" layoutX="72.0" layoutY="525.0" prefHeight="25.0" prefWidth="53.0" text="${controller.model.player2Points}">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="cpuScore" layoutX="72.0" layoutY="494.0" prefHeight="25.0" prefWidth="53.0" text="${controller.model.player1Points}">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

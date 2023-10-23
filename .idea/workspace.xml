@@ -4,9 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e71fc570-3df4-4e95-a6df-4bf69bda218f" name="Changes" comment="changed layout and added test for print X on screen">
+    <list default="true" id="e71fc570-3df4-4e95-a6df-4bf69bda218f" name="Changes" comment="add default names for AlertBoxNames">
+      <change afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/ClientMVC/ClientViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/ClientMVC/TicTacToeClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/se/iths/labb3tictactoe/client-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/AlertBoxNames.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/AlertBoxNames.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +24,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Record" />
+        <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -56,36 +65,50 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_directory_selection": "C:/Users/emilw/IdeaProjects/Labb3-TicTacToe/src/main/java/se/iths/labb3tictactoe",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.JavaFX",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="se.iths.labb3tictactoe" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.TicTacToeApplication">
     <configuration name="TicTacToeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="se.iths.labb3tictactoe.TicTacToeApplication" />
       <module name="Labb3-TicTacToe" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="se.iths.labb3tictactoe.TicTacToeController" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TicTacToeClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="se.iths.labb3tictactoe.ClientMVC.TicTacToeClient" />
+      <module name="Labb3-TicTacToe" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="se.iths.labb3tictactoe.ClientMVC.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -107,6 +130,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.TicTacToeApplication" />
+        <item itemvalue="Application.TicTacToeClient" />
       </list>
     </recent_temporary>
   </component>
@@ -131,7 +155,7 @@
       <workItem from="1697877373913" duration="1404000" />
       <workItem from="1697885315756" duration="2071000" />
       <workItem from="1697964302767" duration="9136000" />
-      <workItem from="1698046708116" duration="318000" />
+      <workItem from="1698046708116" duration="7670000" />
     </task>
     <task id="LOCAL−00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -154,7 +178,14 @@
       <option name="presentableId" value="LOCAL−00003" />
       <updated>1697535297000</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL−00004" summary="add default names for AlertBoxNames">
+      <option name="closed" value="true" />
+      <created>1698047080120</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1698047080120</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,7 +195,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Initial commit" />
     <MESSAGE value="changed layout and added test for print X on screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed layout and added test for print X on screen" />
+    <MESSAGE value="add default names for AlertBoxNames" />
+    <option name="LAST_COMMIT_MESSAGE" value="add default names for AlertBoxNames" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

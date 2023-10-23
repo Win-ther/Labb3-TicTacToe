@@ -6,4 +6,6 @@ module se.iths.labb3tictactoe {
 
     opens se.iths.labb3tictactoe to javafx.fxml;
     exports se.iths.labb3tictactoe;
+    exports se.iths.labb3tictactoe.ClientMVC;
+    opens se.iths.labb3tictactoe.ClientMVC to javafx.fxml;
 }

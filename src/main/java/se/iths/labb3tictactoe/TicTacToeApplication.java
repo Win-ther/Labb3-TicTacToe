@@ -17,7 +17,6 @@ public class TicTacToeApplication extends Application {
         window.setTitle("Tic Tac Toe!");
         window.setScene(scene);
         window.show();
-        //Thread.ofVirtual().start(() -> System.out.println());
     }
 
     public static void main(String[] args) {

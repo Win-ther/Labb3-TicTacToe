@@ -19,19 +19,15 @@ public class AlertBoxNames {
         window.setMinWidth(250);
         String[] playerNames = new String[2];
         Label label = new Label(message);
-        TextField player1Name = new TextField();
-        player1Name.setPromptText("Enter name for player 1");
-        TextField player2Name = new TextField();
-        player2Name.setPromptText("Enter name for player 2");
+        TextField textFieldP1 = new TextField();
+        textFieldP1.setPromptText("Enter name for player 1");
+        TextField textFieldP2 = new TextField();
+        textFieldP2.setPromptText("Enter name for player 2");
         Button closeButton = new Button("Confirm");
-        closeButton.setOnAction(e -> {
-            playerNames[0] = player1Name.getText();
-            playerNames[1] = player2Name.getText();
-            window.close();
-        });
-
+        closeButton.setOnAction(e -> closeAndTransferNames(playerNames, textFieldP1, textFieldP2, window));
+        window.setOnCloseRequest(e -> closeAndTransferNames(playerNames, textFieldP1, textFieldP2, window));
         HBox textFields = new HBox(10);
-        textFields.getChildren().addAll(player1Name,player2Name);
+        textFields.getChildren().addAll(textFieldP1,textFieldP2);
         VBox layout = new VBox(10);
         layout.getChildren().addAll(label,textFields, closeButton);
         layout.setAlignment(Pos.CENTER);
@@ -43,6 +39,13 @@ public class AlertBoxNames {
             playerNames[0] = "Player1";
             playerNames[1] = "Player2";
         }
+
         return playerNames;
+    }
+
+    private static void closeAndTransferNames(String[] playerNames, TextField player1Name, TextField player2Name, Stage window) {
+        playerNames[0] = player1Name.getText();
+        playerNames[1] = player2Name.getText();
+        window.close();
     }
 }
