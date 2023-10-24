@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e71fc570-3df4-4e95-a6df-4bf69bda218f" name="Changes" comment="add default names for AlertBoxNames">
+    <list default="true" id="e71fc570-3df4-4e95-a6df-4bf69bda218f" name="Changes" comment="change a variable named, removed some comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeController.java" afterDir="false" />
     </list>
@@ -149,7 +149,7 @@
       <workItem from="1697964302767" duration="9136000" />
       <workItem from="1698046708116" duration="19567000" />
       <workItem from="1698166402646" duration="21000" />
-      <workItem from="1698168663301" duration="5942000" />
+      <workItem from="1698168663301" duration="7715000" />
     </task>
     <task id="LOCAL−00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -179,7 +179,14 @@
       <option name="presentableId" value="LOCAL−00004" />
       <updated>1698047080120</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL−00005" summary="change a variable named, removed some comments">
+      <option name="closed" value="true" />
+      <created>1698174869014</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1698174869014</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,7 +197,8 @@
     <MESSAGE value="Initial commit" />
     <MESSAGE value="changed layout and added test for print X on screen" />
     <MESSAGE value="add default names for AlertBoxNames" />
-    <option name="LAST_COMMIT_MESSAGE" value="add default names for AlertBoxNames" />
+    <MESSAGE value="change a variable named, removed some comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="change a variable named, removed some comments" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

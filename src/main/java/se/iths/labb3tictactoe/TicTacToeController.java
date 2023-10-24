@@ -29,7 +29,7 @@ public class TicTacToeController {
     @FXML
     private ImageView leftSkeleton, rightSkeleton, startSkeleton;
     @FXML
-    public void restartButtonClick(ActionEvent event) {
+    public void restartButtonClick() {
         restart();
         findCurrentMode();
     }
