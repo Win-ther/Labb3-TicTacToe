@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e71fc570-3df4-4e95-a6df-4bf69bda218f" name="Changes" comment="add default names for AlertBoxNames">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/ClientMVC/ClientViewController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/ClientMVC/TicTacToeClient.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/se/iths/labb3tictactoe/client-view.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +72,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.JavaFX",
+    "settings.editor.selected.configurable": "configurable.group.language",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -152,7 +147,9 @@
       <workItem from="1697877373913" duration="1404000" />
       <workItem from="1697885315756" duration="2071000" />
       <workItem from="1697964302767" duration="9136000" />
-      <workItem from="1698046708116" duration="19487000" />
+      <workItem from="1698046708116" duration="19567000" />
+      <workItem from="1698166402646" duration="21000" />
+      <workItem from="1698168663301" duration="5942000" />
     </task>
     <task id="LOCAL−00001" summary="Initial commit">
       <option name="closed" value="true" />

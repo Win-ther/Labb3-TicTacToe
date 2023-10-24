@@ -15,20 +15,13 @@ import java.util.Arrays;
 import java.util.List;
 
 public class TicTacToeController {
-    //Controller hanterar event, klickar på skit
-    //Modellen ansvarig för informationen och regler om informationen.
-    //Controller ska där med hjälp av event uppdatera informationen i Modellen.
-    //ändra i model endast och bind vyns fält med dem i Model.
-    //Går att binda dem även i fxml-filen, se welcomeText;
-    //Använd Canvas istället för buttons kanske; Kan se bättre ut.
-    //Kontrollera klick med koordinater, MouseEvent mouseEvent
     //ToDO: Grid ~Done~, logic for clicking squares ~Done~, turnorder logic~Done~, GameOver Logic~Done~, AI Logic ~Done~.
 
     public RadioMenuItem vsCPU, vsPlayerOnPC, vsPlayerLAN;
     private TicTacToeModel model = new TicTacToeModel();
     @FXML
     private Button button1, button2, button3, button4, button5, button6, button7, button8, button9, restartButton, playButton;
-    private static List<Button> buttons;
+    private List<Button> buttons;
     @FXML
     private GridPane playArea;
     @FXML
@@ -61,7 +54,7 @@ public class TicTacToeController {
 
     public void initialize() {
         buttons = Arrays.asList(button1, button2, button3, button4, button5, button6, button7, button8, button9);
-        buttons.forEach(e -> e.setFocusTraversable(false));
+        buttons.forEach(button -> button.setFocusTraversable(false));
     }
 
     public void startGame() {
