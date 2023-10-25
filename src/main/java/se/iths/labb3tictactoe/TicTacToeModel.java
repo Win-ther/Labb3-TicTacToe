@@ -26,20 +26,6 @@ public class TicTacToeModel {
     public Image image1, image2;
     private ObjectProperty<Image> left, right, startImage;
     private multiPlayerStatus currentStatus = VS_CPU;
-
-    //Non-pure Object-oriented-programming for test
-    int value = 5;
-    public int getValue(){
-        return value;
-    }
-    public void setValue(int value){
-        this.value = value;
-    }
-    //Pure function for test
-    public static int add(int a, int b) {
-        return a + b;
-    }
-
     //Todo: Move points, name and symbols to Player objects, clean up this garbage code
     public TicTacToeModel() {
         winnerText.setValue("TIC TAC TOE");
