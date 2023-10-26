@@ -1,6 +1,5 @@
 package se.iths.labb3tictactoe;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,8 +8,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 
-import java.io.IOException;
-import java.net.ServerSocket;
 import java.util.Arrays;
 import java.util.List;
 
@@ -28,6 +25,7 @@ public class TicTacToeController {
     private Text tictictic, tactactac, toetoetoe;
     @FXML
     private ImageView leftSkeleton, rightSkeleton, startSkeleton;
+
     @FXML
     public void restartButtonClick() {
         restart();
@@ -44,7 +42,7 @@ public class TicTacToeController {
     }
 
     private void findCurrentMode() {
-        if (!model.isGameOver()) {
+        if (!model.getIsGameOver()) {
             switch (model.getCurrentStatus()) {
                 case VS_CPU -> model.cpuTurn(buttons);
                 case VS_LAN -> model.player2LanTurn(buttons);
