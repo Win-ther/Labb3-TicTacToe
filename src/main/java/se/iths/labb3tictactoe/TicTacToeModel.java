@@ -4,6 +4,7 @@ import javafx.beans.property.*;
 import javafx.scene.image.Image;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Random;
 
 import static se.iths.labb3tictactoe.TicTacToeModel.multiPlayerStatus.*;
@@ -35,8 +36,8 @@ public class TicTacToeModel {
         player2 = new Player(new SimpleStringProperty("Player"), new SimpleIntegerProperty(0), new SimpleStringProperty("0"));
 
         //For gifs
-        image1 = new Image(getClass().getResource("images/skeleton-dancing.gif").toExternalForm());
-        image2 = new Image(getClass().getResource("images/StartSkeleton.gif").toExternalForm());
+        image1 = new Image(Objects.requireNonNull(getClass().getResource("images/skeleton-dancing.gif")).toExternalForm());
+        image2 = new Image(Objects.requireNonNull(getClass().getResource("images/StartSkeleton.gif")).toExternalForm());
         left = new SimpleObjectProperty<>(image1);
         right = new SimpleObjectProperty<>(image1);
         startImage = new SimpleObjectProperty<>(image2);
@@ -47,6 +48,21 @@ public class TicTacToeModel {
         //Todo: Flytta detta till egen metod för t.ex skickning av information när knapp klickas på.
 
         //Todo: Make Gameover static? Fix tests for game so that it uses gameOver-method
+    }
+    /**
+     * Below constructor is for tests as you can se by the boolean parameter.
+     * That is because the pictures that are in the real constructor does not work with the tests.
+     *
+     * The only difference is that the pictures does not get initialized in the testConstructor
+     * **/
+    public TicTacToeModel(boolean forTest){
+        winnerText.setValue("TIC TAC TOE");
+        turnTotal = 0;
+        isGameOver = false;
+
+        //Setting up players
+        player1 = new Player(new SimpleStringProperty("CPU"), new SimpleIntegerProperty(0), new SimpleStringProperty("X"));
+        player2 = new Player(new SimpleStringProperty("Player"), new SimpleIntegerProperty(0), new SimpleStringProperty("0"));
     }
 
     public void setSymbol(int index) {
@@ -84,20 +100,18 @@ public class TicTacToeModel {
         String winningLine = getTheWinningLine(winningLines, player1, player2);
 
         if (playerWins(winningLine, player1)) {
-            winningPlayer2(player1);
+            winningPlayer(player1);
         } else if (playerWins(winningLine, player2)) {
-            winningPlayer2(player2);
+            winningPlayer(player2);
         } else if (turnTotal > 8) {
             setWinnerText("Draw");
             setGameOver(true);
-            Arrays.fill(board, "");
         }
     }
-    private void winningPlayer2(Player player) {
+    private void winningPlayer(Player player) {
         setWinnerText(player.name().get() + " Won!");
         givePoints(player);
         setGameOver(true);
-        Arrays.fill(board, "");
     }
 
     public static String getTheWinningLine(String[] winningLines, Player player1, Player player2) {
@@ -249,7 +263,7 @@ public class TicTacToeModel {
         return buttonNumber;
     }
 
-    public static boolean usableButton(int index, String[] buttonText) {
+    public boolean usableButton(int index, String[] buttonText) {
         return buttonText[index].isEmpty();
     }
 

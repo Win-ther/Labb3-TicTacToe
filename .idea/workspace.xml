@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85819cc-3269-4ff4-baaf-4e7bc40c2b76" name="Changes" comment="Fixed crash on draw">
+    <list default="true" id="c85819cc-3269-4ff4-baaf-4e7bc40c2b76" name="Changes" comment="todo: thing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/se/iths/labb3tictactoe/tictactoe-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/se/iths/labb3tictactoe/tictactoe-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/se/iths/labb3tictactoe/TicTacToeModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/se/iths/labb3tictactoe/TicTacToeModelTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,20 +29,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Application.TicTacToeApplication">
+}</component>
+  <component name="RunManager" selected="JUnit.TicTacToeModelTest">
     <configuration name="TicTacToeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="se.iths.labb3tictactoe.TicTacToeApplication" />
       <module name="Labb3-TicTacToe" />
@@ -73,8 +73,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TicTacToeApplication" />
         <item itemvalue="JUnit.TicTacToeModelTest" />
+        <item itemvalue="Application.TicTacToeApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -97,7 +97,8 @@
       <workItem from="1698329587970" duration="1251000" />
       <workItem from="1698390145295" duration="648000" />
       <workItem from="1698397589358" duration="57000" />
-      <workItem from="1698408507246" duration="10694000" />
+      <workItem from="1698408507246" duration="10896000" />
+      <workItem from="1698437865793" duration="4755000" />
     </task>
     <task id="LOCAL−00002" summary="Refactored some methods, trying to fix so that I do not send any buttons into the Model">
       <option name="closed" value="true" />
@@ -113,7 +114,21 @@
       <option name="presentableId" value="LOCAL−00003" />
       <updated>1698428843637</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL−00004" summary="Moved methods so that no buttons enter the model, and deleted old methods. Rollback if does not work">
+      <option name="closed" value="true" />
+      <created>1698430209397</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1698430209397</updated>
+    </task>
+    <task id="LOCAL−00005" summary="todo: thing">
+      <option name="closed" value="true" />
+      <created>1698430335376</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1698430335376</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,7 +139,9 @@
     <MESSAGE value="Created tests if buttons can be clicked and if the game is over. Also refactored some methods in TicTacToeModel so that they are Static and more pure" />
     <MESSAGE value="Refactored some methods, trying to fix so that I do not send any buttons into the Model" />
     <MESSAGE value="Fixed crash on draw" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed crash on draw" />
+    <MESSAGE value="Moved methods so that no buttons enter the model, and deleted old methods. Rollback if does not work" />
+    <MESSAGE value="todo: thing" />
+    <option name="LAST_COMMIT_MESSAGE" value="todo: thing" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Labb3_TicTacToe$TicTacToeModelTest.ic" NAME="TicTacToeModelTest Coverage Results" MODIFIED="1698325077440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

@@ -46,7 +46,6 @@ public class TicTacToeController {
 
         model.setSymbol(buttons.indexOf(clickedButton));
         disableButton(clickedButton);
-        System.out.println(Arrays.toString(model.getBoard()));
         model.gameOver();
         disableButtonsIfGameOver();
         findCurrentMode();
