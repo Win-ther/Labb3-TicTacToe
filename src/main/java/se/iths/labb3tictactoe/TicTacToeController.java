@@ -26,6 +26,8 @@ public class TicTacToeController {
     @FXML
     private ImageView leftSkeleton, rightSkeleton, startSkeleton;
 
+    //Todo: FIX THE FUCKING GAME, IT CRASHES ON DRAW
+
     @FXML
     public void restartButtonClick() {
         restart();
@@ -40,14 +42,45 @@ public class TicTacToeController {
         model.gameOver(buttons);
         findCurrentMode();
     }
+    public void onButtonClickTextTest(ActionEvent event) {
+        Button clickedButton = (Button) event.getSource();
+        clickedButton.setText(model.getCurrentPlayer().symbol().get());
 
+        model.setSymbol2(buttons.indexOf(clickedButton));
+        disableButton(clickedButton);
+
+        model.gameOver2();
+        disableButtonsIfGameOver();
+        findCurrentMode();
+    }
+
+    private void disableButtonsIfGameOver() {
+        if(model.getIsGameOver())
+            disableButtons();
+    }
+
+    private void disableButtons() {
+        buttons.forEach(e -> e.setDisable(true));
+        model.setGameOver(true);
+    }
+
+    private void disableButton(Button button){
+        button.setDisable(true);
+    }
     private void findCurrentMode() {
         if (!model.getIsGameOver()) {
             switch (model.getCurrentStatus()) {
-                case VS_CPU -> model.cpuTurn(buttons);
+                case VS_CPU -> cpuTurn();
                 case VS_LAN -> model.player2LanTurn(buttons);
             }
         }
+    }
+
+    private void cpuTurn() {
+        int buttonNr = model.cpuTurn2();
+        buttons.get(buttonNr).setText(model.getPlayer1().symbol().get());
+        disableButton(buttons.get(buttonNr));
+        disableButtonsIfGameOver();
     }
 
     public void initialize() {

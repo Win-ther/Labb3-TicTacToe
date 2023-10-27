@@ -4,50 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e71fc570-3df4-4e95-a6df-4bf69bda218f" name="Changes" comment="change a variable named, removed some comments" />
+    <list default="true" id="c85819cc-3269-4ff4-baaf-4e7bc40c2b76" name="Changes" comment="Created tests if buttons can be clicked and if the game is over. Also refactored some methods in TicTacToeModel so that they are Static and more pure">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/se/iths/labb3tictactoe/tictactoe-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/se/iths/labb3tictactoe/tictactoe-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/se/iths/labb3tictactoe/TicTacToeModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/se/iths/labb3tictactoe/TicTacToeModelTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Record" />
-        <option value="FxmlFile" />
-        <option value="Class" />
-        <option value="JUnit5 Test Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;Win-ther&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="17f42ba5-0f37-48d1-9fe7-6d22fe85e2f5" />
-        <option name="url" value="https://github.com/Win-ther/Labb3-TicTacToe.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 6
+  &quot;associatedIndex&quot;: 2
 }</component>
-  <component name="ProjectId" id="2Wsj3NkLoeuuXzpaW7M2lFVWWZC" />
+  <component name="ProjectId" id="2XIvQochJTthW2djQ005dhOloJV" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -57,56 +32,23 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/emilw/IdeaProjects/Labb3-TicTacToe/src/main/java/se/iths/labb3tictactoe&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="se.iths.labb3tictactoe" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="se.iths.labb3tictactoe" />
-    </key>
-  </component>
-  <component name="RunManager" selected="JUnit.TicTacToeModelTest.afterCallingSetValueWith2GetValueShouldReturn2">
+  <component name="RunManager" selected="Application.TicTacToeApplication">
     <configuration name="TicTacToeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="se.iths.labb3tictactoe.TicTacToeApplication" />
       <module name="Labb3-TicTacToe" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="se.iths.labb3tictactoe.TicTacToeController" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TicTacToeClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="se.iths.labb3tictactoe.ClientMVC.TicTacToeClient" />
-      <module name="Labb3-TicTacToe" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="se.iths.labb3tictactoe.ClientMVC.*" />
+          <option name="PATTERN" value="se.iths.labb3tictactoe.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -129,135 +71,48 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TicTacToeModelTest.afterCallingSetValueWith2GetValueShouldReturn2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Labb3-TicTacToe" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="se.iths.labb3tictactoe.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="se.iths.labb3tictactoe" />
-      <option name="MAIN_CLASS_NAME" value="se.iths.labb3tictactoe.TicTacToeModelTest" />
-      <option name="METHOD_NAME" value="afterCallingSetValueWith2GetValueShouldReturn2" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TicTacToeModelTest.givenAddWhenAvlues1And2ThenReturns3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Labb3-TicTacToe" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="se.iths.labb3tictactoe.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="se.iths.labb3tictactoe" />
-      <option name="MAIN_CLASS_NAME" value="se.iths.labb3tictactoe.TicTacToeModelTest" />
-      <option name="METHOD_NAME" value="givenAddWhenAvlues1And2ThenReturns3" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TicTacToeModelTest.afterCallingSetValueWith2GetValueShouldReturn2" />
-        <item itemvalue="JUnit.TicTacToeModelTest" />
-        <item itemvalue="JUnit.TicTacToeModelTest.givenAddWhenAvlues1And2ThenReturns3" />
         <item itemvalue="Application.TicTacToeApplication" />
-        <item itemvalue="Application.TicTacToeClient" />
+        <item itemvalue="JUnit.TicTacToeModelTest" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="e71fc570-3df4-4e95-a6df-4bf69bda218f" name="Changes" comment="" />
-      <created>1697527985198</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1697527985198</updated>
-      <workItem from="1697527986282" duration="12580000" />
-      <workItem from="1697553197542" duration="6437000" />
-      <workItem from="1697700882927" duration="214000" />
-      <workItem from="1697701105760" duration="2353000" />
-      <workItem from="1697713102774" duration="13698000" />
-      <workItem from="1697747699399" duration="283000" />
-      <workItem from="1697782986397" duration="677000" />
-      <workItem from="1697784867772" duration="8929000" />
-      <workItem from="1697838903573" duration="2447000" />
-      <workItem from="1697870034851" duration="2854000" />
-      <workItem from="1697877373913" duration="1404000" />
-      <workItem from="1697885315756" duration="2071000" />
-      <workItem from="1697964302767" duration="9136000" />
-      <workItem from="1698046708116" duration="19567000" />
-      <workItem from="1698166402646" duration="21000" />
-      <workItem from="1698168663301" duration="7715000" />
-    </task>
-    <task id="LOCAL−00001" summary="Initial commit">
+    <task id="LOCAL−00001" summary="Created tests if buttons can be clicked and if the game is over. Also refactored some methods in TicTacToeModel so that they are Static and more pure">
       <option name="closed" value="true" />
-      <created>1697531669393</created>
+      <created>1698325758647</created>
       <option name="number" value="LOCAL−00001" />
       <option name="presentableId" value="LOCAL−00001" />
-      <updated>1697531669393</updated>
+      <updated>1698325758647</updated>
     </task>
-    <task id="LOCAL−00002" summary="Initial commit">
-      <option name="closed" value="true" />
-      <created>1697531691662</created>
-      <option name="number" value="LOCAL−00002" />
-      <option name="presentableId" value="LOCAL−00002" />
-      <updated>1697531691662</updated>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c85819cc-3269-4ff4-baaf-4e7bc40c2b76" name="Changes" comment="Created tests if buttons can be clicked and if the game is over. Also refactored some methods in TicTacToeModel so that they are Static and more pure" />
+      <created>1698329398655</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1698329398655</updated>
+      <workItem from="1698329400595" duration="111000" />
+      <workItem from="1698329587970" duration="1251000" />
+      <workItem from="1698390145295" duration="648000" />
+      <workItem from="1698397589358" duration="57000" />
+      <workItem from="1698408507246" duration="6921000" />
     </task>
-    <task id="LOCAL−00003" summary="changed layout and added test for print X on screen">
-      <option name="closed" value="true" />
-      <created>1697535297000</created>
-      <option name="number" value="LOCAL−00003" />
-      <option name="presentableId" value="LOCAL−00003" />
-      <updated>1697535297000</updated>
-    </task>
-    <task id="LOCAL−00004" summary="add default names for AlertBoxNames">
-      <option name="closed" value="true" />
-      <created>1698047080120</created>
-      <option name="number" value="LOCAL−00004" />
-      <option name="presentableId" value="LOCAL−00004" />
-      <updated>1698047080120</updated>
-    </task>
-    <task id="LOCAL−00005" summary="change a variable named, removed some comments">
-      <option name="closed" value="true" />
-      <created>1698174869014</created>
-      <option name="number" value="LOCAL−00005" />
-      <option name="presentableId" value="LOCAL−00005" />
-      <updated>1698174869014</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Initial commit" />
-    <MESSAGE value="changed layout and added test for print X on screen" />
-    <MESSAGE value="add default names for AlertBoxNames" />
-    <MESSAGE value="change a variable named, removed some comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="change a variable named, removed some comments" />
+    <MESSAGE value="removed demo tests to start test from start" />
+    <MESSAGE value="Created tests if buttons can be clicked and if the game is over. Also refactored some methods in TicTacToeModel so that they are Static and more pure" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created tests if buttons can be clicked and if the game is over. Also refactored some methods in TicTacToeModel so that they are Static and more pure" />
   </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Labb3_TicTacToe$TicTacToeModelTest.ic" NAME="TicTacToeModelTest Coverage Results" MODIFIED="1698325077440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>se.iths.labb3tictactoe.*</FILTER>
+    </SUITE>
   </component>
 </project>

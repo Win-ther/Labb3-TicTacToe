@@ -4,6 +4,7 @@ import javafx.beans.property.*;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -21,6 +22,10 @@ public class TicTacToeModel {
     public Image image1, image2;
     private ObjectProperty<Image> left, right, startImage;
     private multiPlayerStatus currentStatus = VS_CPU;
+    private String[] board = {
+            "", "", "",
+            "", "", "",
+            "", "", ""};
 
     //Todo: Move points, name and symbols to Player objects, clean up this garbage code
     public TicTacToeModel() {
@@ -54,6 +59,17 @@ public class TicTacToeModel {
             turn = PLAYER_1;
         }
         button.setDisable(true);
+        turnTotal++;
+    }
+
+    public void setSymbol2(int index) {
+        if (turn == PLAYER_1) {
+            board[index] = player1.symbol().get();
+            turn = PLAYER_2;
+        } else {
+            board[index] = player2.symbol().get();
+            turn = PLAYER_1;
+        }
         turnTotal++;
     }
 
@@ -100,34 +116,54 @@ public class TicTacToeModel {
         }
     }
 
+    public void gameOver2() {
+        String[] winningLines = getWinningLines(board);
+        String winningLine = getTheWinningLine(winningLines, player1, player2);
+
+        if (playerWins(winningLine, player1)) {
+            winningPlayer2(player1);
+        } else if (playerWins(winningLine, player2)) {
+            winningPlayer2(player2);
+        } else if (turnTotal > 8) {
+            setWinnerText("Draw");
+            setGameOver(true);
+        }
+    }
+
     private void winningPlayer(Player player, List<Button> buttons) {
         setWinnerText(player.name().get() + " Won!");
         disableButtons(buttons);
         givePoints(player);
     }
-
-    public static String getTheWinningLine(String[] winningLines, Player player1, Player player2) {
-        return Arrays.stream(winningLines).filter(w -> w.equals(getPlayerWinningLine(player1)) ||w.equals(getPlayerWinningLine(player2))).findFirst().orElse("");
+    private void winningPlayer2(Player player) {
+        setWinnerText(player.name().get() + " Won!");
+        givePoints(player);
+        setGameOver(true);
+        Arrays.fill(board, "");
     }
 
-    public static String[] getWinningLines(String[] buttonsText) {
+    public static String getTheWinningLine(String[] winningLines, Player player1, Player player2) {
+        return Arrays.stream(winningLines).filter(w -> w.equals(getPlayerSymbolWinningLine(player1)) || w.equals(getPlayerSymbolWinningLine(player2))).findFirst().orElse("");
+    }
+
+    public static String[] getWinningLines(String[] board) {
         return new String[]{
-                buttonsText[0] + buttonsText[1] + buttonsText[2],
-                buttonsText[3] + buttonsText[4] + buttonsText[5],
-                buttonsText[6] + buttonsText[7] + buttonsText[8],
-                buttonsText[0] + buttonsText[3] + buttonsText[6],
-                buttonsText[1] + buttonsText[4] + buttonsText[7],
-                buttonsText[2] + buttonsText[5] + buttonsText[8],
-                buttonsText[0] + buttonsText[4] + buttonsText[8],
-                buttonsText[2] + buttonsText[4] + buttonsText[6]
+                board[0] + board[1] + board[2],
+                board[3] + board[4] + board[5],
+                board[6] + board[7] + board[8],
+                board[0] + board[3] + board[6],
+                board[1] + board[4] + board[7],
+                board[2] + board[5] + board[8],
+                board[0] + board[4] + board[8],
+                board[2] + board[4] + board[6]
         };
     }
 
     public static boolean playerWins(String winningLine, Player player) {
-        return winningLine.equals(getPlayerWinningLine(player));
+        return winningLine.equals(getPlayerSymbolWinningLine(player));
     }
 
-    private static String getPlayerWinningLine(Player player) {
+    private static String getPlayerSymbolWinningLine(Player player) {
         return player.symbol().get() + player.symbol().get() + player.symbol().get();
     }
 
@@ -135,23 +171,22 @@ public class TicTacToeModel {
         player.points().set(player.points().get() + 1);
     }
 
-    private void disableButtons(List<Button> buttons) {
+    public void disableButtons(List<Button> buttons) {
         buttons.forEach(e -> e.setDisable(true));
         this.isGameOver = true;
     }
-
 
     public void reset(List<Button> buttons) {
         this.winnerText.set("TIC TAC TOE");
         buttons.forEach(this::resetButton);
         this.turnTotal = 0;
         this.isGameOver = false;
+        turn = PLAYER_1;
     }
 
     private void resetButton(Button button) {
         button.setText("");
         button.setDisable(false);
-        turn = PLAYER_1;
     }
 
     public int getTurnTotal() {
@@ -223,6 +258,10 @@ public class TicTacToeModel {
         return currentStatus;
     }
 
+    public Player getCurrentPlayer() {
+        return turn == PLAYER_1 ? player1 : player2;
+    }
+
     public void setCurrentStatus(multiPlayerStatus currentStatus) {
         this.currentStatus = currentStatus;
     }
@@ -250,8 +289,8 @@ public class TicTacToeModel {
     public void setPlayer2Name(String name) {
         this.player2.name().set(name);
     }
-
-    public void cpuTurn(List<Button> buttons) {
+    //Old Non MVC-acceptable code(I THINK)
+    /*public void cpuTurn(List<Button> buttons) {
         Random random = new Random();
         int buttonNumber;
         String[] buttonText = buttonsToText(buttons);
@@ -263,10 +302,31 @@ public class TicTacToeModel {
                 break;
             }
         }
+    }*/
+    public int cpuTurn2() {
+        Random random = new Random();
+        int buttonNumber;
+        while (true) {
+            buttonNumber = random.nextInt(9);
+            if (usableButton(buttonNumber, board)) {
+                setSymbol2(buttonNumber);
+                gameOver2();
+                break;
+            }
+        }
+        return buttonNumber;
     }
 
     public static boolean usableButton(int index, String[] buttonText) {
         return buttonText[index].isEmpty();
+    }
+
+    public Player getPlayer1() {
+        return player1;
+    }
+
+    public Player getPlayer2() {
+        return player2;
     }
 
     public void player2LanTurn(List<Button> buttons) {
