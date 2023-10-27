@@ -93,15 +93,15 @@ public class TicTacToeModel {
         this.winnerText.set(winnerText);
     }
 
-    private String[] buttonsToText(List<Button> buttons) {
+    /*private String[] buttonsToText(List<Button> buttons) {
         String[] temp = new String[9];
         for (int i = 0; i < temp.length; i++) {
             temp[i] = buttons.get(i).getText();
         }
         return temp;
-    }
+    }*/
 
-    public void gameOver(List<Button> buttons) {
+    /*public void gameOver(List<Button> buttons) {
         String[] buttonsText = buttonsToText(buttons);
         String[] winningLines = getWinningLines(buttonsText);
         String winningLine = getTheWinningLine(winningLines, player1, player2);
@@ -114,7 +114,7 @@ public class TicTacToeModel {
             setWinnerText("Draw");
             disableButtons(buttons);
         }
-    }
+    }*/
 
     public void gameOver2() {
         String[] winningLines = getWinningLines(board);
@@ -127,14 +127,15 @@ public class TicTacToeModel {
         } else if (turnTotal > 8) {
             setWinnerText("Draw");
             setGameOver(true);
+            Arrays.fill(board, "");
         }
     }
 
-    private void winningPlayer(Player player, List<Button> buttons) {
+    /*private void winningPlayer(Player player, List<Button> buttons) {
         setWinnerText(player.name().get() + " Won!");
         disableButtons(buttons);
         givePoints(player);
-    }
+    }*/
     private void winningPlayer2(Player player) {
         setWinnerText(player.name().get() + " Won!");
         givePoints(player);
@@ -171,23 +172,22 @@ public class TicTacToeModel {
         player.points().set(player.points().get() + 1);
     }
 
-    public void disableButtons(List<Button> buttons) {
+    /*public void disableButtons(List<Button> buttons) {
         buttons.forEach(e -> e.setDisable(true));
         this.isGameOver = true;
-    }
+    }*/
 
-    public void reset(List<Button> buttons) {
+    public void reset() {
         this.winnerText.set("TIC TAC TOE");
-        buttons.forEach(this::resetButton);
         this.turnTotal = 0;
         this.isGameOver = false;
         turn = PLAYER_1;
     }
 
-    private void resetButton(Button button) {
+    /*private void resetButton(Button button) {
         button.setText("");
         button.setDisable(false);
-    }
+    }*/
 
     public int getTurnTotal() {
         return turnTotal;

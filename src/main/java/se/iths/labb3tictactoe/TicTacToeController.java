@@ -26,22 +26,25 @@ public class TicTacToeController {
     @FXML
     private ImageView leftSkeleton, rightSkeleton, startSkeleton;
 
-    //Todo: FIX THE FUCKING GAME, IT CRASHES ON DRAW
-
     @FXML
     public void restartButtonClick() {
         restart();
         findCurrentMode();
     }
     private void restart(){
-        model.reset(buttons);
+        model.reset();
+        buttons.forEach(this::resetButton);
     }
-    @FXML
+    private void resetButton(Button button) {
+        button.setText("");
+        button.setDisable(false);
+    }
+    /*@FXML
     private void onButtonClick(ActionEvent event) {
         model.setSymbol((Button) event.getSource());
         model.gameOver(buttons);
         findCurrentMode();
-    }
+    }*/
     public void onButtonClickTextTest(ActionEvent event) {
         Button clickedButton = (Button) event.getSource();
         clickedButton.setText(model.getCurrentPlayer().symbol().get());
@@ -60,7 +63,7 @@ public class TicTacToeController {
     }
 
     private void disableButtons() {
-        buttons.forEach(e -> e.setDisable(true));
+        buttons.forEach(this::disableButton);
         model.setGameOver(true);
     }
 
@@ -106,7 +109,8 @@ public class TicTacToeController {
 
     public void mainMenu() {
         model.resetPoints();
-        model.reset(buttons);
+        model.reset();
+        buttons.forEach(this::resetButton);
         playButton.setVisible(true);
         playArea.setVisible(false);
         tictictic.setVisible(false);
