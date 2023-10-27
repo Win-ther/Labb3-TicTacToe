@@ -1,12 +1,9 @@
 package se.iths.labb3tictactoe;
 
 import javafx.beans.property.*;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 
 import static se.iths.labb3tictactoe.TicTacToeModel.multiPlayerStatus.*;
@@ -50,19 +47,7 @@ public class TicTacToeModel {
         //Todo: Flytta detta till egen metod för t.ex skickning av information när knapp klickas på.
     }
 
-    public void setSymbol(Button button) {
-        if (turn == PLAYER_1) {
-            button.setText(player1.symbol().get());
-            turn = PLAYER_2;
-        } else {
-            button.setText(player2.symbol().get());
-            turn = PLAYER_1;
-        }
-        button.setDisable(true);
-        turnTotal++;
-    }
-
-    public void setSymbol2(int index) {
+    public void setSymbol(int index) {
         if (turn == PLAYER_1) {
             board[index] = player1.symbol().get();
             turn = PLAYER_2;
@@ -92,31 +77,7 @@ public class TicTacToeModel {
     public void setWinnerText(String winnerText) {
         this.winnerText.set(winnerText);
     }
-
-    /*private String[] buttonsToText(List<Button> buttons) {
-        String[] temp = new String[9];
-        for (int i = 0; i < temp.length; i++) {
-            temp[i] = buttons.get(i).getText();
-        }
-        return temp;
-    }*/
-
-    /*public void gameOver(List<Button> buttons) {
-        String[] buttonsText = buttonsToText(buttons);
-        String[] winningLines = getWinningLines(buttonsText);
-        String winningLine = getTheWinningLine(winningLines, player1, player2);
-
-        if (playerWins(winningLine, player1)) {
-            winningPlayer(player1, buttons);
-        } else if (playerWins(winningLine, player2)) {
-            winningPlayer(player2, buttons);
-        } else if (turnTotal > 8) {
-            setWinnerText("Draw");
-            disableButtons(buttons);
-        }
-    }*/
-
-    public void gameOver2() {
+    public void gameOver() {
         String[] winningLines = getWinningLines(board);
         String winningLine = getTheWinningLine(winningLines, player1, player2);
 
@@ -130,12 +91,6 @@ public class TicTacToeModel {
             Arrays.fill(board, "");
         }
     }
-
-    /*private void winningPlayer(Player player, List<Button> buttons) {
-        setWinnerText(player.name().get() + " Won!");
-        disableButtons(buttons);
-        givePoints(player);
-    }*/
     private void winningPlayer2(Player player) {
         setWinnerText(player.name().get() + " Won!");
         givePoints(player);
@@ -171,24 +126,13 @@ public class TicTacToeModel {
     private void givePoints(Player player) {
         player.points().set(player.points().get() + 1);
     }
-
-    /*public void disableButtons(List<Button> buttons) {
-        buttons.forEach(e -> e.setDisable(true));
-        this.isGameOver = true;
-    }*/
-
     public void reset() {
         this.winnerText.set("TIC TAC TOE");
         this.turnTotal = 0;
         this.isGameOver = false;
+        Arrays.fill(board, "");
         turn = PLAYER_1;
     }
-
-    /*private void resetButton(Button button) {
-        button.setText("");
-        button.setDisable(false);
-    }*/
-
     public int getTurnTotal() {
         return turnTotal;
     }
@@ -289,28 +233,14 @@ public class TicTacToeModel {
     public void setPlayer2Name(String name) {
         this.player2.name().set(name);
     }
-    //Old Non MVC-acceptable code(I THINK)
-    /*public void cpuTurn(List<Button> buttons) {
-        Random random = new Random();
-        int buttonNumber;
-        String[] buttonText = buttonsToText(buttons);
-        while (true) {
-            buttonNumber = random.nextInt(9);
-            if (usableButton(buttonNumber, buttonText)) {
-                setSymbol(buttons.get(buttonNumber));
-                gameOver(buttons);
-                break;
-            }
-        }
-    }*/
-    public int cpuTurn2() {
+    public int cpuTurn() {
         Random random = new Random();
         int buttonNumber;
         while (true) {
             buttonNumber = random.nextInt(9);
             if (usableButton(buttonNumber, board)) {
-                setSymbol2(buttonNumber);
-                gameOver2();
+                setSymbol(buttonNumber);
+                gameOver();
                 break;
             }
         }
@@ -329,8 +259,12 @@ public class TicTacToeModel {
         return player2;
     }
 
-    public void player2LanTurn(List<Button> buttons) {
+    public void player2LanTurn() {
+        //Todo: Implement network gaming
+    }
 
+    public String[] getBoard() {
+        return board;
     }
 
     public enum multiPlayerStatus {VS_CPU, VS_LOCAL, VS_LAN}

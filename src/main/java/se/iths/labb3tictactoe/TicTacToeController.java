@@ -15,7 +15,7 @@ public class TicTacToeController {
     //ToDO: Grid ~Done~, logic for clicking squares ~Done~, turnorder logic~Done~, GameOver Logic~Done~, AI Logic ~Done~.
 
     public RadioMenuItem vsCPU, vsPlayerOnPC, vsPlayerLAN;
-    private TicTacToeModel model = new TicTacToeModel();
+    private final TicTacToeModel model = new TicTacToeModel();
     @FXML
     private Button button1, button2, button3, button4, button5, button6, button7, button8, button9, restartButton, playButton;
     private List<Button> buttons;
@@ -39,20 +39,15 @@ public class TicTacToeController {
         button.setText("");
         button.setDisable(false);
     }
-    /*@FXML
-    private void onButtonClick(ActionEvent event) {
-        model.setSymbol((Button) event.getSource());
-        model.gameOver(buttons);
-        findCurrentMode();
-    }*/
-    public void onButtonClickTextTest(ActionEvent event) {
+
+    public void onButtonClick(ActionEvent event) {
         Button clickedButton = (Button) event.getSource();
         clickedButton.setText(model.getCurrentPlayer().symbol().get());
 
-        model.setSymbol2(buttons.indexOf(clickedButton));
+        model.setSymbol(buttons.indexOf(clickedButton));
         disableButton(clickedButton);
-
-        model.gameOver2();
+        System.out.println(Arrays.toString(model.getBoard()));
+        model.gameOver();
         disableButtonsIfGameOver();
         findCurrentMode();
     }
@@ -74,13 +69,13 @@ public class TicTacToeController {
         if (!model.getIsGameOver()) {
             switch (model.getCurrentStatus()) {
                 case VS_CPU -> cpuTurn();
-                case VS_LAN -> model.player2LanTurn(buttons);
+                case VS_LAN -> model.player2LanTurn();
             }
         }
     }
 
     private void cpuTurn() {
-        int buttonNr = model.cpuTurn2();
+        int buttonNr = model.cpuTurn();
         buttons.get(buttonNr).setText(model.getPlayer1().symbol().get());
         disableButton(buttons.get(buttonNr));
         disableButtonsIfGameOver();
@@ -98,12 +93,7 @@ public class TicTacToeController {
 
     private void setPlayAreaVisible() {
         playButton.setVisible(false);
-        playArea.setVisible(true);
-        tictictic.setVisible(true);
-        tactactac.setVisible(true);
-        toetoetoe.setVisible(true);
-        leftSkeleton.setVisible(true);
-        rightSkeleton.setVisible(true);
+        showPlayArea(true);
         startSkeleton.setVisible(false);
     }
 
@@ -112,14 +102,19 @@ public class TicTacToeController {
         model.reset();
         buttons.forEach(this::resetButton);
         playButton.setVisible(true);
-        playArea.setVisible(false);
-        tictictic.setVisible(false);
-        tactactac.setVisible(false);
-        toetoetoe.setVisible(false);
-        leftSkeleton.setVisible(false);
-        rightSkeleton.setVisible(false);
+        showPlayArea(false);
         startSkeleton.setVisible(true);
     }
+
+    private void showPlayArea(boolean value) {
+        playArea.setVisible(value);
+        tictictic.setVisible(value);
+        tactactac.setVisible(value);
+        toetoetoe.setVisible(value);
+        leftSkeleton.setVisible(value);
+        rightSkeleton.setVisible(value);
+    }
+
     public void exit() {
         TicTacToeApplication.exitWindow();
     }
