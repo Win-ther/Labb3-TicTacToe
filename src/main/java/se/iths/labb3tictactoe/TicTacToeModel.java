@@ -45,6 +45,8 @@ public class TicTacToeModel {
 
 
         //Todo: Flytta detta till egen metod för t.ex skickning av information när knapp klickas på.
+
+        //Todo: Make Gameover static? Fix tests for game so that it uses gameOver-method
     }
 
     public void setSymbol(int index) {
