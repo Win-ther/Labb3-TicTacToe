@@ -1,14 +1,7 @@
 package se.iths.labb3tictactoe;
 
-import javafx.application.Platform;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -99,6 +92,23 @@ class TicTacToeModelTest {
         model.setSymbol(4); //X
         model.setSymbol(5); //0
         model.setSymbol(8); //X
+
+        model.gameOver();
+
+        assertThat(model.getIsGameOver()).isTrue();
+    }
+    @Test
+    @DisplayName("isGameOver should return true if gameOver method is called and the turn is over 8 and the game is a draw")
+    void isGameOverShouldReturnTrueIfGameOverMethodIsCalledAndTheTurnIsOver8AndTheGameIsADraw(){
+        model.setSymbol(0); //X
+        model.setSymbol(2); //0
+        model.setSymbol(6); //X
+        model.setSymbol(8); //0
+        model.setSymbol(5); //X
+        model.setSymbol(3); //0
+        model.setSymbol(1); //X
+        model.setSymbol(4); //0
+        model.setSymbol(7); //X
 
         model.gameOver();
 

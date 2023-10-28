@@ -52,7 +52,7 @@ public class TicTacToeModel {
     /**
      * Below constructor is for tests as you can se by the boolean parameter.
      * That is because the pictures that are in the real constructor does not work with the tests.
-     *
+     * <p>
      * The only difference is that the pictures does not get initialized in the testConstructor
      * **/
     public TicTacToeModel(boolean forTest){
