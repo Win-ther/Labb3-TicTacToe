@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85819cc-3269-4ff4-baaf-4e7bc40c2b76" name="Changes" comment="added test for draw">
-      <change afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Server.java" afterDir="false" />
+    <list default="true" id="c85819cc-3269-4ff4-baaf-4e7bc40c2b76" name="Changes" comment="Started to add multiplayer">
+      <change afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/ClientApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/ClientController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/ClientModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/ClientPlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/se/iths/labb3tictactoe/client-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeModel.java" afterDir="false" />
     </list>
@@ -36,20 +42,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected="Application.TicTacToeApplication">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\emilw\IdeaProjects\Labb3-TicTacToe\src\main\resources\se\iths\labb3tictactoe" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="se.iths.labb3tictactoe" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.ClientApplication">
+    <configuration name="ClientApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="se.iths.labb3tictactoe.ClientApplication" />
+      <module name="Labb3-TicTacToe" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="se.iths.labb3tictactoe.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TicTacToeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="se.iths.labb3tictactoe.TicTacToeApplication" />
       <module name="Labb3-TicTacToe" />
@@ -80,6 +110,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ClientApplication" />
         <item itemvalue="Application.TicTacToeApplication" />
         <item itemvalue="JUnit.TicTacToeModelTest" />
       </list>
@@ -108,7 +139,7 @@
       <workItem from="1698437865793" duration="4899000" />
       <workItem from="1698478762904" duration="1298000" />
       <workItem from="1698654602497" duration="10000" />
-      <workItem from="1698670551246" duration="3426000" />
+      <workItem from="1698670551246" duration="10486000" />
     </task>
     <task id="LOCAL−00002" summary="Refactored some methods, trying to fix so that I do not send any buttons into the Model">
       <option name="closed" value="true" />
@@ -152,7 +183,14 @@
       <option name="presentableId" value="LOCAL−00007" />
       <updated>1698480577510</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL−00008" summary="Started to add multiplayer">
+      <option name="closed" value="true" />
+      <created>1698674238501</created>
+      <option name="number" value="LOCAL−00008" />
+      <option name="presentableId" value="LOCAL−00008" />
+      <updated>1698674238501</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,7 +205,8 @@
     <MESSAGE value="todo: thing" />
     <MESSAGE value="Refaktored gameOvermethod and redid the tests&#10;&#10;Removed resetboard from gameOver method and redid the tests after i now finished making the model separate from controller." />
     <MESSAGE value="added test for draw" />
-    <option name="LAST_COMMIT_MESSAGE" value="added test for draw" />
+    <MESSAGE value="Started to add multiplayer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started to add multiplayer" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Labb3_TicTacToe$TicTacToeModelTest.ic" NAME="TicTacToeModelTest Coverage Results" MODIFIED="1698325077440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

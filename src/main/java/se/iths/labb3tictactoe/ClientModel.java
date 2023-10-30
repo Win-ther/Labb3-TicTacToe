@@ -5,36 +5,32 @@ import javafx.scene.image.Image;
 
 import java.util.Arrays;
 import java.util.Objects;
-import java.util.Random;
 
-import static se.iths.labb3tictactoe.TicTacToeModel.multiPlayerStatus.*;
-import static se.iths.labb3tictactoe.TicTacToeModel.turnOrder.PLAYER_1;
-import static se.iths.labb3tictactoe.TicTacToeModel.turnOrder.PLAYER_2;
-
-public class TicTacToeModel {
+public class ClientModel {
     private StringProperty winnerText = new SimpleStringProperty();
-    private turnOrder turn = PLAYER_1;
+    private turnOrder turn = turnOrder.PLAYER_2;
     private int turnTotal;
     private boolean isGameOver;
-    private Player player1, player2;
+    private ClientPlayer player1, player2;
     public Image image1, image2;
     private ObjectProperty<Image> left, right, startImage;
-    private multiPlayerStatus currentStatus = VS_CPU;
-    Server server;
+    private Client client;
+
+    //Server server;
     private String[] board = {
             "", "", "",
             "", "", "",
             "", "", ""};
 
     //Todo: Move points, name and symbols to Player objects, clean up this garbage code
-    public TicTacToeModel() {
+    public ClientModel() {
         winnerText.setValue("TIC TAC TOE");
         turnTotal = 0;
         isGameOver = false;
 
         //Setting up players
-        player1 = new Player(new SimpleStringProperty("CPU"), new SimpleIntegerProperty(0), new SimpleStringProperty("X"));
-        player2 = new Player(new SimpleStringProperty("Player"), new SimpleIntegerProperty(0), new SimpleStringProperty("0"));
+        player1 = new ClientPlayer(new SimpleStringProperty("Player 1"), new SimpleIntegerProperty(0), new SimpleStringProperty("X"));
+        player2 = new ClientPlayer(new SimpleStringProperty("Player 2"), new SimpleIntegerProperty(0), new SimpleStringProperty("0"));
 
         //For gifs
         image1 = new Image(Objects.requireNonNull(getClass().getResource("images/skeleton-dancing.gif")).toExternalForm());
@@ -43,8 +39,10 @@ public class TicTacToeModel {
         right = new SimpleObjectProperty<>(image1);
         startImage = new SimpleObjectProperty<>(image2);
 
-        //Server
-        server = new Server();
+        //Client
+        client = new Client("127.0.0.1");
+        client.startRunning();
+        //server = new Server();
 
         //Todo: Flytta detta till egen metod för t.ex skickning av information när knapp klickas på.
 
@@ -56,7 +54,7 @@ public class TicTacToeModel {
      * <p>
      * The only difference is that the pictures does not get initialized in the testConstructor
      * **/
-    public TicTacToeModel(boolean forTest){
+    /*public ClientModel(boolean forTest){
         winnerText.setValue("TIC TAC TOE");
         turnTotal = 0;
         isGameOver = false;
@@ -64,18 +62,17 @@ public class TicTacToeModel {
         //Setting up players
         player1 = new Player(new SimpleStringProperty("CPU"), new SimpleIntegerProperty(0), new SimpleStringProperty("X"));
         player2 = new Player(new SimpleStringProperty("Player"), new SimpleIntegerProperty(0), new SimpleStringProperty("0"));
-    }
+    }*/
 
-    public void setSymbol(int index) {
-        if (turn == PLAYER_1) {
-            board[index] = player1.symbol().get();
-            turn = PLAYER_2;
-        } else {
-            board[index] = player2.symbol().get();
-            turn = PLAYER_1;
-        }
+    public void setSymbolPlayer2(int index) {
+        board[index] = player2.symbol().get();
+        turn = turnOrder.PLAYER_1;
         turnTotal++;
-        gameOver();
+    }
+    public void setSymbolPlayer1(int index){
+        board[index] = player1.symbol().get();
+        turn = turnOrder.PLAYER_2;
+        turnTotal++;
     }
 
     public turnOrder getTurn() {
@@ -110,13 +107,13 @@ public class TicTacToeModel {
             setGameOver(true);
         }
     }
-    private void winningPlayer(Player player) {
+    private void winningPlayer(ClientPlayer player) {
         setWinnerText(player.name().get() + " Won!");
         givePoints(player);
         setGameOver(true);
     }
 
-    public static String getTheWinningLine(String[] winningLines, Player player1, Player player2) {
+    public static String getTheWinningLine(String[] winningLines, ClientPlayer player1, ClientPlayer player2) {
         return Arrays.stream(winningLines).filter(w -> w.equals(getPlayerSymbolWinningLine(player1)) || w.equals(getPlayerSymbolWinningLine(player2))).findFirst().orElse("");
     }
 
@@ -133,15 +130,15 @@ public class TicTacToeModel {
         };
     }
 
-    public static boolean playerWins(String winningLine, Player player) {
+    public static boolean playerWins(String winningLine, ClientPlayer player) {
         return winningLine.equals(getPlayerSymbolWinningLine(player));
     }
 
-    private static String getPlayerSymbolWinningLine(Player player) {
+    private static String getPlayerSymbolWinningLine(ClientPlayer player) {
         return player.symbol().get() + player.symbol().get() + player.symbol().get();
     }
 
-    private void givePoints(Player player) {
+    private void givePoints(ClientPlayer player) {
         player.points().set(player.points().get() + 1);
     }
     public void reset() {
@@ -149,7 +146,7 @@ public class TicTacToeModel {
         this.turnTotal = 0;
         this.isGameOver = false;
         Arrays.fill(board, "");
-        turn = PLAYER_1;
+        turn = turnOrder.PLAYER_1;
     }
     public int getTurnTotal() {
         return turnTotal;
@@ -216,25 +213,16 @@ public class TicTacToeModel {
         player2.points().set(0);
     }
 
-    public multiPlayerStatus getCurrentStatus() {
-        return currentStatus;
+
+    public ClientPlayer getCurrentPlayer() {
+        return turn == turnOrder.PLAYER_1 ? player1 : player2;
     }
 
-    public Player getCurrentPlayer() {
-        return turn == PLAYER_1 ? player1 : player2;
-    }
 
-    public void setCurrentStatus(multiPlayerStatus currentStatus) {
-        this.currentStatus = currentStatus;
-        startOrCloseServer(currentStatus);
-    }
-
-    private void startOrCloseServer(multiPlayerStatus currentStatus) {
-        if (currentStatus == VS_LAN && !server.isUp())
-            Thread.ofPlatform().start(() -> server.startRunning());
-        else if (currentStatus != VS_LAN && server.isUp()) {
-            server.closeCrap();
-        }
+    public void player2LanTurn(int indexOfBoard) {
+        //Todo: Implement network gaming
+        int indexFromPlayer1 = client.whilePlaying(indexOfBoard);
+        setSymbolPlayer1(indexFromPlayer1);
     }
 
     public String getPlayer1Name() {
@@ -260,41 +248,21 @@ public class TicTacToeModel {
     public void setPlayer2Name(String name) {
         this.player2.name().set(name);
     }
-    public int cpuTurn() {
-        Random random = new Random();
-        int buttonNumber;
-        while (true) {
-            buttonNumber = random.nextInt(9);
-            if (usableButton(buttonNumber, board)) {
-                setSymbol(buttonNumber);
-                break;
-            }
-        }
-        return buttonNumber;
-    }
 
     public boolean usableButton(int index, String[] buttonText) {
         return buttonText[index].isEmpty();
     }
 
-    public Player getPlayer1() {
+    public ClientPlayer getPlayer1() {
         return player1;
     }
 
-    public Player getPlayer2() {
+    public ClientPlayer getPlayer2() {
         return player2;
-    }
-
-    public int player2LanTurn(int indexOfBoard) {
-        //Todo: Implement network gaming
-        return server.whilePlaying(indexOfBoard);
     }
 
     public String[] getBoard() {
         return board;
     }
-
-    public enum multiPlayerStatus {VS_CPU, VS_LOCAL, VS_LAN}
-
     public enum turnOrder {PLAYER_1, PLAYER_2}
 }

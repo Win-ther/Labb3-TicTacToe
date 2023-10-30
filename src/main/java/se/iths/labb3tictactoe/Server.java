@@ -81,7 +81,7 @@ public class Server {
         sendSymbolIndex(index);
 
         try {
-            index = (Integer) input.readObject();
+            index = (int) input.readObject();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("Something wrong with incoming index");
         }
