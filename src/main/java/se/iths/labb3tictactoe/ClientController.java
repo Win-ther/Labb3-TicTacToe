@@ -1,5 +1,6 @@
 package se.iths.labb3tictactoe;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -48,10 +49,12 @@ public class ClientController {
         player1ButtonGottaBeClicked(clickedButton);
     }
     private void player1ButtonGottaBeClicked(Button clickedButton) {
-        int indexFromPlayer1 = model.player1LanTurn(buttons.indexOf(clickedButton));
-        buttons.get(indexFromPlayer1).setText(model.getCurrentPlayer().symbol().get());
-        model.setSymbolPlayer1(indexFromPlayer1);
-        buttons.get(indexFromPlayer1).setDisable(true);
+        Thread.ofVirtual().start(() -> {
+            int indexFromPlayer1 = model.player1LanTurn(buttons.indexOf(clickedButton));
+            model.setSymbolPlayer1(indexFromPlayer1);
+            buttons.get(indexFromPlayer1).setDisable(true);
+            Platform.runLater(() -> buttons.get(indexFromPlayer1).setText(model.getPlayer1().symbol().get()));
+        });
     }
 
     private void disableButtonsIfGameOver() {

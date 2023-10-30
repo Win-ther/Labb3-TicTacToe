@@ -54,7 +54,6 @@ public class Client {
 
     public int whilePlaying(int indexOfBoard) {
         int index = indexOfBoard;
-        System.out.println("You are now connected");
         sendSymbolIndex(index);
         try {
             index = (int) input.readObject();

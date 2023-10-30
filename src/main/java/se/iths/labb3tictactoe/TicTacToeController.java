@@ -56,11 +56,13 @@ public class TicTacToeController {
     }
 
     private void player2ButtonGottaBeClicked(Button clickedButton) {
+        System.out.println(model.getTurnTotal());
+        System.out.println(model.getTurn());
         Thread.ofVirtual().start(() -> {
             int indexFromPlayer2 = model.player2LanTurn(buttons.indexOf(clickedButton));
             model.setSymbol(indexFromPlayer2);
             buttons.get(indexFromPlayer2).setDisable(true);
-            Platform.runLater(() -> buttons.get(indexFromPlayer2).setText(model.getCurrentPlayer().symbol().get()));
+            Platform.runLater(() -> buttons.get(indexFromPlayer2).setText(model.getPlayer2().symbol().get()));
         });
     }
 

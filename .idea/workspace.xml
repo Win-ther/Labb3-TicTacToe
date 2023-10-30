@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85819cc-3269-4ff4-baaf-4e7bc40c2b76" name="Changes" comment="Can connect and can technically play from the server">
+    <list default="true" id="c85819cc-3269-4ff4-baaf-4e7bc40c2b76" name="Changes" comment="Updates symbol live on server">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/ClientModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -133,7 +134,7 @@
       <workItem from="1698437865793" duration="4899000" />
       <workItem from="1698478762904" duration="1298000" />
       <workItem from="1698654602497" duration="10000" />
-      <workItem from="1698670551246" duration="12154000" />
+      <workItem from="1698670551246" duration="12876000" />
     </task>
     <task id="LOCAL−00002" summary="Refactored some methods, trying to fix so that I do not send any buttons into the Model">
       <option name="closed" value="true" />
@@ -191,7 +192,14 @@
       <option name="presentableId" value="LOCAL−00009" />
       <updated>1698683397522</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL−00010" summary="Updates symbol live on server">
+      <option name="closed" value="true" />
+      <created>1698693475770</created>
+      <option name="number" value="LOCAL−00010" />
+      <option name="presentableId" value="LOCAL−00010" />
+      <updated>1698693475770</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,7 +216,8 @@
     <MESSAGE value="added test for draw" />
     <MESSAGE value="Started to add multiplayer" />
     <MESSAGE value="Can connect and can technically play from the server" />
-    <option name="LAST_COMMIT_MESSAGE" value="Can connect and can technically play from the server" />
+    <MESSAGE value="Updates symbol live on server" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updates symbol live on server" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Labb3_TicTacToe$TicTacToeModelTest.ic" NAME="TicTacToeModelTest Coverage Results" MODIFIED="1698325077440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

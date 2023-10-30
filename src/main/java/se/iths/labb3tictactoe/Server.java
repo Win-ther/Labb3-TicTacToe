@@ -77,7 +77,6 @@ public class Server {
 
     public int whilePlaying(int indexOfBoard) {
         int index = indexOfBoard;
-        System.out.println("You are now connected");
         sendSymbolIndex(index);
 
         try {
