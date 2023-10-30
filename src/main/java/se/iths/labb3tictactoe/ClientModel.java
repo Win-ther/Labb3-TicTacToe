@@ -219,10 +219,9 @@ public class ClientModel {
     }
 
 
-    public void player2LanTurn(int indexOfBoard) {
+    public int player1LanTurn(int indexOfBoard) {
         //Todo: Implement network gaming
-        int indexFromPlayer1 = client.whilePlaying(indexOfBoard);
-        setSymbolPlayer1(indexFromPlayer1);
+        return client.whilePlaying(indexOfBoard);
     }
 
     public String getPlayer1Name() {

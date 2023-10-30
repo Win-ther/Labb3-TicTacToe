@@ -45,7 +45,13 @@ public class ClientController {
         model.gameOver();
         disableButtonsIfGameOver();
         //Todo: Fix play over lan
-        model.player2LanTurn(buttons.indexOf(clickedButton));
+        player1ButtonGottaBeClicked(clickedButton);
+    }
+    private void player1ButtonGottaBeClicked(Button clickedButton) {
+        int indexFromPlayer1 = model.player1LanTurn(buttons.indexOf(clickedButton));
+        buttons.get(indexFromPlayer1).setText(model.getCurrentPlayer().symbol().get());
+        model.setSymbolPlayer1(indexFromPlayer1);
+        buttons.get(indexFromPlayer1).setDisable(true);
     }
 
     private void disableButtonsIfGameOver() {

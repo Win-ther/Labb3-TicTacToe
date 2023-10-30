@@ -1,5 +1,6 @@
 package se.iths.labb3tictactoe;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -48,17 +49,19 @@ public class TicTacToeController {
         model.setSymbol(buttons.indexOf(clickedButton));
         disableButton(clickedButton);
         disableButtonsIfGameOver();
-        if (model.getCurrentStatus() == TicTacToeModel.multiPlayerStatus.VS_LAN)
+        if (model.getCurrentStatus() == TicTacToeModel.multiPlayerStatus.VS_LAN && model.getTurnTotal() < 9)
             player2ButtonGottaBeClicked(clickedButton);
         else
             checkIfVsCpu();
     }
 
     private void player2ButtonGottaBeClicked(Button clickedButton) {
-        int indexFromPlayer2 = model.player2LanTurn(buttons.indexOf(clickedButton));
-        buttons.get(indexFromPlayer2).setText(model.getCurrentPlayer().symbol().get());
-        model.setSymbol(indexFromPlayer2);
-        buttons.get(indexFromPlayer2).setDisable(true);
+        Thread.ofVirtual().start(() -> {
+            int indexFromPlayer2 = model.player2LanTurn(buttons.indexOf(clickedButton));
+            model.setSymbol(indexFromPlayer2);
+            buttons.get(indexFromPlayer2).setDisable(true);
+            Platform.runLater(() -> buttons.get(indexFromPlayer2).setText(model.getCurrentPlayer().symbol().get()));
+        });
     }
 
     private void disableButtonsIfGameOver() {
