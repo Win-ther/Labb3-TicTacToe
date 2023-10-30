@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85819cc-3269-4ff4-baaf-4e7bc40c2b76" name="Changes" comment="Updates symbol live on server">
+    <list default="true" id="c85819cc-3269-4ff4-baaf-4e7bc40c2b76" name="Changes" comment="Fixed so that game works fine on server&#10;&#10;Todo now is fix so that client updates before buttonClick">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/ClientModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/ClientPlayer.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,22 +37,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\emilw\IdeaProjects\Labb3-TicTacToe\src\main\resources\se\iths\labb3tictactoe" />
@@ -67,7 +67,7 @@
       <module name="Labb3-TicTacToe" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="se.iths.labb3tictactoe.*" />
+          <option name="PATTERN" value="se.iths.labb3tictactoe.ClientPlayer" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -80,7 +80,7 @@
       <module name="Labb3-TicTacToe" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="se.iths.labb3tictactoe.*" />
+          <option name="PATTERN" value="se.iths.labb3tictactoe.ClientPlayer" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -92,7 +92,7 @@
       <module name="Labb3-TicTacToe" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="se.iths.labb3tictactoe.*" />
+          <option name="PATTERN" value="se.iths.labb3tictactoe.ClientPlayer" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -134,7 +134,8 @@
       <workItem from="1698437865793" duration="4899000" />
       <workItem from="1698478762904" duration="1298000" />
       <workItem from="1698654602497" duration="10000" />
-      <workItem from="1698670551246" duration="12876000" />
+      <workItem from="1698670551246" duration="13072000" />
+      <workItem from="1698703236116" duration="882000" />
     </task>
     <task id="LOCAL−00002" summary="Refactored some methods, trying to fix so that I do not send any buttons into the Model">
       <option name="closed" value="true" />
@@ -199,7 +200,14 @@
       <option name="presentableId" value="LOCAL−00010" />
       <updated>1698693475770</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL−00011" summary="Fixed so that game works fine on server&#10;&#10;Todo now is fix so that client updates before buttonClick">
+      <option name="closed" value="true" />
+      <created>1698694093020</created>
+      <option name="number" value="LOCAL−00011" />
+      <option name="presentableId" value="LOCAL−00011" />
+      <updated>1698694093020</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,7 +225,8 @@
     <MESSAGE value="Started to add multiplayer" />
     <MESSAGE value="Can connect and can technically play from the server" />
     <MESSAGE value="Updates symbol live on server" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updates symbol live on server" />
+    <MESSAGE value="Fixed so that game works fine on server&#10;&#10;Todo now is fix so that client updates before buttonClick" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed so that game works fine on server&#10;&#10;Todo now is fix so that client updates before buttonClick" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Labb3_TicTacToe$TicTacToeModelTest.ic" NAME="TicTacToeModelTest Coverage Results" MODIFIED="1698325077440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

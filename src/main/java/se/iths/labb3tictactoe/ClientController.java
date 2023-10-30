@@ -53,7 +53,10 @@ public class ClientController {
             int indexFromPlayer1 = model.player1LanTurn(buttons.indexOf(clickedButton));
             model.setSymbolPlayer1(indexFromPlayer1);
             buttons.get(indexFromPlayer1).setDisable(true);
-            Platform.runLater(() -> buttons.get(indexFromPlayer1).setText(model.getPlayer1().symbol().get()));
+            Platform.runLater(() -> {
+                buttons.get(indexFromPlayer1).setText(model.getPlayer1().symbol().get());
+                model.gameOver();
+            });
         });
     }
 
@@ -74,6 +77,15 @@ public class ClientController {
     public void initialize() {
         buttons = Arrays.asList(button1, button2, button3, button4, button5, button6, button7, button8, button9);
         buttons.forEach(button -> button.setFocusTraversable(false));
+        Thread.ofVirtual().start(() -> {
+            int index = model.client.listenForPlayer1();
+            model.setSymbolPlayer1(index);
+            Platform.runLater(() -> {
+                buttons.get(index).setText("X");
+                buttons.get(index).setDisable(true);
+            });
+            model.gameOver();
+        });
     }
 
     public void startGame() {

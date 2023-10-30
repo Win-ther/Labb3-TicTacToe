@@ -63,6 +63,15 @@ public class Client {
 
         return index;
     }
+    public int listenForPlayer1(){
+        int index = -1;
+        try {
+            index = (int) input.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Something wrong with incoming index");
+        }
+        return index;
+    }
     private void sendSymbolIndex(int index) {
         try {
             output.writeObject(index);

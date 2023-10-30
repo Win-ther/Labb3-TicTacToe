@@ -11,12 +11,10 @@ public class ClientModel {
     private turnOrder turn = turnOrder.PLAYER_2;
     private int turnTotal;
     private boolean isGameOver;
-    private ClientPlayer player1, player2;
+    private Player player1, player2;
     public Image image1, image2;
     private ObjectProperty<Image> left, right, startImage;
-    private Client client;
-
-    //Server server;
+    public Client client;
     private String[] board = {
             "", "", "",
             "", "", "",
@@ -29,8 +27,8 @@ public class ClientModel {
         isGameOver = false;
 
         //Setting up players
-        player1 = new ClientPlayer(new SimpleStringProperty("Player 1"), new SimpleIntegerProperty(0), new SimpleStringProperty("X"));
-        player2 = new ClientPlayer(new SimpleStringProperty("Player 2"), new SimpleIntegerProperty(0), new SimpleStringProperty("0"));
+        player1 = new Player(new SimpleStringProperty("Player 1"), new SimpleIntegerProperty(0), new SimpleStringProperty("X"));
+        player2 = new Player(new SimpleStringProperty("Player 2"), new SimpleIntegerProperty(0), new SimpleStringProperty("0"));
 
         //For gifs
         image1 = new Image(Objects.requireNonNull(getClass().getResource("images/skeleton-dancing.gif")).toExternalForm());
@@ -42,27 +40,10 @@ public class ClientModel {
         //Client
         client = new Client("127.0.0.1");
         client.startRunning();
-        //server = new Server();
-
         //Todo: Flytta detta till egen metod för t.ex skickning av information när knapp klickas på.
 
         //Todo: Make Gameover static? Fix tests for game so that it uses gameOver-method
     }
-    /**
-     * Below constructor is for tests as you can se by the boolean parameter.
-     * That is because the pictures that are in the real constructor does not work with the tests.
-     * <p>
-     * The only difference is that the pictures does not get initialized in the testConstructor
-     * **/
-    /*public ClientModel(boolean forTest){
-        winnerText.setValue("TIC TAC TOE");
-        turnTotal = 0;
-        isGameOver = false;
-
-        //Setting up players
-        player1 = new Player(new SimpleStringProperty("CPU"), new SimpleIntegerProperty(0), new SimpleStringProperty("X"));
-        player2 = new Player(new SimpleStringProperty("Player"), new SimpleIntegerProperty(0), new SimpleStringProperty("0"));
-    }*/
 
     public void setSymbolPlayer2(int index) {
         board[index] = player2.symbol().get();
@@ -107,13 +88,13 @@ public class ClientModel {
             setGameOver(true);
         }
     }
-    private void winningPlayer(ClientPlayer player) {
+    private void winningPlayer(Player player) {
         setWinnerText(player.name().get() + " Won!");
         givePoints(player);
         setGameOver(true);
     }
 
-    public static String getTheWinningLine(String[] winningLines, ClientPlayer player1, ClientPlayer player2) {
+    public static String getTheWinningLine(String[] winningLines, Player player1, Player player2) {
         return Arrays.stream(winningLines).filter(w -> w.equals(getPlayerSymbolWinningLine(player1)) || w.equals(getPlayerSymbolWinningLine(player2))).findFirst().orElse("");
     }
 
@@ -130,15 +111,15 @@ public class ClientModel {
         };
     }
 
-    public static boolean playerWins(String winningLine, ClientPlayer player) {
+    public static boolean playerWins(String winningLine, Player player) {
         return winningLine.equals(getPlayerSymbolWinningLine(player));
     }
 
-    private static String getPlayerSymbolWinningLine(ClientPlayer player) {
+    private static String getPlayerSymbolWinningLine(Player player) {
         return player.symbol().get() + player.symbol().get() + player.symbol().get();
     }
 
-    private void givePoints(ClientPlayer player) {
+    private void givePoints(Player player) {
         player.points().set(player.points().get() + 1);
     }
     public void reset() {
@@ -214,7 +195,7 @@ public class ClientModel {
     }
 
 
-    public ClientPlayer getCurrentPlayer() {
+    public Player getCurrentPlayer() {
         return turn == turnOrder.PLAYER_1 ? player1 : player2;
     }
 
@@ -252,11 +233,11 @@ public class ClientModel {
         return buttonText[index].isEmpty();
     }
 
-    public ClientPlayer getPlayer1() {
+    public Player getPlayer1() {
         return player1;
     }
 
-    public ClientPlayer getPlayer2() {
+    public Player getPlayer2() {
         return player2;
     }
 
