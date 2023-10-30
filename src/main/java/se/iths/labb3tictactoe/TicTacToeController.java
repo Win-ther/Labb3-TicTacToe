@@ -10,6 +10,7 @@ import javafx.scene.text.Text;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class TicTacToeController {
     //ToDO: Grid ~Done~, logic for clicking squares ~Done~, turnorder logic~Done~, GameOver Logic~Done~, AI Logic ~Done~.
@@ -29,7 +30,7 @@ public class TicTacToeController {
     @FXML
     public void restartButtonClick() {
         restart();
-        findCurrentMode();
+        checkIfVsCpu();
     }
     private void restart(){
         model.reset();
@@ -46,9 +47,11 @@ public class TicTacToeController {
 
         model.setSymbol(buttons.indexOf(clickedButton));
         disableButton(clickedButton);
-        model.gameOver();
         disableButtonsIfGameOver();
-        findCurrentMode();
+        if (model.getCurrentStatus() == TicTacToeModel.multiPlayerStatus.VS_LAN)
+            model.player2LanTurn(buttons.indexOf(clickedButton));
+        else
+            checkIfVsCpu();
     }
 
     private void disableButtonsIfGameOver() {
@@ -64,11 +67,10 @@ public class TicTacToeController {
     private void disableButton(Button button){
         button.setDisable(true);
     }
-    private void findCurrentMode() {
+    private void checkIfVsCpu() {
         if (!model.getIsGameOver()) {
-            switch (model.getCurrentStatus()) {
-                case VS_CPU -> cpuTurn();
-                case VS_LAN -> model.player2LanTurn();
+            if (model.getCurrentStatus() == TicTacToeModel.multiPlayerStatus.VS_CPU) {
+                cpuTurn();
             }
         }
     }
@@ -87,7 +89,7 @@ public class TicTacToeController {
 
     public void startGame() {
         setPlayAreaVisible();
-        findCurrentMode();
+        checkIfVsCpu();
     }
 
     private void setPlayAreaVisible() {

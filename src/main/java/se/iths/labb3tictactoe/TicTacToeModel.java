@@ -20,6 +20,7 @@ public class TicTacToeModel {
     public Image image1, image2;
     private ObjectProperty<Image> left, right, startImage;
     private multiPlayerStatus currentStatus = VS_CPU;
+    Server server;
     private String[] board = {
             "", "", "",
             "", "", "",
@@ -43,7 +44,7 @@ public class TicTacToeModel {
         startImage = new SimpleObjectProperty<>(image2);
 
         //Server
-
+        server = new Server();
 
         //Todo: Flytta detta till egen metod för t.ex skickning av information när knapp klickas på.
 
@@ -74,6 +75,7 @@ public class TicTacToeModel {
             turn = PLAYER_1;
         }
         turnTotal++;
+        gameOver();
     }
 
     public turnOrder getTurn() {
@@ -224,6 +226,15 @@ public class TicTacToeModel {
 
     public void setCurrentStatus(multiPlayerStatus currentStatus) {
         this.currentStatus = currentStatus;
+        startOrCloseServer(currentStatus);
+    }
+
+    private void startOrCloseServer(multiPlayerStatus currentStatus) {
+        if (currentStatus == VS_LAN && !server.isUp())
+            Thread.ofPlatform().start(() -> server.startRunning());
+        else if (currentStatus != VS_LAN && server.isUp()) {
+            server.closeCrap();
+        }
     }
 
     public String getPlayer1Name() {
@@ -256,7 +267,6 @@ public class TicTacToeModel {
             buttonNumber = random.nextInt(9);
             if (usableButton(buttonNumber, board)) {
                 setSymbol(buttonNumber);
-                gameOver();
                 break;
             }
         }
@@ -275,8 +285,10 @@ public class TicTacToeModel {
         return player2;
     }
 
-    public void player2LanTurn() {
+    public void player2LanTurn(int indexOfBoard) {
         //Todo: Implement network gaming
+        int indexFromPlayer2 = server.whilePlaying(indexOfBoard);
+        setSymbol(indexFromPlayer2);
     }
 
     public String[] getBoard() {

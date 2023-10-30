@@ -4,14 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85819cc-3269-4ff4-baaf-4e7bc40c2b76" name="Changes" comment="Refaktored gameOvermethod and redid the tests&#10;&#10;Removed resetboard from gameOver method and redid the tests after i now finished making the model separate from controller.">
+    <list default="true" id="c85819cc-3269-4ff4-baaf-4e7bc40c2b76" name="Changes" comment="added test for draw">
+      <change afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -40,7 +49,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.TicTacToeModelTest">
+  <component name="RunManager" selected="Application.TicTacToeApplication">
     <configuration name="TicTacToeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="se.iths.labb3tictactoe.TicTacToeApplication" />
       <module name="Labb3-TicTacToe" />
@@ -71,8 +80,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TicTacToeModelTest" />
         <item itemvalue="Application.TicTacToeApplication" />
+        <item itemvalue="JUnit.TicTacToeModelTest" />
       </list>
     </recent_temporary>
   </component>
@@ -97,7 +106,9 @@
       <workItem from="1698397589358" duration="57000" />
       <workItem from="1698408507246" duration="10896000" />
       <workItem from="1698437865793" duration="4899000" />
-      <workItem from="1698478762904" duration="916000" />
+      <workItem from="1698478762904" duration="1298000" />
+      <workItem from="1698654602497" duration="10000" />
+      <workItem from="1698670551246" duration="3426000" />
     </task>
     <task id="LOCAL−00002" summary="Refactored some methods, trying to fix so that I do not send any buttons into the Model">
       <option name="closed" value="true" />
@@ -134,7 +145,14 @@
       <option name="presentableId" value="LOCAL−00006" />
       <updated>1698443190726</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL−00007" summary="added test for draw">
+      <option name="closed" value="true" />
+      <created>1698480577509</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1698480577510</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,7 +166,8 @@
     <MESSAGE value="Moved methods so that no buttons enter the model, and deleted old methods. Rollback if does not work" />
     <MESSAGE value="todo: thing" />
     <MESSAGE value="Refaktored gameOvermethod and redid the tests&#10;&#10;Removed resetboard from gameOver method and redid the tests after i now finished making the model separate from controller." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refaktored gameOvermethod and redid the tests&#10;&#10;Removed resetboard from gameOver method and redid the tests after i now finished making the model separate from controller." />
+    <MESSAGE value="added test for draw" />
+    <option name="LAST_COMMIT_MESSAGE" value="added test for draw" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Labb3_TicTacToe$TicTacToeModelTest.ic" NAME="TicTacToeModelTest Coverage Results" MODIFIED="1698325077440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
