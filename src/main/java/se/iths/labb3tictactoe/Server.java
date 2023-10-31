@@ -34,7 +34,7 @@ public class Server {
     public void startRunning(){
         isUp = true;
         try {
-            while(true){
+            while(isUp){
                 try {
                     waitForConnection();
                     setupStreams();
@@ -75,7 +75,7 @@ public class Server {
         }
     }
 
-    public int whilePlaying(int indexOfBoard) {
+    /*public int sendAndRecieveSymbol(int indexOfBoard) {
         int index = indexOfBoard;
         sendSymbolIndex(index);
 
@@ -86,17 +86,17 @@ public class Server {
         }
 
         return index;
-    }
+    }*/
     public void sendGameOver(boolean gameOver){
         try {
             output.writeObject(gameOver);
             output.flush();
         } catch (IOException e) {
-            System.out.println("Could not send index");
+            System.out.println("Could not send gameOver");
         }
     }
 
-    private void sendSymbolIndex(int index) {
+    public void sendSymbolIndex(int index) {
         try {
             output.writeObject(index);
             output.flush();

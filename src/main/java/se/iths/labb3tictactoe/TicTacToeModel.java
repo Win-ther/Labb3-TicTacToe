@@ -108,12 +108,16 @@ public class TicTacToeModel {
         } else if (turnTotal > 8) {
             setWinnerText("Draw");
             setGameOver(true);
+            if (currentStatus == VS_LAN)
+                sendGameOverToClient();
         }
     }
     private void winningPlayer(Player player) {
         setWinnerText(player.name().get() + " Won!");
         givePoints(player);
         setGameOver(true);
+        if (currentStatus == VS_LAN)
+            sendGameOverToClient();
     }
 
     public static String getTheWinningLine(String[] winningLines, Player player1, Player player2) {
@@ -144,17 +148,19 @@ public class TicTacToeModel {
     private void givePoints(Player player) {
         player.points().set(player.points().get() + 1);
     }
+
     public void reset() {
         this.winnerText.set("TIC TAC TOE");
         this.turnTotal = 0;
         this.isGameOver = false;
         Arrays.fill(board, "");
         playerTurn = PLAYER_1;
+        if (currentStatus == VS_LAN)
+            sendGameOverToClient();
     }
     public int getTurnTotal() {
         return turnTotal;
     }
-
     public boolean getIsGameOver() {
         return isGameOver;
     }
@@ -231,7 +237,7 @@ public class TicTacToeModel {
 
     private void startOrCloseServer(multiPlayerStatus currentStatus) {
         if (currentStatus == VS_LAN && !server.isUp())
-            Thread.ofPlatform().start(() -> server.startRunning());
+            Thread.ofVirtual().start(() -> server.startRunning());
         else if (currentStatus != VS_LAN && server.isUp()) {
             server.closeCrap();
         }
@@ -260,6 +266,7 @@ public class TicTacToeModel {
     public void setPlayer2Name(String name) {
         this.player2.name().set(name);
     }
+
     public int cpuTurn() {
         Random random = new Random();
         int buttonNumber;
@@ -272,7 +279,6 @@ public class TicTacToeModel {
         }
         return buttonNumber;
     }
-
     public boolean usableButton(int index, String[] buttonText) {
         return buttonText[index].isEmpty();
     }
@@ -289,7 +295,17 @@ public class TicTacToeModel {
         return board;
     }
 
-    public enum multiPlayerStatus {VS_CPU, VS_LOCAL, VS_LAN}
+    public void sendIndexClickedToClient(int index) {
+        Thread.ofVirtual().start(() -> server.sendSymbolIndex(index));
+    }
 
-    public enum turnOrder {PLAYER_1, PLAYER_2}
+    private void sendGameOverToClient() {
+        Thread.ofVirtual().start(() -> server.sendGameOver(isGameOver));
+    }
+
+
+
+    public enum multiPlayerStatus {VS_CPU, VS_LOCAL, VS_LAN;}
+
+    public enum turnOrder {PLAYER_1, PLAYER_2;}
 }

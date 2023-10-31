@@ -1,13 +1,14 @@
 Todo:
-Ta bort allt med nätverksprogrammeringen från server och client. FÖRUTOM client och modell-klasserna. ~Done~
+1. Ta bort allt med nätverksprogrammeringen från server och client. FÖRUTOM client och modell-klasserna. ~Done~
 
-Uppdatera endast spelet i Servern.
-Skicka informationen till Clienten.
+2.Uppdatera endast spelet i Servern. ~Done~ All spellogik ligger i Serverdelen.
+3. Skicka informationen till Clienten.~Done~
 Informationen som behöver skickas är:
-Index för vilken knapp klickades på, så att Clienten kan disabla knappen och sätta symbol på den.
-Om spelet är slut, alltså en GameOver boolean.
+5. Index för vilken knapp klickades på, så att Clienten kan disabla knappen och sätta symbol på den. ~Done~
+6. Om spelet är slut, alltså en GameOver boolean. ~Done~
 
-Så när spelet är slut på servern så skickas en boolean som sätter spelet till slut på klienten.
+Ta emot informationen i Client.
 
+8. Kunna ta emot informationen från Clienten vilket är index från knapptrycket.
 
-På Clienten kan vinnaren sättas baserat på TurnTotal variabeln. Är den jämn så vann spelare 1, är den ojämn så vann spelare 2.
+9. På Clienten kan vinnaren sättas baserat på TurnTotal variabeln. Är den jämn så vann spelare 1, är den ojämn så vann spelare 2.

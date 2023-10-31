@@ -45,11 +45,14 @@ public class TicTacToeController {
     public void onButtonClick(ActionEvent event) {
         Button clickedButton = (Button) event.getSource();
         clickedButton.setText(model.getCurrentPlayer().symbol().get());
-
-        model.setSymbol(buttons.indexOf(clickedButton));
+        int index = buttons.indexOf(clickedButton);
+        model.setSymbol(index);
         disableButton(clickedButton);
         disableButtonsIfGameOver();
         checkIfVsCpu();
+        if (model.getCurrentStatus() == TicTacToeModel.multiPlayerStatus.VS_LAN){
+            model.sendIndexClickedToClient(index);
+        }
     }
 
     private void disableButtonsIfGameOver() {
@@ -116,6 +119,7 @@ public class TicTacToeController {
 
     public void exit() {
         TicTacToeApplication.exitWindow();
+        model.server.closeCrap();
     }
 
     public void setVsLAN() {
