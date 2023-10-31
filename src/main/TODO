@@ -7,8 +7,11 @@ Informationen som behöver skickas är:
 5. Index för vilken knapp klickades på, så att Clienten kan disabla knappen och sätta symbol på den. ~Done~
 6. Om spelet är slut, alltså en GameOver boolean. ~Done~
 
-Ta emot informationen i Client.
+7. Ta emot informationen i Client. ~Pågående~
+8. Skicka information från Client till Server, bör bara vara knapptryck.
+9. Ta emot informationen i Server.
+10. Uppdatera informationen i Server.
+11. Uppdatera informationen i Client.
 
-8. Kunna ta emot informationen från Clienten vilket är index från knapptrycket.
 
-9. På Clienten kan vinnaren sättas baserat på TurnTotal variabeln. Är den jämn så vann spelare 1, är den ojämn så vann spelare 2.
+TANKE. På Clienten kan vinnaren sättas baserat på TurnTotal variabeln. Är den jämn så vann spelare 1, är den ojämn så vann spelare 2.
