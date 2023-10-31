@@ -52,7 +52,7 @@ public class Client {
         }
     }
 
-    public int whilePlaying(int indexOfBoard) {
+    public void sendPlayer2Move(int indexOfBoard) {
         int index = indexOfBoard;
         sendSymbolIndex(index);
         try {
@@ -61,7 +61,6 @@ public class Client {
             System.out.println("Something wrong with incoming index");
         }
 
-        return index;
     }
     public int listenForPlayer1(){
         int index = -1;
@@ -71,6 +70,15 @@ public class Client {
             System.out.println("Something wrong with incoming index");
         }
         return index;
+    }
+    public boolean listenForGameOver(){
+        boolean gameOver = false;
+        try {
+            gameOver = (boolean) input.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Something wrong with incoming index");
+        }
+        return gameOver;
     }
     private void sendSymbolIndex(int index) {
         try {

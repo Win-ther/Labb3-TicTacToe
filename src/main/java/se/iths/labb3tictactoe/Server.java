@@ -87,6 +87,14 @@ public class Server {
 
         return index;
     }
+    public void sendGameOver(boolean gameOver){
+        try {
+            output.writeObject(gameOver);
+            output.flush();
+        } catch (IOException e) {
+            System.out.println("Could not send index");
+        }
+    }
 
     private void sendSymbolIndex(int index) {
         try {

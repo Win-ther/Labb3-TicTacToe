@@ -13,14 +13,14 @@ import static se.iths.labb3tictactoe.TicTacToeModel.turnOrder.PLAYER_2;
 
 public class TicTacToeModel {
     private StringProperty winnerText = new SimpleStringProperty();
-    private turnOrder turn = PLAYER_1;
+    private turnOrder playerTurn = PLAYER_1;
     private int turnTotal;
     private boolean isGameOver;
     private Player player1, player2;
     public Image image1, image2;
     private ObjectProperty<Image> left, right, startImage;
     private multiPlayerStatus currentStatus = VS_CPU;
-    Server server;
+    public Server server;
     private String[] board = {
             "", "", "",
             "", "", "",
@@ -67,23 +67,23 @@ public class TicTacToeModel {
     }
 
     public void setSymbol(int index) {
-        if (turn == PLAYER_1) {
+        if (playerTurn == PLAYER_1) {
             board[index] = player1.symbol().get();
-            turn = PLAYER_2;
+            playerTurn = PLAYER_2;
         } else {
             board[index] = player2.symbol().get();
-            turn = PLAYER_1;
+            playerTurn = PLAYER_1;
         }
         turnTotal++;
         gameOver();
     }
 
-    public turnOrder getTurn() {
-        return turn;
+    public turnOrder getPlayerTurn() {
+        return playerTurn;
     }
 
-    public void setTurn(turnOrder turn) {
-        this.turn = turn;
+    public void setPlayerTurn(turnOrder playerTurn) {
+        this.playerTurn = playerTurn;
     }
 
     public String getWinnerText() {
@@ -149,7 +149,7 @@ public class TicTacToeModel {
         this.turnTotal = 0;
         this.isGameOver = false;
         Arrays.fill(board, "");
-        turn = PLAYER_1;
+        playerTurn = PLAYER_1;
     }
     public int getTurnTotal() {
         return turnTotal;
@@ -221,7 +221,7 @@ public class TicTacToeModel {
     }
 
     public Player getCurrentPlayer() {
-        return turn == PLAYER_1 ? player1 : player2;
+        return playerTurn == PLAYER_1 ? player1 : player2;
     }
 
     public void setCurrentStatus(multiPlayerStatus currentStatus) {
@@ -283,11 +283,6 @@ public class TicTacToeModel {
 
     public Player getPlayer2() {
         return player2;
-    }
-
-    public int player2LanTurn(int indexOfBoard) {
-        //Todo: Implement network gaming
-        return server.whilePlaying(indexOfBoard);
     }
 
     public String[] getBoard() {

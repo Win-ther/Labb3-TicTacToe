@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85819cc-3269-4ff4-baaf-4e7bc40c2b76" name="Changes" comment="Fixed so that game works fine on server&#10;&#10;Todo now is fix so that client updates before buttonClick">
+    <list default="true" id="c85819cc-3269-4ff4-baaf-4e7bc40c2b76" name="Changes" comment="Client now updates when server is clicked.&#10;&#10;After restart it does not work and client get incorrect symbols">
+      <change afterPath="$PROJECT_DIR$/src/main/TODO" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/ClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/ClientModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/ClientPlayer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +138,10 @@
       <workItem from="1698478762904" duration="1298000" />
       <workItem from="1698654602497" duration="10000" />
       <workItem from="1698670551246" duration="13072000" />
-      <workItem from="1698703236116" duration="882000" />
+      <workItem from="1698703236116" duration="1202000" />
+      <workItem from="1698739444197" duration="5019000" />
+      <workItem from="1698765910560" duration="1021000" />
+      <workItem from="1698775322415" duration="827000" />
     </task>
     <task id="LOCAL−00002" summary="Refactored some methods, trying to fix so that I do not send any buttons into the Model">
       <option name="closed" value="true" />
@@ -207,7 +213,14 @@
       <option name="presentableId" value="LOCAL−00011" />
       <updated>1698694093020</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL−00012" summary="Client now updates when server is clicked.&#10;&#10;After restart it does not work and client get incorrect symbols">
+      <option name="closed" value="true" />
+      <created>1698704429801</created>
+      <option name="number" value="LOCAL−00012" />
+      <option name="presentableId" value="LOCAL−00012" />
+      <updated>1698704429801</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,7 +239,8 @@
     <MESSAGE value="Can connect and can technically play from the server" />
     <MESSAGE value="Updates symbol live on server" />
     <MESSAGE value="Fixed so that game works fine on server&#10;&#10;Todo now is fix so that client updates before buttonClick" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed so that game works fine on server&#10;&#10;Todo now is fix so that client updates before buttonClick" />
+    <MESSAGE value="Client now updates when server is clicked.&#10;&#10;After restart it does not work and client get incorrect symbols" />
+    <option name="LAST_COMMIT_MESSAGE" value="Client now updates when server is clicked.&#10;&#10;After restart it does not work and client get incorrect symbols" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Labb3_TicTacToe$TicTacToeModelTest.ic" NAME="TicTacToeModelTest Coverage Results" MODIFIED="1698325077440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

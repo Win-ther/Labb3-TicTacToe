@@ -15,10 +15,7 @@ public class ClientModel {
     public Image image1, image2;
     private ObjectProperty<Image> left, right, startImage;
     public Client client;
-    private String[] board = {
-            "", "", "",
-            "", "", "",
-            "", "", ""};
+
 
     //Todo: Move points, name and symbols to Player objects, clean up this garbage code
     public ClientModel() {
@@ -45,16 +42,6 @@ public class ClientModel {
         //Todo: Make Gameover static? Fix tests for game so that it uses gameOver-method
     }
 
-    public void setSymbolPlayer2(int index) {
-        board[index] = player2.symbol().get();
-        turn = turnOrder.PLAYER_1;
-        turnTotal++;
-    }
-    public void setSymbolPlayer1(int index){
-        board[index] = player1.symbol().get();
-        turn = turnOrder.PLAYER_2;
-        turnTotal++;
-    }
 
     public turnOrder getTurn() {
         return turn;
@@ -75,41 +62,6 @@ public class ClientModel {
     public void setWinnerText(String winnerText) {
         this.winnerText.set(winnerText);
     }
-    public void gameOver() {
-        String[] winningLines = getWinningLines(board);
-        String winningLine = getTheWinningLine(winningLines, player1, player2);
-
-        if (playerWins(winningLine, player1)) {
-            winningPlayer(player1);
-        } else if (playerWins(winningLine, player2)) {
-            winningPlayer(player2);
-        } else if (turnTotal > 8) {
-            setWinnerText("Draw");
-            setGameOver(true);
-        }
-    }
-    private void winningPlayer(Player player) {
-        setWinnerText(player.name().get() + " Won!");
-        givePoints(player);
-        setGameOver(true);
-    }
-
-    public static String getTheWinningLine(String[] winningLines, Player player1, Player player2) {
-        return Arrays.stream(winningLines).filter(w -> w.equals(getPlayerSymbolWinningLine(player1)) || w.equals(getPlayerSymbolWinningLine(player2))).findFirst().orElse("");
-    }
-
-    public static String[] getWinningLines(String[] board) {
-        return new String[]{
-                board[0] + board[1] + board[2],
-                board[3] + board[4] + board[5],
-                board[6] + board[7] + board[8],
-                board[0] + board[3] + board[6],
-                board[1] + board[4] + board[7],
-                board[2] + board[5] + board[8],
-                board[0] + board[4] + board[8],
-                board[2] + board[4] + board[6]
-        };
-    }
 
     public static boolean playerWins(String winningLine, Player player) {
         return winningLine.equals(getPlayerSymbolWinningLine(player));
@@ -119,18 +71,20 @@ public class ClientModel {
         return player.symbol().get() + player.symbol().get() + player.symbol().get();
     }
 
-    private void givePoints(Player player) {
+    public void givePoints(Player player) {
         player.points().set(player.points().get() + 1);
     }
     public void reset() {
         this.winnerText.set("TIC TAC TOE");
         this.turnTotal = 0;
         this.isGameOver = false;
-        Arrays.fill(board, "");
         turn = turnOrder.PLAYER_1;
     }
     public int getTurnTotal() {
         return turnTotal;
+    }
+    public void nextTurn(){
+        turnTotal++;
     }
 
     public boolean getIsGameOver() {
@@ -188,21 +142,8 @@ public class ClientModel {
     public ObjectProperty<Image> startImageProperty() {
         return startImage;
     }
-
-    public void resetPoints() {
-        player1.points().set(0);
-        player2.points().set(0);
-    }
-
-
     public Player getCurrentPlayer() {
         return turn == turnOrder.PLAYER_1 ? player1 : player2;
-    }
-
-
-    public int player1LanTurn(int indexOfBoard) {
-        //Todo: Implement network gaming
-        return client.whilePlaying(indexOfBoard);
     }
 
     public String getPlayer1Name() {
@@ -241,8 +182,5 @@ public class ClientModel {
         return player2;
     }
 
-    public String[] getBoard() {
-        return board;
-    }
     public enum turnOrder {PLAYER_1, PLAYER_2}
 }

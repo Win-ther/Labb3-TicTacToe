@@ -49,23 +49,7 @@ public class TicTacToeController {
         model.setSymbol(buttons.indexOf(clickedButton));
         disableButton(clickedButton);
         disableButtonsIfGameOver();
-        if (model.getCurrentStatus() == TicTacToeModel.multiPlayerStatus.VS_LAN && model.getTurnTotal() < 9)
-            player2ButtonGottaBeClicked(clickedButton);
-        else
-            checkIfVsCpu();
-    }
-
-    private void player2ButtonGottaBeClicked(Button clickedButton) {
-        System.out.println(model.getTurnTotal());
-        System.out.println(model.getTurn());
-        Thread.ofVirtual().start(() -> {
-            int indexFromPlayer2 = model.player2LanTurn(buttons.indexOf(clickedButton));
-            Platform.runLater(() -> {
-                model.setSymbol(indexFromPlayer2);
-                buttons.get(indexFromPlayer2).setDisable(true);
-                buttons.get(indexFromPlayer2).setText(model.getPlayer2().symbol().get());
-            });
-        });
+        checkIfVsCpu();
     }
 
     private void disableButtonsIfGameOver() {
