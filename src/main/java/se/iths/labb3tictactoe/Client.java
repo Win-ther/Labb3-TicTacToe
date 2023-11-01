@@ -30,7 +30,7 @@ public class Client {
 
     private void connectToServer() throws IOException {
         System.out.println("Waiting to connect");
-        connection = new Socket(InetAddress.getLocalHost(),6789);
+        connection = new Socket(serverIP,6789);
         System.out.println("Connected to " + connection.getInetAddress().getHostName());
     }
 

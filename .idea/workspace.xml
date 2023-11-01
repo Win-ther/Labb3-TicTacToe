@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85819cc-3269-4ff4-baaf-4e7bc40c2b76" name="Changes" comment="Add send buttonIndex and GameOverstatus from SErver">
+    <list default="true" id="c85819cc-3269-4ff4-baaf-4e7bc40c2b76" name="Changes" comment="Edit TODO: for more clarity">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/TODO" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/TODO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/ClientModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +61,7 @@
       <recent name="se.iths.labb3tictactoe" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TicTacToeApplication">
+  <component name="RunManager" selected="Application.ClientApplication">
     <configuration name="ClientApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="se.iths.labb3tictactoe.ClientApplication" />
       <module name="Labb3-TicTacToe" />
@@ -101,8 +105,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TicTacToeApplication" />
         <item itemvalue="Application.ClientApplication" />
+        <item itemvalue="Application.TicTacToeApplication" />
         <item itemvalue="JUnit.TicTacToeModelTest" />
       </list>
     </recent_temporary>
@@ -134,7 +138,8 @@
       <workItem from="1698703236116" duration="1202000" />
       <workItem from="1698739444197" duration="5019000" />
       <workItem from="1698765910560" duration="1021000" />
-      <workItem from="1698775322415" duration="2950000" />
+      <workItem from="1698775322415" duration="3167000" />
+      <workItem from="1698825637779" duration="1634000" />
     </task>
     <task id="LOCAL−00002" summary="Refactored some methods, trying to fix so that I do not send any buttons into the Model">
       <option name="closed" value="true" />
@@ -227,7 +232,14 @@
       <option name="presentableId" value="LOCAL−00014" />
       <updated>1698778081717</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL−00015" summary="Edit TODO: for more clarity">
+      <option name="closed" value="true" />
+      <created>1698778291315</created>
+      <option name="number" value="LOCAL−00015" />
+      <option name="presentableId" value="LOCAL−00015" />
+      <updated>1698778291315</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,7 +261,8 @@
     <MESSAGE value="Client now updates when server is clicked.&#10;&#10;After restart it does not work and client get incorrect symbols" />
     <MESSAGE value="Deleted everything with network except server and client&#10;&#10;This because it was not as it was supposed to be, need to fix this enligt TODO-file" />
     <MESSAGE value="Add send buttonIndex and GameOverstatus from SErver" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add send buttonIndex and GameOverstatus from SErver" />
+    <MESSAGE value="Edit TODO: for more clarity" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit TODO: for more clarity" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Labb3_TicTacToe$TicTacToeModelTest.ic" NAME="TicTacToeModelTest Coverage Results" MODIFIED="1698325077440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

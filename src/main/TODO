@@ -15,3 +15,4 @@ Informationen som behöver skickas är:
 
 
 TANKE. På Clienten kan vinnaren sättas baserat på TurnTotal variabeln. Är den jämn så vann spelare 1, är den ojämn så vann spelare 2.
+Klick på servern och klienten när det inte är dens tur så kan man göra en check med if-else och ignorera klicket egentligen, inte sätta disable och inte sätta symbol!

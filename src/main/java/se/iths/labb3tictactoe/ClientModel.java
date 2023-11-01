@@ -35,7 +35,7 @@ public class ClientModel {
         startImage = new SimpleObjectProperty<>(image2);
 
         //Client
-        client = new Client("127.0.0.1");
+        client = new Client("192.168.0.100");
         client.startRunning();
         //Todo: Flytta detta till egen metod för t.ex skickning av information när knapp klickas på.
 

@@ -26,7 +26,7 @@ public class Server {
 
     public Server() {
         try {
-            server = new ServerSocket(6789, 10);
+            server = new ServerSocket(6789);
         } catch (IOException e) {
             System.out.println("Server down bro");
         }
