@@ -34,42 +34,45 @@ public class TicTacToeController {
         checkIfVsCpu();
     }
 
-    private void restart(){
+    private void restart() {
         model.reset();
         buttons.forEach(this::resetButton);
     }
+
     private void resetButton(Button button) {
         button.setText("");
         button.setDisable(false);
     }
+
     public void onButtonClick(ActionEvent event) {
         Button clickedButton = (Button) event.getSource();
         clickedButton.setText(model.getCurrentPlayer().symbol().get());
         int index = buttons.indexOf(clickedButton);
-        //model.setSymbol(index);
         disableButton(clickedButton);
         disableButtonsIfGameOver();
         checkIfVsCpu();
         checkIfVsLan(index);
         model.setSymbol(index);
+        buttons.forEach(b -> b.setDisable(true));
     }
 
     public static void player2ClickedSetSymbol(int index) {
-        buttons.get(index).setText("O");
+        buttons.get(index).setText("0");
         buttons.get(index).setDisable(true);
         model.setSymbol(index);
-        buttons.stream().filter(b -> b.getText().isEmpty()).forEach(b -> b.setDisable(false));
+        if (!model.getIsGameOver())
+            buttons.stream().filter(b -> b.getText().isEmpty()).forEach(b -> b.setDisable(false));
     }
 
     private void checkIfVsLan(int index) {
-        if (model.getCurrentStatus() == TicTacToeModel.multiPlayerStatus.VS_LAN){
+        if (model.getCurrentStatus() == TicTacToeModel.multiPlayerStatus.VS_LAN) {
             model.sendIndexClickedToClient(index);
         }
     }
 
 
     private void disableButtonsIfGameOver() {
-        if(model.getIsGameOver())
+        if (model.getIsGameOver())
             disableButtons();
     }
 
@@ -78,9 +81,10 @@ public class TicTacToeController {
         model.setGameOver(true);
     }
 
-    private void disableButton(Button button){
+    private void disableButton(Button button) {
         button.setDisable(true);
     }
+
     private void checkIfVsCpu() {
         if (!model.getIsGameOver()) {
             if (model.getCurrentStatus() == TicTacToeModel.multiPlayerStatus.VS_CPU) {
@@ -132,7 +136,6 @@ public class TicTacToeController {
 
     public void exit() {
         TicTacToeApplication.exitWindow();
-        model.server.closeCrap();
     }
 
     public void setVsLAN() {
@@ -154,11 +157,13 @@ public class TicTacToeController {
         vsPlayerOnPC.setDisable(true);
         vsCPU.setDisable(false);
     }
-    public void setPlayerNames(){
+
+    public void setPlayerNames() {
         String[] pNames = AlertBoxNames.display("Set players", "Set player names:");
         model.setPlayer1Name(pNames[0]);
         model.setPlayer2Name(pNames[1]);
     }
+
     public void setVsCPU() {
         model.setCurrentStatus(TicTacToeModel.multiPlayerStatus.VS_CPU);
         mainMenu();
@@ -169,6 +174,7 @@ public class TicTacToeController {
         vsPlayerOnPC.setDisable(false);
         vsCPU.setDisable(true);
     }
+
     public TicTacToeModel getModel() {
         return model;
     }

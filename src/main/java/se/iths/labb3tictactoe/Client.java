@@ -22,6 +22,7 @@ public class Client {
         try {
             connectToServer();
             setupStreams();
+            Thread.ofVirtual().start(this::startListenerForButtonsPressAndGameOver);
         }catch (EOFException ef){
             System.out.println("Client ended connection");
         }catch (IOException e){
@@ -53,15 +54,14 @@ public class Client {
                     Platform.runLater(() -> ClientController.gotGameOverFromServerNowSettingIt(gameOver));
                 }else if (obj instanceof Integer){
                     int index = (int) obj;
-                    if (index == -1)
-                        break;
                     Platform.runLater(() -> ClientController.player1ClickedSetSymbol(index));
                 }
             } catch (IOException | ClassNotFoundException e) {
-                throw new RuntimeException(e);
+                System.out.println("Connection closed");
+                closeCrap();
+                break;
             }
         }
-        closeCrap();
     }
 
 

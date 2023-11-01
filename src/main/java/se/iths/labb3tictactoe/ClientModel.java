@@ -35,8 +35,7 @@ public class ClientModel {
 
         //Client
         client = new Client("192.168.0.100");
-        client.startRunning();
-        Thread.ofVirtual().start(() -> client.startListenerForButtonsPressAndGameOver());
+        Thread.ofVirtual().start(() -> client.startRunning());
         //Todo: Flytta detta till egen metod för t.ex skickning av information när knapp klickas på.
 
         //Todo: Make Gameover static? Fix tests for game so that it uses gameOver-method

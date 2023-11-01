@@ -35,15 +35,13 @@ public class Server {
     }
 
     public void startRunning() {
-        isUp = true;
         try {
-            while (isUp) {
-                try {
-                    waitForConnection();
-                    setupStreams();
-                } catch (EOFException e) {
-                    System.out.println("Server ended connection");
-                }
+            try {
+                waitForConnection();
+                setupStreams();
+                Thread.ofVirtual().start(this::startListenerForButtonsPress);
+            } catch (EOFException e) {
+                System.out.println("Server ended connection");
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -111,16 +109,15 @@ public class Server {
     public void startListenerForButtonsPress() {
         while (true) {
             try {
-                int index = (int) input.readObject();
-                if (index == -1)
-                    break;
+                int index = (Integer) input.readObject();
+                System.out.println(index);
                 Platform.runLater(() -> TicTacToeController.player2ClickedSetSymbol(index));
-
             } catch (IOException | ClassNotFoundException e) {
-                throw new RuntimeException(e);
+                System.out.println(e.getMessage());
+                closeCrap();
+                break;
             }
         }
-        closeCrap();
     }
 
     public boolean isUp() {

@@ -241,9 +241,9 @@ public class TicTacToeModel {
     }
 
     private void startOrCloseServer(multiPlayerStatus currentStatus) {
+
         if (currentStatus == VS_LAN && !server.isUp()) {
             Thread.ofVirtual().start(() -> server.startRunning());
-            Thread.ofVirtual().start(() -> server.startListenerForButtonsPress());
         } else if (currentStatus != VS_LAN && server.isUp()) {
             server.closeCrap();
         }
