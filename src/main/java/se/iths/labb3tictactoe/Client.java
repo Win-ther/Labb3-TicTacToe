@@ -1,10 +1,11 @@
 package se.iths.labb3tictactoe;
 
+import javafx.application.Platform;
+
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.net.InetAddress;
 import java.net.Socket;
 
 public class Client {
@@ -41,6 +42,29 @@ public class Client {
         System.out.println("Streams are now setup!");
     }
 
+    public void startListenerForButtonsPressAndGameOver() {
+        while(true) {
+            Object obj;
+            try {
+                obj = input.readObject();
+                System.out.println(obj.toString());
+                if (obj instanceof String gameOver){
+                    System.out.println(gameOver.length()+"st");
+                    Platform.runLater(() -> ClientController.gotGameOverFromServerNowSettingIt(gameOver));
+                }else if (obj instanceof Integer){
+                    int index = (int) obj;
+                    if (index == -1)
+                        break;
+                    Platform.runLater(() -> ClientController.player1ClickedSetSymbol(index));
+                }
+            } catch (IOException | ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        closeCrap();
+    }
+
+
     private void closeCrap() {
         System.out.println("Closing shit down");
         try {
@@ -52,35 +76,7 @@ public class Client {
         }
     }
 
-    public void sendPlayer2Move(int indexOfBoard) {
-        int index = indexOfBoard;
-        sendSymbolIndex(index);
-        try {
-            index = (int) input.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Something wrong with incoming index");
-        }
-
-    }
-    public int listenForPlayer1(){
-        int index = -1;
-        try {
-            index = (int) input.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Something wrong with incoming index");
-        }
-        return index;
-    }
-    public boolean listenForGameOver(){
-        boolean gameOver = false;
-        try {
-            gameOver = (boolean) input.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Something wrong with incoming index");
-        }
-        return gameOver;
-    }
-    private void sendSymbolIndex(int index) {
+    public void sendSymbolIndex(int index) {
         try {
             output.writeObject(index);
             output.flush();

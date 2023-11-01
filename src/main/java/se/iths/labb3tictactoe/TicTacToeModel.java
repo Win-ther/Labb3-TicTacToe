@@ -103,21 +103,26 @@ public class TicTacToeModel {
 
         if (playerWins(winningLine, player1)) {
             winningPlayer(player1);
+            sendGameOverStatusToClient("P1");
         } else if (playerWins(winningLine, player2)) {
             winningPlayer(player2);
+            sendGameOverStatusToClient("P2");
         } else if (turnTotal > 8) {
             setWinnerText("Draw");
             setGameOver(true);
-            if (currentStatus == VS_LAN)
-                sendGameOverToClient();
+            sendGameOverStatusToClient("D");
         }
     }
+
+    private void sendGameOverStatusToClient(String status) {
+        if (currentStatus == VS_LAN)
+            sendGameOverToClient(status);
+    }
+
     private void winningPlayer(Player player) {
         setWinnerText(player.name().get() + " Won!");
         givePoints(player);
         setGameOver(true);
-        if (currentStatus == VS_LAN)
-            sendGameOverToClient();
     }
 
     public static String getTheWinningLine(String[] winningLines, Player player1, Player player2) {
@@ -155,7 +160,7 @@ public class TicTacToeModel {
         Arrays.fill(board, "");
         playerTurn = PLAYER_1;
         if (currentStatus == VS_LAN && turnTotal!=0)
-            sendGameOverToClient();
+            sendGameOverToClient("R");
         this.turnTotal = 0;
     }
     public int getTurnTotal() {
@@ -236,9 +241,10 @@ public class TicTacToeModel {
     }
 
     private void startOrCloseServer(multiPlayerStatus currentStatus) {
-        if (currentStatus == VS_LAN && !server.isUp())
+        if (currentStatus == VS_LAN && !server.isUp()) {
             Thread.ofVirtual().start(() -> server.startRunning());
-        else if (currentStatus != VS_LAN && server.isUp()) {
+            Thread.ofVirtual().start(() -> server.startListenerForButtonsPress());
+        } else if (currentStatus != VS_LAN && server.isUp()) {
             server.closeCrap();
         }
     }
@@ -299,12 +305,9 @@ public class TicTacToeModel {
         Thread.ofVirtual().start(() -> server.sendSymbolIndex(index));
     }
 
-    private void sendGameOverToClient() {
-        Thread.ofVirtual().start(() -> server.sendGameOver(isGameOver));
+    private void sendGameOverToClient(String player1WinPlayer2WinDrawOrReset) {
+        Thread.ofVirtual().start(() -> server.sendGameOver(player1WinPlayer2WinDrawOrReset));
     }
-
-
-
     public enum multiPlayerStatus {VS_CPU, VS_LOCAL, VS_LAN;}
 
     public enum turnOrder {PLAYER_1, PLAYER_2;}

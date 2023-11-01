@@ -17,10 +17,10 @@ public class TicTacToeController {
     //ToDO: Grid ~Done~, logic for clicking squares ~Done~, turnorder logic~Done~, GameOver Logic~Done~, AI Logic ~Done~.
 
     public RadioMenuItem vsCPU, vsPlayerOnPC, vsPlayerLAN;
-    private final TicTacToeModel model = new TicTacToeModel();
+    private static final TicTacToeModel model = new TicTacToeModel();
     @FXML
     private Button button1, button2, button3, button4, button5, button6, button7, button8, button9, restartButton, playButton;
-    private List<Button> buttons;
+    private static List<Button> buttons;
     @FXML
     private GridPane playArea;
     @FXML
@@ -33,6 +33,7 @@ public class TicTacToeController {
         restart();
         checkIfVsCpu();
     }
+
     private void restart(){
         model.reset();
         buttons.forEach(this::resetButton);
@@ -41,19 +42,31 @@ public class TicTacToeController {
         button.setText("");
         button.setDisable(false);
     }
-
     public void onButtonClick(ActionEvent event) {
         Button clickedButton = (Button) event.getSource();
         clickedButton.setText(model.getCurrentPlayer().symbol().get());
         int index = buttons.indexOf(clickedButton);
-        model.setSymbol(index);
+        //model.setSymbol(index);
         disableButton(clickedButton);
         disableButtonsIfGameOver();
         checkIfVsCpu();
+        checkIfVsLan(index);
+        model.setSymbol(index);
+    }
+
+    public static void player2ClickedSetSymbol(int index) {
+        buttons.get(index).setText("O");
+        buttons.get(index).setDisable(true);
+        model.setSymbol(index);
+        buttons.stream().filter(b -> b.getText().isEmpty()).forEach(b -> b.setDisable(false));
+    }
+
+    private void checkIfVsLan(int index) {
         if (model.getCurrentStatus() == TicTacToeModel.multiPlayerStatus.VS_LAN){
             model.sendIndexClickedToClient(index);
         }
     }
+
 
     private void disableButtonsIfGameOver() {
         if(model.getIsGameOver())

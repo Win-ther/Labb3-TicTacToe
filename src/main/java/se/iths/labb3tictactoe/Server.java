@@ -1,5 +1,7 @@
 package se.iths.labb3tictactoe;
 
+import javafx.application.Platform;
+
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -31,14 +33,15 @@ public class Server {
             System.out.println("Server down bro");
         }
     }
-    public void startRunning(){
+
+    public void startRunning() {
         isUp = true;
         try {
-            while(isUp){
+            while (isUp) {
                 try {
                     waitForConnection();
                     setupStreams();
-                }catch (EOFException e){
+                } catch (EOFException e) {
                     System.out.println("Server ended connection");
                 }
             }
@@ -87,7 +90,7 @@ public class Server {
 
         return index;
     }*/
-    public void sendGameOver(boolean gameOver){
+    public void sendGameOver(String gameOver) {
         try {
             output.writeObject(gameOver);
             output.flush();
@@ -103,6 +106,21 @@ public class Server {
         } catch (IOException e) {
             System.out.println("Could not send index");
         }
+    }
+
+    public void startListenerForButtonsPress() {
+        while (true) {
+            try {
+                int index = (int) input.readObject();
+                if (index == -1)
+                    break;
+                Platform.runLater(() -> TicTacToeController.player2ClickedSetSymbol(index));
+
+            } catch (IOException | ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        closeCrap();
     }
 
     public boolean isUp() {

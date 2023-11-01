@@ -15,7 +15,6 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="551.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.iths.labb3tictactoe.ClientController">
     <children>
-        <Button fx:id="restartButton" layoutX="274.0" layoutY="495.0" mnemonicParsing="false" onAction="#restartButtonClick" text="Restart" />
         <GridPane fx:id="playArea" layoutX="126.0" layoutY="124.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: Orange; -fx-border-width: 3; -fx-grid-lines-visible: true;" visible="false">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />

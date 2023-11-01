@@ -3,7 +3,6 @@ package se.iths.labb3tictactoe;
 import javafx.beans.property.*;
 import javafx.scene.image.Image;
 
-import java.util.Arrays;
 import java.util.Objects;
 
 public class ClientModel {
@@ -37,6 +36,7 @@ public class ClientModel {
         //Client
         client = new Client("192.168.0.100");
         client.startRunning();
+        Thread.ofVirtual().start(() -> client.startListenerForButtonsPressAndGameOver());
         //Todo: Flytta detta till egen metod för t.ex skickning av information när knapp klickas på.
 
         //Todo: Make Gameover static? Fix tests for game so that it uses gameOver-method
@@ -74,16 +74,23 @@ public class ClientModel {
     public void givePoints(Player player) {
         player.points().set(player.points().get() + 1);
     }
+
     public void reset() {
         this.winnerText.set("TIC TAC TOE");
-        this.turnTotal = 0;
+        resetTurnTotal();
         this.isGameOver = false;
         turn = turnOrder.PLAYER_1;
     }
+
+    public void resetTurnTotal() {
+        this.turnTotal = 0;
+    }
+
     public int getTurnTotal() {
         return turnTotal;
     }
-    public void nextTurn(){
+
+    public void nextTurn() {
         turnTotal++;
     }
 
@@ -142,6 +149,7 @@ public class ClientModel {
     public ObjectProperty<Image> startImageProperty() {
         return startImage;
     }
+
     public Player getCurrentPlayer() {
         return turn == turnOrder.PLAYER_1 ? player1 : player2;
     }
@@ -180,6 +188,10 @@ public class ClientModel {
 
     public Player getPlayer2() {
         return player2;
+    }
+
+    public void sendIndexClickedToServer(int index) {
+        Thread.ofVirtual().start(() -> client.sendSymbolIndex(index));
     }
 
     public enum turnOrder {PLAYER_1, PLAYER_2}
