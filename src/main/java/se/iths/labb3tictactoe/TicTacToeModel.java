@@ -151,12 +151,12 @@ public class TicTacToeModel {
 
     public void reset() {
         this.winnerText.set("TIC TAC TOE");
-        this.turnTotal = 0;
         this.isGameOver = false;
         Arrays.fill(board, "");
         playerTurn = PLAYER_1;
-        if (currentStatus == VS_LAN)
+        if (currentStatus == VS_LAN && turnTotal!=0)
             sendGameOverToClient();
+        this.turnTotal = 0;
     }
     public int getTurnTotal() {
         return turnTotal;
