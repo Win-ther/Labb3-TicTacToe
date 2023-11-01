@@ -16,16 +16,6 @@ public class Server {
     private Socket connection;
     private boolean isUp = false;
 
-    /*
-    Vad behöver jag skicka över från Server till Client och tillbaks.
-    ToDo:
-        1. Skicka vart den nya symbolen lades ut!
-        * Skicka gameOver (Eller det kanske räcker med att kolla detta på både klienten och servern, då behöver inte denna skickas. Poäng och winnerText behöver inte heller
-        skickas då)
-        * Skicka poäng (kanske inte)
-        * Skicka winnerText (kanske inte)
-    */
-
     public Server() {
         try {
             server = new ServerSocket(6789);
@@ -75,23 +65,12 @@ public class Server {
             e.printStackTrace();
         }
     }
-
-    /*public int sendAndRecieveSymbol(int indexOfBoard) {
-        int index = indexOfBoard;
-        sendSymbolIndex(index);
-
-        try {
-            index = (int) input.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Something wrong with incoming index");
-        }
-
-        return index;
-    }*/
     public void sendGameOver(String gameOver) {
         try {
-            output.writeObject(gameOver);
-            output.flush();
+            if (output != null) {
+                output.writeObject(gameOver);
+                output.flush();
+            }
         } catch (IOException e) {
             System.out.println("Could not send gameOver");
         }

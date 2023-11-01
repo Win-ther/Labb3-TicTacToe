@@ -48,9 +48,7 @@ public class Client {
             Object obj;
             try {
                 obj = input.readObject();
-                System.out.println(obj.toString());
                 if (obj instanceof String gameOver){
-                    System.out.println(gameOver.length()+"st");
                     Platform.runLater(() -> ClientController.gotGameOverFromServerNowSettingIt(gameOver));
                 }else if (obj instanceof Integer){
                     int index = (int) obj;

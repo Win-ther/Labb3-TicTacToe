@@ -48,12 +48,13 @@ public class TicTacToeController {
         Button clickedButton = (Button) event.getSource();
         clickedButton.setText(model.getCurrentPlayer().symbol().get());
         int index = buttons.indexOf(clickedButton);
+        checkIfVsLan(index);
+        model.setSymbol(index);
         disableButton(clickedButton);
         disableButtonsIfGameOver();
         checkIfVsCpu();
-        checkIfVsLan(index);
-        model.setSymbol(index);
-        buttons.forEach(b -> b.setDisable(true));
+        if (model.getCurrentStatus() == TicTacToeModel.multiPlayerStatus.VS_LAN)
+            buttons.forEach(b -> b.setDisable(true));
     }
 
     public static void player2ClickedSetSymbol(int index) {
