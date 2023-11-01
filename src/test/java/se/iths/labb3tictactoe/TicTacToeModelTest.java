@@ -1,36 +1,117 @@
 package se.iths.labb3tictactoe;
 
-import org.assertj.core.api.Assertions.*;
-
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class TicTacToeModelTest {
-
+    TicTacToeModel model = new TicTacToeModel(true);
     @Test
-    @DisplayName("Given add when values 1 and 2 then returns 3")
-    void givenAddWhenValues1And2ThenReturns3() {
-        //Arrange
-        int value1 = 1;
-        int value2 = 2;
-        //Act
-        int result = TicTacToeModel.add(value1,value2);
-        //Assert
-        assertThat(result).isEqualTo(3);
+    @DisplayName("All buttons are able to be clicked and should return true")
+    void allButtonsAreAbleToBeClickedAndShouldReturnTrue() {
+        assertThat(model.usableButton(0,model.getBoard())).isTrue();
+        assertThat(model.usableButton(1,model.getBoard())).isTrue();
+        assertThat(model.usableButton(2,model.getBoard())).isTrue();
+        assertThat(model.usableButton(3,model.getBoard())).isTrue();
+        assertThat(model.usableButton(4,model.getBoard())).isTrue();
+        assertThat(model.usableButton(5,model.getBoard())).isTrue();
+        assertThat(model.usableButton(6,model.getBoard())).isTrue();
+        assertThat(model.usableButton(7,model.getBoard())).isTrue();
+        assertThat(model.usableButton(8,model.getBoard())).isTrue();
     }
     @Test
-    @DisplayName("After calling setValue with 2, getValue should return 2")
-    void afterCallingSetValueWith2GetValueShouldReturn2() {
-        //Arrange
-        TicTacToeModel model = new TicTacToeModel();
-        //Act
-        model.setValue(2);
-        //Assert
-        assertThat(model.getValue()).isEqualTo(2);
-    }
+    @DisplayName("If a button has text it is not be able to be clicked and should return false")
+    void ifAButtonHasTextItShouldReturnFalse() {
+        model.setSymbol(0); //X
+        model.setSymbol(8); //0
 
+        assertThat(model.usableButton(0,model.getBoard())).isFalse();
+        assertThat(model.usableButton(8,model.getBoard())).isFalse();
+    }
+    @Test
+    @DisplayName("isGameOver should return false if gameOver method is called with an empty board")
+    void isGameOverShouldReturnFalseIfGameOverMethodIsCalledWithAnEmptyBoard(){
+        model.gameOver();
+
+        assertThat(model.getIsGameOver()).isFalse();
+    }
+    @Test
+    @DisplayName("isGameOver should return false if gameOver method is called without three in a row")
+    void isGameOverShouldReturnFalseIfGameOverMethodIsCalledWithoutThreeInARow(){
+        model.setSymbol(1); //X
+        model.setSymbol(4); //0
+        model.setSymbol(6); //X
+
+        model.gameOver();
+
+        assertThat(model.getIsGameOver()).isFalse();
+    }
+    @Test
+    @DisplayName("isGameOver should return false if different symbols are in a row")
+    void isGameOverShouldReturnFalseIfDifferentSymbolsAreInARow(){
+        model.setSymbol(0); //X
+        model.setSymbol(1); //0
+        model.setSymbol(2); //X
+
+        model.gameOver();
+
+        assertThat(model.getIsGameOver()).isFalse();
+    }
+    @Test
+    @DisplayName("isGameOver should return true if gameOver method is called with three in a row horizontal")
+    void isGameOverShouldReturnTrueIfGameOverMethodIsCalledWithThreeInARowHorizontal(){
+        model.setSymbol(0); //X
+        model.setSymbol(8); //0
+        model.setSymbol(1); //X
+        model.setSymbol(7); //0
+        model.setSymbol(2); //X
+
+        model.gameOver();
+
+        assertThat(model.getIsGameOver()).isTrue();
+    }
+    @Test
+    @DisplayName("isGameOver should return true if gameOver method is called with three in a row vertical")
+    void isGameOverShouldReturnTrueIfGameOverMethodIsCalledWithThreeInARowVertical(){
+        model.setSymbol(0); //X
+        model.setSymbol(8); //0
+        model.setSymbol(3); //X
+        model.setSymbol(5); //0
+        model.setSymbol(6); //X
+
+        model.gameOver();
+
+        assertThat(model.getIsGameOver()).isTrue();
+    }
+    @Test
+    @DisplayName("isGameOver should return true if gameOver method is called with three in a row diagonal")
+    void isGameOverShouldReturnTrueIfGameOverMethodIsCalledWithThreeInARowDiagonal(){
+        model.setSymbol(0); //X
+        model.setSymbol(2); //0
+        model.setSymbol(4); //X
+        model.setSymbol(5); //0
+        model.setSymbol(8); //X
+
+        model.gameOver();
+
+        assertThat(model.getIsGameOver()).isTrue();
+    }
+    @Test
+    @DisplayName("isGameOver should return true if gameOver method is called and the turn is over 8 and the game is a draw")
+    void isGameOverShouldReturnTrueIfGameOverMethodIsCalledAndTheTurnIsOver8AndTheGameIsADraw(){
+        model.setSymbol(0); //X
+        model.setSymbol(2); //0
+        model.setSymbol(6); //X
+        model.setSymbol(8); //0
+        model.setSymbol(5); //X
+        model.setSymbol(3); //0
+        model.setSymbol(1); //X
+        model.setSymbol(4); //0
+        model.setSymbol(7); //X
+
+        model.gameOver();
+
+        assertThat(model.getIsGameOver()).isTrue();
+    }
 }
