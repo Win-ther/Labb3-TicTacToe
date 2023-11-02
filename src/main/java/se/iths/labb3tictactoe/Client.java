@@ -45,12 +45,15 @@ public class Client {
             Object obj;
             try {
                 obj = input.readObject();
-                if (obj instanceof String gameOver){
-                    Platform.runLater(() -> ClientController.gotGameOverFromServerNowSettingIt(gameOver));
-                }else if (obj instanceof Integer){
+                if (obj == null)
+                    return;
+                if (obj instanceof Integer){
                     int index = (int) obj;
                     Platform.runLater(() -> ClientController.player1ClickedSetSymbol(index));
+                }else if (obj instanceof String gameOver){
+                    Platform.runLater(() -> ClientController.gotGameOverFromServerNowSettingIt(gameOver));
                 }
+
             } catch (IOException | ClassNotFoundException e) {
                 System.out.println("Connection closed");
                 System.out.println(e.getMessage());

@@ -65,12 +65,13 @@ public class Server {
             System.out.println(e.getMessage());
         }
     }
+
     public void sendGameOver(String gameOver) {
+        if (output == null)
+            return;
         try {
-            if (output != null) {
-                output.writeObject(gameOver);
-                output.flush();
-            }
+            output.writeObject(gameOver);
+            output.flush();
         } catch (IOException e) {
             System.out.println("Could not send gameOver");
         }

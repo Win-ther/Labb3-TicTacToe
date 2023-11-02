@@ -10,8 +10,7 @@
     <list default="true" id="dd2396eb-5358-4e83-ab5c-87012deb8940" name="Changes" comment="Cleanup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/se/iths/labb3tictactoe/client-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/se/iths/labb3tictactoe/client-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/se/iths/labb3tictactoe/tictactoe-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/se/iths/labb3tictactoe/tictactoe-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +112,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1698913733603</updated>
-      <workItem from="1698913735756" duration="6842000" />
+      <workItem from="1698913735756" duration="9055000" />
     </task>
     <task id="LOCAL−00002" summary="Cleanup TicTacToeController and Server">
       <option name="closed" value="true" />
@@ -157,7 +156,14 @@
       <option name="presentableId" value="LOCAL−00007" />
       <updated>1698920517124</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL−00008" summary="Cleanup">
+      <option name="closed" value="true" />
+      <created>1698920940363</created>
+      <option name="number" value="LOCAL−00008" />
+      <option name="presentableId" value="LOCAL−00008" />
+      <updated>1698920940363</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
