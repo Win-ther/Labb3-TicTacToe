@@ -52,7 +52,7 @@ public class ClientController {
                 model.givePoints(model.getPlayer2());
             }
             case "D" -> {
-                model.setWinnerText("Draw!");
+                model.setWinnerText("Draw");
                 buttons.forEach(b -> b.setDisable(true));
             }
             case "R" -> {

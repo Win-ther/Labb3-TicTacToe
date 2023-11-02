@@ -15,16 +15,14 @@ public class ClientModel {
     private final ObjectProperty<Image> left, right, startImage;
     public final Client client;
 
-
-    //Todo: Move points, name and symbols to Player objects, clean up this garbage code
     public ClientModel() {
         winnerText.setValue("TIC TAC TOE");
         turnTotal = 0;
         isGameOver = false;
 
         //Setting up players
-        player1 = new Player(new SimpleStringProperty("Player 1"), new SimpleIntegerProperty(0), new SimpleStringProperty("X"));
-        player2 = new Player(new SimpleStringProperty("Player 2"), new SimpleIntegerProperty(0), new SimpleStringProperty("0"));
+        player1 = new Player(new SimpleStringProperty("Player1"), new SimpleIntegerProperty(0), new SimpleStringProperty("X"));
+        player2 = new Player(new SimpleStringProperty("Player2"), new SimpleIntegerProperty(0), new SimpleStringProperty("0"));
 
         //For gifs
         image1 = new Image(Objects.requireNonNull(getClass().getResource("images/skeleton-dancing.gif")).toExternalForm());

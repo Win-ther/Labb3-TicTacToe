@@ -56,6 +56,7 @@ public class Client {
                 }
             } catch (IOException | ClassNotFoundException e) {
                 System.out.println("Connection closed");
+                System.out.println(e.getMessage());
                 closeCrap();
                 break;
             }

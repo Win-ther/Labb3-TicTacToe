@@ -7,16 +7,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd2396eb-5358-4e83-ab5c-87012deb8940" name="Changes" comment="Cleanup TicTacToeController and Server">
+    <list default="true" id="dd2396eb-5358-4e83-ab5c-87012deb8940" name="Changes" comment="Cleanup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/AlertBoxNames.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/AlertBoxNames.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/ClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/ClientModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labb3tictactoe/TicTacToeModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/se/iths/labb3tictactoe/TicTacToeModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/se/iths/labb3tictactoe/TicTacToeModelTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +48,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.TicTacToeApplication">
+  <component name="RunManager" selected="Application.se.iths.labb3tictactoe.ClientApplication">
     <configuration name="TicTacToeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="se.iths.labb3tictactoe.TicTacToeApplication" />
       <module name="Labb3-TicTacToe" />
@@ -97,8 +92,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TicTacToeApplication" />
         <item itemvalue="Application.se.iths.labb3tictactoe.ClientApplication" />
+        <item itemvalue="Application.TicTacToeApplication" />
         <item itemvalue="JUnit.TicTacToeModelTest" />
       </list>
     </recent_temporary>
@@ -118,7 +113,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1698913733603</updated>
-      <workItem from="1698913735756" duration="5361000" />
+      <workItem from="1698913735756" duration="6162000" />
     </task>
     <task id="LOCAL−00002" summary="Cleanup TicTacToeController and Server">
       <option name="closed" value="true" />
@@ -141,7 +136,14 @@
       <option name="presentableId" value="LOCAL−00004" />
       <updated>1698916074616</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL−00005" summary="Cleanup">
+      <option name="closed" value="true" />
+      <created>1698919752165</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1698919752165</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,7 +153,8 @@
     <MESSAGE value="Server and Client now updates both board and gameOver. Game Works" />
     <MESSAGE value="fixed some bugs, need to clean up the code" />
     <MESSAGE value="Cleanup TicTacToeController and Server" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleanup TicTacToeController and Server" />
+    <MESSAGE value="Cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleanup" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Labb3_TicTacToe$TicTacToeModelTest.ic" NAME="TicTacToeModelTest Coverage Results" MODIFIED="1698325077440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
