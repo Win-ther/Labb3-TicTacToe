@@ -77,6 +77,8 @@ public class Server {
     }
 
     public void sendSymbolIndex(int index) {
+        if (output == null)
+            return;
         try {
             output.writeObject(index);
             output.flush();

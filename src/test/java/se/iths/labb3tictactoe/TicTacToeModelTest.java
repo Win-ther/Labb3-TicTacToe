@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class TicTacToeModelTest {
-    TicTacToeModel model = new TicTacToeModel(true);
+    final TicTacToeModel model = new TicTacToeModel(true);
     @Test
     @DisplayName("All buttons are able to be clicked and should return true")
     void allButtonsAreAbleToBeClickedAndShouldReturnTrue() {
@@ -34,7 +34,7 @@ class TicTacToeModelTest {
     void isGameOverShouldReturnFalseIfGameOverMethodIsCalledWithAnEmptyBoard(){
         model.gameOver();
 
-        assertThat(model.getIsGameOver()).isFalse();
+        assertThat(model.isGameOver()).isFalse();
     }
     @Test
     @DisplayName("isGameOver should return false if gameOver method is called without three in a row")
@@ -45,7 +45,7 @@ class TicTacToeModelTest {
 
         model.gameOver();
 
-        assertThat(model.getIsGameOver()).isFalse();
+        assertThat(model.isGameOver()).isFalse();
     }
     @Test
     @DisplayName("isGameOver should return false if different symbols are in a row")
@@ -56,7 +56,7 @@ class TicTacToeModelTest {
 
         model.gameOver();
 
-        assertThat(model.getIsGameOver()).isFalse();
+        assertThat(model.isGameOver()).isFalse();
     }
     @Test
     @DisplayName("isGameOver should return true if gameOver method is called with three in a row horizontal")
@@ -69,7 +69,7 @@ class TicTacToeModelTest {
 
         model.gameOver();
 
-        assertThat(model.getIsGameOver()).isTrue();
+        assertThat(model.isGameOver()).isTrue();
     }
     @Test
     @DisplayName("isGameOver should return true if gameOver method is called with three in a row vertical")
@@ -82,7 +82,7 @@ class TicTacToeModelTest {
 
         model.gameOver();
 
-        assertThat(model.getIsGameOver()).isTrue();
+        assertThat(model.isGameOver()).isTrue();
     }
     @Test
     @DisplayName("isGameOver should return true if gameOver method is called with three in a row diagonal")
@@ -95,7 +95,7 @@ class TicTacToeModelTest {
 
         model.gameOver();
 
-        assertThat(model.getIsGameOver()).isTrue();
+        assertThat(model.isGameOver()).isTrue();
     }
     @Test
     @DisplayName("isGameOver should return true if gameOver method is called and the turn is over 8 and the game is a draw")
@@ -112,6 +112,6 @@ class TicTacToeModelTest {
 
         model.gameOver();
 
-        assertThat(model.getIsGameOver()).isTrue();
+        assertThat(model.isGameOver()).isTrue();
     }
 }

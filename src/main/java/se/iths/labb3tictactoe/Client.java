@@ -26,7 +26,7 @@ public class Client {
         }catch (EOFException ef){
             System.out.println("Client ended connection");
         }catch (IOException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -70,7 +70,7 @@ public class Client {
             input.close();
             connection.close();
         }catch (IOException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 

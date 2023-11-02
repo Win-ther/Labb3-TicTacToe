@@ -1,6 +1,5 @@
 package se.iths.labb3tictactoe;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,10 +11,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ClientController {
-    //ToDO: Grid ~Done~, logic for clicking squares ~Done~, turnorder logic~Done~, GameOver Logic~Done~, AI Logic ~Done~.
     private static final ClientModel model = new ClientModel();
     @FXML
-    private Button button1, button2, button3, button4, button5, button6, button7, button8, button9, restartButton, playButton;
+    private Button button1, button2, button3, button4, button5, button6, button7, button8, button9, playButton;
     private static List<Button> buttons;
     @FXML
     private GridPane playArea;
@@ -24,19 +22,6 @@ public class ClientController {
     @FXML
     private ImageView leftSkeleton, rightSkeleton, startSkeleton;
 
-    @FXML
-    public void restartButtonClick() {
-        restart();
-    }
-
-    private void restart(){
-        model.reset();
-        buttons.forEach(this::resetButton);
-    }
-    private void resetButton(Button button) {
-        button.setText("");
-        button.setDisable(false);
-    }
     public void onButtonClick(ActionEvent event) {
         Button clickedButton = (Button) event.getSource();
         clickedButton.setText(model.getPlayer2().symbol().get());
@@ -44,7 +29,7 @@ public class ClientController {
         disableButton(clickedButton);
         disableButtonsIfGameOver();
         buttons.forEach(b -> b.setDisable(true));
-        //Todo: Fix play over lan
+
         model.sendIndexClickedToServer(buttons.indexOf(clickedButton));
     }
 
@@ -73,8 +58,7 @@ public class ClientController {
             case "R" -> {
                 buttons.forEach(b -> b.setDisable(true));
                 buttons.forEach(b -> b.setText(""));
-                model.setWinnerText("TIC TAC TOE");
-                model.resetTurnTotal();
+                model.reset();
             }
         }
     }
@@ -104,17 +88,17 @@ public class ClientController {
 
     private void setPlayAreaVisible() {
         playButton.setVisible(false);
-        showPlayArea(true);
+        showPlayArea();
         startSkeleton.setVisible(false);
     }
 
-    private void showPlayArea(boolean value) {
-        playArea.setVisible(value);
-        tictictic.setVisible(value);
-        tactactac.setVisible(value);
-        toetoetoe.setVisible(value);
-        leftSkeleton.setVisible(value);
-        rightSkeleton.setVisible(value);
+    private void showPlayArea() {
+        playArea.setVisible(true);
+        tictictic.setVisible(true);
+        tactactac.setVisible(true);
+        toetoetoe.setVisible(true);
+        leftSkeleton.setVisible(true);
+        rightSkeleton.setVisible(true);
     }
 
     public ClientModel getModel() {

@@ -49,7 +49,7 @@ public class TicTacToeController {
         buttons.get(index).setText("0");
         buttons.get(index).setDisable(true);
         model.setSymbol(index);
-        if (!model.getIsGameOver())
+        if (!model.isGameOver())
             buttons.stream().filter(b -> b.getText().isEmpty()).forEach(b -> b.setDisable(false));
     }
 
@@ -61,7 +61,7 @@ public class TicTacToeController {
 
 
     private void ifVsCpuThenCpuTurn() {
-        if (!model.getIsGameOver()) {
+        if (!model.isGameOver()) {
             if (model.getCurrentStatus() == TicTacToeModel.multiPlayerStatus.VS_CPU) {
                 cpuTurn();
             }
@@ -158,7 +158,7 @@ public class TicTacToeController {
     }
 
     private void disableButtonsIfGameOver() {
-        if (model.getIsGameOver())
+        if (model.isGameOver())
             disableButtons();
     }
 
