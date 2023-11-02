@@ -33,68 +33,66 @@
             <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES"/>
             <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES"/>
         </rowConstraints>
-        <children>
-            <Button fx:id="button1" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
-                    prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER">
-                <font>
-                    <Font name="System Bold" size="52.0"/>
-                </font>
-            </Button>
-            <Button fx:id="button2" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
-                    prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="3">
-                <font>
-                    <Font name="System Bold" size="52.0"/>
-                </font>
-            </Button>
-            <Button fx:id="button3" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
-                    prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="4">
-                <font>
-                    <Font name="System Bold" size="52.0"/>
-                </font>
-            </Button>
-            <Button fx:id="button4" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
-                    prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.rowIndex="3">
-                <font>
-                    <Font name="System Bold" size="52.0"/>
-                </font>
-            </Button>
-            <Button fx:id="button5" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
-                    prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="3"
-                    GridPane.rowIndex="3">
-                <font>
-                    <Font name="System Bold" size="52.0"/>
-                </font>
-            </Button>
-            <Button fx:id="button6" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
-                    prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="4"
-                    GridPane.rowIndex="3">
-                <font>
-                    <Font name="System Bold" size="52.0"/>
-                </font>
-            </Button>
-            <Button fx:id="button7" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
-                    prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.rowIndex="4">
-                <font>
-                    <Font name="System Bold" size="52.0"/>
-                </font>
-            </Button>
-            <Button fx:id="button8" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
-                    prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="3"
-                    GridPane.rowIndex="4">
-                <font>
-                    <Font name="System Bold" size="52.0"/>
-                </font>
-            </Button>
-            <Button fx:id="button9" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
-                    prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="4"
-                    GridPane.rowIndex="4">
-                <font>
-                    <Font name="System Bold" size="52.0"/>
-                </font>
-            </Button>
-        </children>
+        <Button fx:id="button1" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
+                prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER">
+            <font>
+                <Font name="System Bold" size="52.0"/>
+            </font>
+        </Button>
+        <Button fx:id="button2" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
+                prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="3">
+            <font>
+                <Font name="System Bold" size="52.0"/>
+            </font>
+        </Button>
+        <Button fx:id="button3" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
+                prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="4">
+            <font>
+                <Font name="System Bold" size="52.0"/>
+            </font>
+        </Button>
+        <Button fx:id="button4" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
+                prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.rowIndex="3">
+            <font>
+                <Font name="System Bold" size="52.0"/>
+            </font>
+        </Button>
+        <Button fx:id="button5" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
+                prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="3"
+                GridPane.rowIndex="3">
+            <font>
+                <Font name="System Bold" size="52.0"/>
+            </font>
+        </Button>
+        <Button fx:id="button6" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
+                prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="4"
+                GridPane.rowIndex="3">
+            <font>
+                <Font name="System Bold" size="52.0"/>
+            </font>
+        </Button>
+        <Button fx:id="button7" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
+                prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.rowIndex="4">
+            <font>
+                <Font name="System Bold" size="52.0"/>
+            </font>
+        </Button>
+        <Button fx:id="button8" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
+                prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="3"
+                GridPane.rowIndex="4">
+            <font>
+                <Font name="System Bold" size="52.0"/>
+            </font>
+        </Button>
+        <Button fx:id="button9" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
+                prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="4"
+                GridPane.rowIndex="4">
+            <font>
+                <Font name="System Bold" size="52.0"/>
+            </font>
+        </Button>
     </GridPane>
-    <Label fx:id="winnerText" alignment="CENTER" layoutX="125.0" layoutY="26.0" prefHeight="58.0" prefWidth="350.0"
+    <Label alignment="CENTER" layoutX="125.0" layoutY="26.0" prefHeight="58.0" prefWidth="350.0"
            text="${controller.model.winnerText}" textAlignment="CENTER">
         <font>
             <Font size="54.0"/>
@@ -163,13 +161,13 @@
             <Font name="System Bold" size="16.0"/>
         </font>
     </Label>
-    <Label fx:id="playerScore" layoutX="72.0" layoutY="525.0" prefHeight="25.0" prefWidth="53.0"
+    <Label layoutX="72.0" layoutY="525.0" prefHeight="25.0" prefWidth="53.0"
            text="${controller.model.player2Points}">
         <font>
             <Font name="System Bold" size="16.0"/>
         </font>
     </Label>
-    <Label fx:id="cpuScore" layoutX="72.0" layoutY="494.0" prefHeight="25.0" prefWidth="53.0"
+    <Label layoutX="72.0" layoutY="494.0" prefHeight="25.0" prefWidth="53.0"
            text="${controller.model.player1Points}">
         <font>
             <Font name="System Bold" size="16.0"/>

@@ -24,36 +24,34 @@
             prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="se.iths.labb3tictactoe.TicTacToeController">
    <HBox>
-      <children>
-         <MenuBar prefHeight="26.0" prefWidth="602.0">
-            <menus>
-               <Menu mnemonicParsing="false" text="File">
-               <items>
-                  <RadioMenuItem fx:id="vsCPU" mnemonicParsing="false" onAction="#setVsCPU" selected="true"
-                                 text="vs CPU">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="GameMode"/>
-                     </toggleGroup>
-                  </RadioMenuItem>
-                  <RadioMenuItem fx:id="vsPlayerOnPC" mnemonicParsing="false" onAction="#setVsLocal"
-                                 text="vs Player (Local PC)" toggleGroup="$GameMode"/>
-                  <RadioMenuItem fx:id="vsPlayerLAN" mnemonicParsing="false" onAction="#setVsLAN"
-                                 text="vs Player (LAN)" toggleGroup="$GameMode"/>
-                  <SeparatorMenuItem mnemonicParsing="false"/>
-                  <MenuItem mnemonicParsing="false" onAction="#mainMenu" text="Back to menu"/>
-                  <MenuItem fx:id="exitButton" mnemonicParsing="false" onAction="#exit" text="Exit"/>
-               </items>
-               </Menu>
-               <Menu mnemonicParsing="false" text="Help">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Shrek"/>
-               </items>
-               </Menu>
-            </menus>
-         </MenuBar>
-      </children>
+      <MenuBar prefHeight="26.0" prefWidth="602.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+            <items>
+               <RadioMenuItem fx:id="vsCPU" mnemonicParsing="false" onAction="#setVsCPU" selected="true"
+                              text="vs CPU">
+                  <toggleGroup>
+                     <ToggleGroup fx:id="GameMode"/>
+                  </toggleGroup>
+               </RadioMenuItem>
+               <RadioMenuItem fx:id="vsPlayerOnPC" mnemonicParsing="false" onAction="#setVsLocal"
+                              text="vs Player (Local PC)" toggleGroup="$GameMode"/>
+               <RadioMenuItem fx:id="vsPlayerLAN" mnemonicParsing="false" onAction="#setVsLAN"
+                              text="vs Player (LAN)" toggleGroup="$GameMode"/>
+               <SeparatorMenuItem mnemonicParsing="false"/>
+               <MenuItem mnemonicParsing="false" onAction="#mainMenu" text="Back to menu"/>
+               <MenuItem fx:id="exitButton" mnemonicParsing="false" onAction="#exit" text="Exit"/>
+            </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+            <items>
+               <MenuItem mnemonicParsing="false" text="Shrek"/>
+            </items>
+            </Menu>
+         </menus>
+      </MenuBar>
    </HBox>
-   <Button fx:id="restartButton" layoutX="274.0" layoutY="495.0" mnemonicParsing="false" onAction="#restartButtonClick"
+   <Button layoutX="274.0" layoutY="495.0" mnemonicParsing="false" onAction="#restartButtonClick"
            text="Restart"/>
    <GridPane fx:id="playArea" layoutX="126.0" layoutY="124.0" maxHeight="-Infinity" maxWidth="-Infinity"
              minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="350.0"
@@ -72,68 +70,66 @@
          <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES"/>
          <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES"/>
       </rowConstraints>
-      <children>
-         <Button fx:id="button1" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
-                 prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER">
-            <font>
-               <Font name="System Bold" size="52.0"/>
-            </font>
-         </Button>
-         <Button fx:id="button2" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
-                 prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="3">
-            <font>
-               <Font name="System Bold" size="52.0"/>
-            </font>
-         </Button>
-         <Button fx:id="button3" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
-                 prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="4">
-            <font>
-               <Font name="System Bold" size="52.0"/>
-            </font>
-         </Button>
-         <Button fx:id="button4" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
-                 prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.rowIndex="3">
-            <font>
-               <Font name="System Bold" size="52.0"/>
-            </font>
-         </Button>
-         <Button fx:id="button5" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
-                 prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="3"
-                 GridPane.rowIndex="3">
-            <font>
-               <Font name="System Bold" size="52.0"/>
-            </font>
-         </Button>
-         <Button fx:id="button6" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
-                 prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="4"
-                 GridPane.rowIndex="3">
-            <font>
-               <Font name="System Bold" size="52.0"/>
-            </font>
-         </Button>
-         <Button fx:id="button7" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
-                 prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.rowIndex="4">
-            <font>
-               <Font name="System Bold" size="52.0"/>
-            </font>
-         </Button>
-         <Button fx:id="button8" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
-                 prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="3"
-                 GridPane.rowIndex="4">
-            <font>
-               <Font name="System Bold" size="52.0"/>
-            </font>
-         </Button>
-         <Button fx:id="button9" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
-                 prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="4"
-                 GridPane.rowIndex="4">
-            <font>
-               <Font name="System Bold" size="52.0"/>
-            </font>
-         </Button>
-      </children>
+      <Button fx:id="button1" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
+              prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="52.0"/>
+         </font>
+      </Button>
+      <Button fx:id="button2" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
+              prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="3">
+         <font>
+            <Font name="System Bold" size="52.0"/>
+         </font>
+      </Button>
+      <Button fx:id="button3" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
+              prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="4">
+         <font>
+            <Font name="System Bold" size="52.0"/>
+         </font>
+      </Button>
+      <Button fx:id="button4" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
+              prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.rowIndex="3">
+         <font>
+            <Font name="System Bold" size="52.0"/>
+         </font>
+      </Button>
+      <Button fx:id="button5" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
+              prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="3"
+              GridPane.rowIndex="3">
+         <font>
+            <Font name="System Bold" size="52.0"/>
+         </font>
+      </Button>
+      <Button fx:id="button6" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
+              prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="4"
+              GridPane.rowIndex="3">
+         <font>
+            <Font name="System Bold" size="52.0"/>
+         </font>
+      </Button>
+      <Button fx:id="button7" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
+              prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.rowIndex="4">
+         <font>
+            <Font name="System Bold" size="52.0"/>
+         </font>
+      </Button>
+      <Button fx:id="button8" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
+              prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="3"
+              GridPane.rowIndex="4">
+         <font>
+            <Font name="System Bold" size="52.0"/>
+         </font>
+      </Button>
+      <Button fx:id="button9" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClick"
+              prefHeight="115.0" prefWidth="115.0" textAlignment="CENTER" GridPane.columnIndex="4"
+              GridPane.rowIndex="4">
+         <font>
+            <Font name="System Bold" size="52.0"/>
+         </font>
+      </Button>
    </GridPane>
-   <Label fx:id="winnerText" alignment="CENTER" layoutX="125.0" layoutY="26.0" prefHeight="58.0" prefWidth="350.0"
+   <Label alignment="CENTER" layoutX="125.0" layoutY="26.0" prefHeight="58.0" prefWidth="350.0"
           text="${controller.model.winnerText}" textAlignment="CENTER">
       <font>
          <Font size="54.0"/>
@@ -202,13 +198,13 @@
          <Font name="System Bold" size="16.0"/>
       </font>
    </Label>
-   <Label fx:id="playerScore" layoutX="72.0" layoutY="525.0" prefHeight="25.0" prefWidth="53.0"
+   <Label layoutX="72.0" layoutY="525.0" prefHeight="25.0" prefWidth="53.0"
           text="${controller.model.player2Points}">
       <font>
          <Font name="System Bold" size="16.0"/>
       </font>
    </Label>
-   <Label fx:id="cpuScore" layoutX="72.0" layoutY="494.0" prefHeight="25.0" prefWidth="53.0"
+   <Label layoutX="72.0" layoutY="494.0" prefHeight="25.0" prefWidth="53.0"
           text="${controller.model.player1Points}">
       <font>
          <Font name="System Bold" size="16.0"/>
