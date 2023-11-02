@@ -238,9 +238,6 @@ public class TicTacToeModel {
     public Player getPlayer1() {
         return player1;
     }
-    public Player getPlayer2() {
-        return player2;
-    }
 
     public String getWinnerText() {
         return winnerText.get();
@@ -280,7 +277,7 @@ public class TicTacToeModel {
         }
     }
 
-    public enum multiPlayerStatus {VS_CPU, VS_LOCAL, VS_LAN;}
+    public enum multiPlayerStatus {VS_CPU, VS_LOCAL, VS_LAN}
 
-    public enum turnOrder {PLAYER_1, PLAYER_2;}
+    public enum turnOrder {PLAYER_1, PLAYER_2}
 }
