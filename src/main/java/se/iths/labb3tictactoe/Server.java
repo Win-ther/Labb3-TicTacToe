@@ -89,8 +89,7 @@ public class Server {
         while (true) {
             try {
                 int index = (Integer) input.readObject();
-                System.out.println(index);
-                Platform.runLater(() -> TicTacToeController.player2ClickedSetSymbol(index));
+                Platform.runLater(() -> TicTacToeController.addingClientIndexToBoard(index));
             } catch (IOException | ClassNotFoundException e) {
                 System.out.println(e.getMessage());
                 closeCrap();
