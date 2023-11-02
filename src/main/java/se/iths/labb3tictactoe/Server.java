@@ -34,7 +34,7 @@ public class Server {
                 System.out.println("Server ended connection");
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -62,7 +62,7 @@ public class Server {
             if (connection != null)
                 connection.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
     public void sendGameOver(String gameOver) {

@@ -17,7 +17,7 @@ public class TicTacToeController {
     public RadioMenuItem vsCPU, vsPlayerOnPC, vsPlayerLAN;
     private static final TicTacToeModel model = new TicTacToeModel();
     @FXML
-    private Button button1, button2, button3, button4, button5, button6, button7, button8, button9, restartButton, playButton;
+    private Button button1, button2, button3, button4, button5, button6, button7, button8, button9, playButton;
     private static List<Button> buttons;
     @FXML
     private GridPane playArea;
