@@ -2,10 +2,7 @@ package se.iths.labb3tictactoe;
 
 import javafx.application.Platform;
 
-import java.io.EOFException;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.Socket;
 
 public class Client {
