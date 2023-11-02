@@ -12,8 +12,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class TicTacToeController {
-    //ToDO: Grid ~Done~, logic for clicking squares ~Done~, turnorder logic~Done~, GameOver Logic~Done~, AI Logic ~Done~.
-
     public RadioMenuItem vsCPU, vsPlayerOnPC, vsPlayerLAN;
     private static final TicTacToeModel model = new TicTacToeModel();
     @FXML
