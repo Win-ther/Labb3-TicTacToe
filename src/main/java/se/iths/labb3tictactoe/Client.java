@@ -2,10 +2,7 @@ package se.iths.labb3tictactoe;
 
 import javafx.application.Platform;
 
-import java.io.EOFException;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.Socket;
 
 public class Client {
@@ -26,7 +23,7 @@ public class Client {
         }catch (EOFException ef){
             System.out.println("Client ended connection");
         }catch (IOException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -48,16 +45,18 @@ public class Client {
             Object obj;
             try {
                 obj = input.readObject();
-                System.out.println(obj.toString());
-                if (obj instanceof String gameOver){
-                    System.out.println(gameOver.length()+"st");
-                    Platform.runLater(() -> ClientController.gotGameOverFromServerNowSettingIt(gameOver));
-                }else if (obj instanceof Integer){
+                if (obj == null)
+                    return;
+                if (obj instanceof Integer){
                     int index = (int) obj;
                     Platform.runLater(() -> ClientController.player1ClickedSetSymbol(index));
+                }else if (obj instanceof String gameOver){
+                    Platform.runLater(() -> ClientController.gotGameOverFromServerNowSettingIt(gameOver));
                 }
+
             } catch (IOException | ClassNotFoundException e) {
                 System.out.println("Connection closed");
+                System.out.println(e.getMessage());
                 closeCrap();
                 break;
             }
@@ -72,7 +71,7 @@ public class Client {
             input.close();
             connection.close();
         }catch (IOException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 

@@ -17,6 +17,7 @@ public class AlertBoxNames {
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
         window.setMinWidth(250);
+
         String[] playerNames = new String[2];
         Label label = new Label(message);
         TextField textFieldP1 = new TextField();
@@ -24,8 +25,10 @@ public class AlertBoxNames {
         TextField textFieldP2 = new TextField();
         textFieldP2.setPromptText("Enter name for player 2");
         Button closeButton = new Button("Confirm");
+
         closeButton.setOnAction(e -> closeAndTransferNames(playerNames, textFieldP1, textFieldP2, window));
         window.setOnCloseRequest(e -> closeAndTransferNames(playerNames, textFieldP1, textFieldP2, window));
+
         HBox textFields = new HBox(10);
         textFields.getChildren().addAll(textFieldP1,textFieldP2);
         VBox layout = new VBox(10);

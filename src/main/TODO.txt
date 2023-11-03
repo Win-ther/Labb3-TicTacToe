@@ -9,13 +9,13 @@ Informationen som behöver skickas är:
 
 7. Ta emot informationen i Client. ~Done~
 8. Skicka information från Client till Server, bör bara vara knapptryck. ~Done~
-9. Ta emot informationen i Server. ~Done~ Men fungerar inte, uppdateras inte i Servern, kolla på det senare.
-10. Uppdatera informationen i Server.
+9. Ta emot informationen i Server. ~Done~
+10. Uppdatera informationen i Server. ~Done~
 11. Uppdatera informationen i Client. ~Done~
 
 OBS!
-För att ta emot information i server och klient så skapa en listener när du startar servern/klienten - Edit, gick inte.
-Skapa listener separat från Server och klient.
+För att ta emot information i server och klient så skapa en listener när du startar servern/klienten - Edit, gick inte. - Edit2, det gick!
+Skapa listener separat från Server och klient. -wtf?
 
 TANKE. På Clienten kan vinnaren sättas baserat på TurnTotal variabeln. Är den jämn så vann spelare 1, är den ojämn så vann spelare 2.
 Klick på servern och klienten när det inte är dens tur så kan man göra en check med if-else och ignorera klicket egentligen, inte sätta disable och inte sätta symbol!

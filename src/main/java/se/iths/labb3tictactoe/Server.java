@@ -16,16 +16,6 @@ public class Server {
     private Socket connection;
     private boolean isUp = false;
 
-    /*
-    Vad behöver jag skicka över från Server till Client och tillbaks.
-    ToDo:
-        1. Skicka vart den nya symbolen lades ut!
-        * Skicka gameOver (Eller det kanske räcker med att kolla detta på både klienten och servern, då behöver inte denna skickas. Poäng och winnerText behöver inte heller
-        skickas då)
-        * Skicka poäng (kanske inte)
-        * Skicka winnerText (kanske inte)
-    */
-
     public Server() {
         try {
             server = new ServerSocket(6789);
@@ -44,7 +34,7 @@ public class Server {
                 System.out.println("Server ended connection");
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -72,23 +62,13 @@ public class Server {
             if (connection != null)
                 connection.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
-    /*public int sendAndRecieveSymbol(int indexOfBoard) {
-        int index = indexOfBoard;
-        sendSymbolIndex(index);
-
-        try {
-            index = (int) input.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Something wrong with incoming index");
-        }
-
-        return index;
-    }*/
     public void sendGameOver(String gameOver) {
+        if (output == null)
+            return;
         try {
             output.writeObject(gameOver);
             output.flush();
@@ -98,6 +78,8 @@ public class Server {
     }
 
     public void sendSymbolIndex(int index) {
+        if (output == null)
+            return;
         try {
             output.writeObject(index);
             output.flush();
@@ -110,8 +92,7 @@ public class Server {
         while (true) {
             try {
                 int index = (Integer) input.readObject();
-                System.out.println(index);
-                Platform.runLater(() -> TicTacToeController.player2ClickedSetSymbol(index));
+                Platform.runLater(() -> TicTacToeController.addingClientIndexToBoard(index));
             } catch (IOException | ClassNotFoundException e) {
                 System.out.println(e.getMessage());
                 closeCrap();
