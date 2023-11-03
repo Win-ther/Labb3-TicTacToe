@@ -113,5 +113,7 @@ class TicTacToeModelTest {
         model.gameOver();
 
         assertThat(model.isGameOver()).isTrue();
+        assertThat(model.getPlayer1Points()).isZero();
+        assertThat(model.getPlayer2Points()).isZero();
     }
 }
